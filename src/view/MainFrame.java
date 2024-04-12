@@ -1,6 +1,5 @@
 
 package view;
-<<<<<<< HEAD
 
 import controller.ChuyenManHinhController;
 
