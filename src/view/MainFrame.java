@@ -270,7 +270,7 @@ public class MainFrame extends javax.swing.JFrame {
         jpanel_View.setLayout(jpanel_ViewLayout);
         jpanel_ViewLayout.setHorizontalGroup(
             jpanel_ViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 799, Short.MAX_VALUE)
+            .addGap(0, 805, Short.MAX_VALUE)
         );
         jpanel_ViewLayout.setVerticalGroup(
             jpanel_ViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -299,8 +299,8 @@ public class MainFrame extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jpanel_Root, javax.swing.GroupLayout.DEFAULT_SIZE, 911, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(jpanel_Root, javax.swing.GroupLayout.DEFAULT_SIZE, 917, Short.MAX_VALUE)
+                .addGap(0, 0, 0))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -333,25 +333,25 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JPanel jpanel_ThongKe;
     private javax.swing.JPanel jpanel_View;
     // End of variables declaration//GEN-END:variables
-=======
-import javax.swing.*;
-import view.DangNhap;
-import view.QLKH;
-/**
- *
- * @author NANG TIEN HANH
- */
-public class MainFrame extends JFrame {
-    private ThanhBen thanhben;
-    
-   public static void main(String[] agr){
-       
-//        DangNhap dn = new DangNhap();
-//        dn.setTitle("Đăng nhập");
-//        dn.setResizable(false);
-//        dn.setLocationRelativeTo(null);
-//        dn.setVisible(true);
-    
-    }
->>>>>>> d804112b12df4c2a0ea3aa0d606b47c53533cbc5
+//=======
+//import javax.swing.*;
+//import view.DangNhap;
+//import view.QLKH;
+///**
+// *
+// * @author NANG TIEN HANH
+// */
+//public class MainFrame extends JFrame {
+//    private ThanhBen thanhben;
+//    
+//   public static void main(String[] agr){
+//       
+////        DangNhap dn = new DangNhap();
+////        dn.setTitle("Đăng nhập");
+////        dn.setResizable(false);
+////        dn.setLocationRelativeTo(null);
+////        dn.setVisible(true);
+//    
+//    }
+//>>>>>>> d804112b12df4c2a0ea3aa0d606b47c53533cbc5
 }
