@@ -1,5 +1,6 @@
 
 package view;
+<<<<<<< HEAD
 
 import controller.ChuyenManHinhController;
 
@@ -333,4 +334,25 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JPanel jpanel_ThongKe;
     private javax.swing.JPanel jpanel_View;
     // End of variables declaration//GEN-END:variables
+=======
+import javax.swing.*;
+import view.DangNhap;
+import view.QLKH;
+/**
+ *
+ * @author NANG TIEN HANH
+ */
+public class MainFrame extends JFrame {
+    private ThanhBen thanhben;
+    
+   public static void main(String[] agr){
+       
+//        DangNhap dn = new DangNhap();
+//        dn.setTitle("Đăng nhập");
+//        dn.setResizable(false);
+//        dn.setLocationRelativeTo(null);
+//        dn.setVisible(true);
+    
+    }
+>>>>>>> d804112b12df4c2a0ea3aa0d606b47c53533cbc5
 }
