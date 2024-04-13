@@ -7,6 +7,7 @@ package view;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 
 /**
@@ -42,6 +43,7 @@ public class QLKH extends javax.swing.JPanel {
         jPanelNenTable = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTableKH = new javax.swing.JTable();
+        jButton1 = new javax.swing.JButton();
 
         jTextField_Search.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jTextField_Search.setForeground(new java.awt.Color(94, 42, 14));
@@ -56,21 +58,54 @@ public class QLKH extends javax.swing.JPanel {
         jButtonThemKH.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jButtonThemKH.setForeground(new java.awt.Color(255, 255, 255));
         jButtonThemKH.setText("Thêm khách hàng");
+        jButtonThemKH.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonThemKHActionPerformed(evt);
+            }
+        });
 
         jButtonChinhSua.setBackground(new java.awt.Color(94, 42, 14));
         jButtonChinhSua.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jButtonChinhSua.setForeground(new java.awt.Color(255, 255, 255));
         jButtonChinhSua.setText("Chỉnh sửa");
+        jButtonChinhSua.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonChinhSuaActionPerformed(evt);
+            }
+        });
 
         jButtonXoa.setBackground(new java.awt.Color(193, 149, 120));
         jButtonXoa.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jButtonXoa.setForeground(new java.awt.Color(255, 255, 255));
         jButtonXoa.setText("Xóa");
 
+        jPanelNenTable.setBackground(new java.awt.Color(255, 255, 255));
+
+        jScrollPane1.setBackground(new java.awt.Color(245, 237, 224));
+
         jTableKH.setBackground(new java.awt.Color(245, 237, 224));
         jTableKH.setForeground(new java.awt.Color(148, 135, 119));
         jTableKH.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
                 {null, null, null, null, null},
                 {null, null, null, null, null},
                 {null, null, null, null, null},
@@ -89,24 +124,30 @@ public class QLKH extends javax.swing.JPanel {
             }
         });
         jTableKH.setGridColor(new java.awt.Color(255, 255, 255));
+        jTableKH.setSelectionBackground(new java.awt.Color(255, 255, 255));
         jScrollPane1.setViewportView(jTableKH);
 
         javax.swing.GroupLayout jPanelNenTableLayout = new javax.swing.GroupLayout(jPanelNenTable);
         jPanelNenTable.setLayout(jPanelNenTableLayout);
         jPanelNenTableLayout.setHorizontalGroup(
             jPanelNenTableLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelNenTableLayout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelNenTableLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 663, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jScrollPane1)
+                .addContainerGap())
         );
         jPanelNenTableLayout.setVerticalGroup(
             jPanelNenTableLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelNenTableLayout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelNenTableLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 377, Short.MAX_VALUE)
                 .addContainerGap())
         );
+
+        jButton1.setBackground(new java.awt.Color(52, 28, 11));
+        jButton1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
+        jButton1.setText("Tìm kiếm");
 
         javax.swing.GroupLayout panelBackgpround1Layout = new javax.swing.GroupLayout(panelBackgpround1);
         panelBackgpround1.setLayout(panelBackgpround1Layout);
@@ -118,20 +159,23 @@ public class QLKH extends javax.swing.JPanel {
                     .addComponent(jPanelNenTable, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(panelBackgpround1Layout.createSequentialGroup()
                         .addComponent(jTextField_Search, javax.swing.GroupLayout.PREFERRED_SIZE, 339, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(panelBackgpround1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButtonThemKH, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButtonXoa, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButtonChinhSua, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(75, 75, 75))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 63, Short.MAX_VALUE)
+                        .addGroup(panelBackgpround1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jButtonChinhSua, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButtonXoa, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButtonThemKH, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 180, Short.MAX_VALUE))))
+                .addGap(40, 40, 40))
         );
         panelBackgpround1Layout.setVerticalGroup(
             panelBackgpround1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelBackgpround1Layout.createSequentialGroup()
-                .addGap(71, 71, 71)
+                .addGap(70, 70, 70)
                 .addGroup(panelBackgpround1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextField_Search, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButtonThemKH))
+                    .addComponent(jButtonThemKH)
+                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButtonChinhSua)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -162,27 +206,30 @@ public class QLKH extends javax.swing.JPanel {
     private void jTextField_SearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField_SearchActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField_SearchActionPerformed
+
+    private void jButtonThemKHActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonThemKHActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonThemKHActionPerformed
+
+    private void jButtonChinhSuaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonChinhSuaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonChinhSuaActionPerformed
 public static void main(String[] args) {
-        /*SwingUtilities.invokeLater(new Runnable() {
-            public void run() {
-                JFrame frame = new JFrame("Image Background Panel");
-                frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-                frame.add(new panelBackgpround());
-                frame.pack(); //tự động điều chỉnh kích thước
-                frame.setVisible(true);
-            }
-        });*/
         //public void run() {
                 JFrame frame = new JFrame("Image Background Panel");
                 frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                 frame.add(new panelBackgpround());
+                frame.add(new QLKH());
                 frame.pack(); //tự động điều chỉnh kích thước
                 frame.setVisible(true);
           //  }
         
+          
+        
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButtonChinhSua;
     private javax.swing.JButton jButtonThemKH;
     private javax.swing.JButton jButtonXoa;
