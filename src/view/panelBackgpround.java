@@ -47,25 +47,25 @@ public class panelBackgpround extends javax.swing.JPanel {
         }
     }
        
-    public static void main(String[] args) {
-        /*SwingUtilities.invokeLater(new Runnable() {
-            public void run() {
-                JFrame frame = new JFrame("Image Background Panel");
-                frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-                frame.add(new panelBackgpround());
-                frame.pack(); //tự động điều chỉnh kích thước
-                frame.setVisible(true);
-            }
-        });*/
-        //public void run() {
-                JFrame frame = new JFrame("Image Background Panel");
-                frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-                frame.add(new panelBackgpround());
-                frame.pack(); //tự động điều chỉnh kích thước
-                frame.setVisible(true);
-          //  }
-        
-    }
+//   public static void main(String[] args) {
+//        /*SwingUtilities.invokeLater(new Runnable() {
+//            public void run() {
+//                JFrame frame = new JFrame("Image Background Panel");
+//                frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+//                frame.add(new panelBackgpround());
+//                frame.pack(); //tự động điều chỉnh kích thước
+//                frame.setVisible(true);
+//            }
+//        });*/
+//        //public void run() {
+//                JFrame frame = new JFrame("Image Background Panel");
+//                frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+//                frame.add(new panelBackgpround());
+//                frame.pack(); //tự động điều chỉnh kích thước
+//                frame.setVisible(true);
+//          //  }
+//        
+//    }
        
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

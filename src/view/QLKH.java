@@ -206,6 +206,7 @@ public class QLKH extends javax.swing.JPanel {
     private void jTextField_SearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField_SearchActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField_SearchActionPerformed
+<<<<<<< HEAD
 
     private void jButtonThemKHActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonThemKHActionPerformed
         // TODO add your handling code here:
@@ -227,6 +228,27 @@ public static void main(String[] args) {
           
         
     }
+=======
+/*public static void main(String[] args) {
+//        /*SwingUtilities.invokeLater(new Runnable() {
+//            public void run() {
+//                JFrame frame = new JFrame("Image Background Panel");
+//                frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+//                frame.add(new panelBackgpround());
+//                frame.pack(); //tự động điều chỉnh kích thước
+//                frame.setVisible(true);
+//            }
+//        });*/
+//        //public void run() {
+//                JFrame frame = new JFrame("Image Background Panel");
+//                frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+//                frame.add(new panelBackgpround());
+//                frame.pack(); //tự động điều chỉnh kích thước
+//                frame.setVisible(true);
+//          //  }
+//        
+//    }
+>>>>>>> 0c9db17433dd4dee66ae0e0beb65d2f86e9f1b94
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
@@ -241,4 +263,4 @@ public static void main(String[] args) {
     private view.ThanhBen thanhBen1;
     private view.ThanhBen thanhBen2;
     // End of variables declaration//GEN-END:variables
-}
+//}*/
