@@ -3,12 +3,17 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/NANG%20TIEN%20HANH/Desktop/NANG_TIEN_THANH/Hoc_UIT/tai_lieu_nam_2/HK2/JAVA_TH/Quan-ly-cua-hang-ban-trang-suc/src/view/panelBackgpround.java</file>
-            <file>file:/C:/Users/NANG%20TIEN%20HANH/Desktop/NANG_TIEN_THANH/Hoc_UIT/tai_lieu_nam_2/HK2/JAVA_TH/Quan-ly-cua-hang-ban-trang-suc/src/view/QLKH.java</file>
+            <file>file:/C:/Users/NANG%20TIEN%20HANH/Desktop/NANG_TIEN_THANH/Hoc_UIT/tai_lieu_nam_2/HK2/JAVA_TH/Quan-ly-cua-hang-ban-trang-suc/src/view/QuanLyDonHang/jframe_XacNhanXoa.java</file>
+            <file>file:/C:/Users/NANG%20TIEN%20HANH/Desktop/NANG_TIEN_THANH/Hoc_UIT/tai_lieu_nam_2/HK2/JAVA_TH/Quan-ly-cua-hang-ban-trang-suc/src/view/QuanLyDonHang/jframe_ChinhSuaSP.java</file>
+            <file>file:/C:/Users/NANG%20TIEN%20HANH/Desktop/NANG_TIEN_THANH/Hoc_UIT/tai_lieu_nam_2/HK2/JAVA_TH/Quan-ly-cua-hang-ban-trang-suc/src/view/QuanLyTaiKhoan/jpanel_QuanLyTaiKhoan.java</file>
             <file>file:/C:/Users/NANG%20TIEN%20HANH/Desktop/NANG_TIEN_THANH/Hoc_UIT/tai_lieu_nam_2/HK2/JAVA_TH/Quan-ly-cua-hang-ban-trang-suc/src/view/MainFrame.java</file>
-            <file>file:/C:/Users/NANG%20TIEN%20HANH/Desktop/NANG_TIEN_THANH/Hoc_UIT/tai_lieu_nam_2/HK2/JAVA_TH/Quan-ly-cua-hang-ban-trang-suc/src/view/jpanel_QuanLyTaiKhoan.java</file>
-            <file>file:/C:/Users/NANG%20TIEN%20HANH/Desktop/NANG_TIEN_THANH/Hoc_UIT/tai_lieu_nam_2/HK2/JAVA_TH/Quan-ly-cua-hang-ban-trang-suc/src/view/DangNhap.java</file>
-            <file>file:/C:/Users/NANG%20TIEN%20HANH/Desktop/NANG_TIEN_THANH/Hoc_UIT/tai_lieu_nam_2/HK2/JAVA_TH/Quan-ly-cua-hang-ban-trang-suc/src/view/jpanel_QuanLyDonHang.java</file>
+            <file>file:/C:/Users/NANG%20TIEN%20HANH/Desktop/NANG_TIEN_THANH/Hoc_UIT/tai_lieu_nam_2/HK2/JAVA_TH/Quan-ly-cua-hang-ban-trang-suc/src/view/QuanLyDonHang/jframe_ThemSP.java</file>
+            <file>file:/C:/Users/NANG%20TIEN%20HANH/Desktop/NANG_TIEN_THANH/Hoc_UIT/tai_lieu_nam_2/HK2/JAVA_TH/Quan-ly-cua-hang-ban-trang-suc/src/view/QuanLyDonHang/jframe_ThemDonHang.java</file>
+            <file>file:/C:/Users/NANG%20TIEN%20HANH/Desktop/NANG_TIEN_THANH/Hoc_UIT/tai_lieu_nam_2/HK2/JAVA_TH/Quan-ly-cua-hang-ban-trang-suc/src/view/QuanLyDonHang/jpanel_QuanLyDonHang.java</file>
+            <file>file:/C:/Users/NANG%20TIEN%20HANH/Desktop/NANG_TIEN_THANH/Hoc_UIT/tai_lieu_nam_2/HK2/JAVA_TH/Quan-ly-cua-hang-ban-trang-suc/src/view/QuanLyTaiKhoan/jframe_XacNhanXoa.java</file>
+            <file>file:/C:/Users/NANG%20TIEN%20HANH/Desktop/NANG_TIEN_THANH/Hoc_UIT/tai_lieu_nam_2/HK2/JAVA_TH/Quan-ly-cua-hang-ban-trang-suc/src/view/QuanLyTaiKhoan/jframe_ChinhSuaTK.java</file>
+            <file>file:/C:/Users/NANG%20TIEN%20HANH/Desktop/NANG_TIEN_THANH/Hoc_UIT/tai_lieu_nam_2/HK2/JAVA_TH/Quan-ly-cua-hang-ban-trang-suc/src/Ham_Main/QuanLy.java</file>
+            <file>file:/C:/Users/NANG%20TIEN%20HANH/Desktop/NANG_TIEN_THANH/Hoc_UIT/tai_lieu_nam_2/HK2/JAVA_TH/Quan-ly-cua-hang-ban-trang-suc/src/view/QuanLyTaiKhoan/jframe_ThemTK.java</file>
         </group>
     </open-files>
 </project-private>
