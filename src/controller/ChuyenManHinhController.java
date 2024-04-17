@@ -1,12 +1,11 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package controller;
 
-import view.jpanel_QuanLyTaiKhoan;
+import view.*;
 import javax.swing.*;
 import java.awt.*;
+import view.QuanLyDonHang.jpanel_QuanLyDonHang;
+import view.QuanLyTaiKhoan.jpanel_QuanLyTaiKhoan;
 
 /**
  *
@@ -27,7 +26,7 @@ public class ChuyenManHinhController {
         
         jpanel_Root.removeAll();
         jpanel_Root.setLayout(new BorderLayout());
-        jpanel_Root.add( new jpanel_QuanLyTaiKhoan());
+        jpanel_Root.add( new jpanel_QuanLyDonHang());
         jpanel_Root.validate();
         jpanel_Root.repaint();
 
