@@ -1,28 +1,5 @@
-
 package view;
-<<<<<<< HEAD
-import javax.swing.*;
-import view.DangNhap;
-import view.QLKH;
-/**
- *
- * @author NANG TIEN HANH
- */
-public class MainFrame extends JFrame {
-    private ThanhBen thanhben;
-    
-   public static void main(String[] agr){
-        
-//        DangNhap dn = new DangNhap();
-//        dn.setTitle("Đăng nhập");
-//        dn.setResizable(false);
-//        dn.setLocationRelativeTo(null);
-//        dn.setVisible(true);
-    
-=======
-
 import controller.ChuyenManHinhController;
-
 public class MainFrame extends javax.swing.JFrame {
 
     public MainFrame() {
@@ -35,10 +12,7 @@ public class MainFrame extends javax.swing.JFrame {
          
         controller.setView(jpanel_DonHang,jlable_DonHang);
          //controller.setView(jpanel_DonHang,jlable_DonHang);
-        
-        
-        
->>>>>>> 0c9db17433dd4dee66ae0e0beb65d2f86e9f1b94
+    
     }
 
    

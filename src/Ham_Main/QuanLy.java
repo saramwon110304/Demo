@@ -1,10 +1,11 @@
 
 package Ham_Main;
-
-import view.MainFrame;
-
+import view.*;
+import javax.swing.*;
 public class QuanLy {
     public static void main(String[] args) {
-        new MainFrame().setVisible(true);
+        JFrame a;
+        a= new MainFrame();
+        a.setVisible(true);
     }   
 }
