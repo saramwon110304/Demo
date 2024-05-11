@@ -25,6 +25,8 @@ public class jframe_ThemTK extends javax.swing.JFrame {
         jtxt_MatKhau = new javax.swing.JTextField();
         jtxt_MaTK = new javax.swing.JTextField();
         jtxt_XacNhanMK = new javax.swing.JTextField();
+        jtxt_MaNV = new javax.swing.JTextField();
+        jlabel_MaNV = new javax.swing.JLabel();
         jbtn_Huy = new javax.swing.JButton();
         jbtn_XacNhan = new javax.swing.JButton();
 
@@ -55,6 +57,16 @@ public class jframe_ThemTK extends javax.swing.JFrame {
 
         jtxt_XacNhanMK.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
+        jtxt_MaNV.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jtxt_MaNV.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtxt_MaNVActionPerformed(evt);
+            }
+        });
+
+        jlabel_MaNV.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jlabel_MaNV.setText("Mã nhân viên");
+
         javax.swing.GroupLayout jpanel_ThongTinThemLayout = new javax.swing.GroupLayout(jpanel_ThongTinThem);
         jpanel_ThongTinThem.setLayout(jpanel_ThongTinThemLayout);
         jpanel_ThongTinThemLayout.setHorizontalGroup(
@@ -62,6 +74,8 @@ public class jframe_ThemTK extends javax.swing.JFrame {
             .addGroup(jpanel_ThongTinThemLayout.createSequentialGroup()
                 .addGap(46, 46, 46)
                 .addGroup(jpanel_ThongTinThemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jtxt_MaNV, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jlabel_MaNV, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jtxt_TenDangNhap, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jlabel_TenDangNhap, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jlabel_MatKhau, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -79,15 +93,19 @@ public class jframe_ThemTK extends javax.swing.JFrame {
                 .addComponent(jlabel_MaTK)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jtxt_MaTK, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jlabel_MaNV)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jtxt_MaNV, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(3, 3, 3)
                 .addComponent(jlabel_TenDangNhap)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jtxt_TenDangNhap, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jlabel_MatKhau)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jtxt_MatKhau, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(28, 28, 28)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jlabel_XacNhanMK)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jtxt_XacNhanMK, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -113,9 +131,9 @@ public class jframe_ThemTK extends javax.swing.JFrame {
                 .addComponent(jpanel_ThongTinThem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(45, 45, 45))
             .addGroup(jpanel_ThemTKLayout.createSequentialGroup()
-                .addGap(90, 90, 90)
+                .addGap(88, 88, 88)
                 .addComponent(jbtn_Huy)
-                .addGap(34, 34, 34)
+                .addGap(36, 36, 36)
                 .addComponent(jbtn_XacNhan)
                 .addContainerGap(96, Short.MAX_VALUE))
         );
@@ -124,11 +142,11 @@ public class jframe_ThemTK extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpanel_ThemTKLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jpanel_ThongTinThem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
                 .addGroup(jpanel_ThemTKLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jbtn_Huy)
                     .addComponent(jbtn_XacNhan))
-                .addContainerGap(59, Short.MAX_VALUE))
+                .addGap(37, 37, 37))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -146,6 +164,10 @@ public class jframe_ThemTK extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jtxt_MaNVActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtxt_MaNVActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jtxt_MaNVActionPerformed
 
 //    /**
 //     * @param args the command line arguments
@@ -185,12 +207,14 @@ public class jframe_ThemTK extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jbtn_Huy;
     private javax.swing.JButton jbtn_XacNhan;
+    private javax.swing.JLabel jlabel_MaNV;
     private javax.swing.JLabel jlabel_MaTK;
     private javax.swing.JLabel jlabel_MatKhau;
     private javax.swing.JLabel jlabel_TenDangNhap;
     private javax.swing.JLabel jlabel_XacNhanMK;
     private javax.swing.JPanel jpanel_ThemTK;
     private javax.swing.JPanel jpanel_ThongTinThem;
+    private javax.swing.JTextField jtxt_MaNV;
     private javax.swing.JTextField jtxt_MaTK;
     private javax.swing.JTextField jtxt_MatKhau;
     private javax.swing.JTextField jtxt_TenDangNhap;
