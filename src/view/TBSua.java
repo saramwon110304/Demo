@@ -8,12 +8,12 @@ package view;
  *
  * @author Tran Thi Kieu Oanh
  */
-public class XacNhanXoa extends javax.swing.JDialog {
+public class TBSua extends javax.swing.JDialog {
 
     /**
-     * Creates new form XacNhanXoa
+     * Creates new form TBSua
      */
-    public XacNhanXoa(java.awt.Frame parent, boolean modal) {
+    public TBSua(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
     }
@@ -28,27 +28,16 @@ public class XacNhanXoa extends javax.swing.JDialog {
     private void initComponents() {
 
         jPanel2 = new javax.swing.JPanel();
-        jButton_xoa = new javax.swing.JButton();
-        jButton_huy = new javax.swing.JButton();
         jLabel_xacnhan = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jPanel2.setBackground(new java.awt.Color(245, 237, 224));
 
-        jButton_xoa.setBackground(new java.awt.Color(193, 149, 120));
-        jButton_xoa.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jButton_xoa.setForeground(new java.awt.Color(255, 255, 255));
-        jButton_xoa.setText("XÁC NHẬN");
-
-        jButton_huy.setBackground(new java.awt.Color(147, 94, 64));
-        jButton_huy.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jButton_huy.setForeground(new java.awt.Color(255, 255, 255));
-        jButton_huy.setText("HỦY");
-
         jLabel_xacnhan.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel_xacnhan.setForeground(new java.awt.Color(52, 28, 11));
-        jLabel_xacnhan.setText("Bạn chắc chắn muốn xóa thông tin này chứ?");
+        jLabel_xacnhan.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel_xacnhan.setText("Đã cập nhật thông tin thành công!");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -56,38 +45,31 @@ public class XacNhanXoa extends javax.swing.JDialog {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel_xacnhan, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jButton_huy, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton_xoa, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addComponent(jLabel_xacnhan, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(18, 18, 18)
-                .addComponent(jLabel_xacnhan, javax.swing.GroupLayout.DEFAULT_SIZE, 44, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton_xoa)
-                    .addComponent(jButton_huy))
-                .addGap(25, 25, 25))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addGap(0, 0, 0)
+                .addComponent(jLabel_xacnhan, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(0, 0, 0)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(0, 0, 0)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
@@ -110,20 +92,20 @@ public class XacNhanXoa extends javax.swing.JDialog {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(XacNhanXoa.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TBSua.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(XacNhanXoa.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TBSua.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(XacNhanXoa.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TBSua.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(XacNhanXoa.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TBSua.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                XacNhanXoa dialog = new XacNhanXoa(new javax.swing.JFrame(), true);
+                TBSua dialog = new TBSua(new javax.swing.JFrame(), true);
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {
@@ -136,8 +118,6 @@ public class XacNhanXoa extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton_huy;
-    private javax.swing.JButton jButton_xoa;
     private javax.swing.JLabel jLabel_xacnhan;
     private javax.swing.JPanel jPanel2;
     // End of variables declaration//GEN-END:variables

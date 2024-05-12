@@ -31,16 +31,18 @@ public class SuaKH extends javax.swing.JFrame {
         jLabel_title = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         jPanel_noidung = new javax.swing.JPanel();
-        jLabel_ten = new javax.swing.JLabel();
+        jLabel_makh = new javax.swing.JLabel();
         jLabel_sdt = new javax.swing.JLabel();
         jLabel_diachi = new javax.swing.JLabel();
         jLabel_ngdk = new javax.swing.JLabel();
-        jTextField_ten = new javax.swing.JTextField();
-        jTextField_sdt = new javax.swing.JTextField();
+        jTextField_makh = new javax.swing.JTextField();
         jTextField_diachi = new javax.swing.JTextField();
         jTextField_ngdk = new javax.swing.JTextField();
         jButton_update = new javax.swing.JButton();
         jButton_huy = new javax.swing.JButton();
+        jTextField_sdt = new javax.swing.JTextField();
+        jLabel_ten = new javax.swing.JLabel();
+        jTextField_ten = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -58,9 +60,9 @@ public class SuaKH extends javax.swing.JFrame {
 
         jPanel_noidung.setBackground(new java.awt.Color(245, 237, 224));
 
-        jLabel_ten.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel_ten.setForeground(new java.awt.Color(147, 94, 64));
-        jLabel_ten.setText("Tên khách hàng");
+        jLabel_makh.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel_makh.setForeground(new java.awt.Color(147, 94, 64));
+        jLabel_makh.setText("Mã khách hàng");
 
         jLabel_sdt.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel_sdt.setForeground(new java.awt.Color(147, 94, 64));
@@ -74,11 +76,8 @@ public class SuaKH extends javax.swing.JFrame {
         jLabel_ngdk.setForeground(new java.awt.Color(147, 94, 64));
         jLabel_ngdk.setText("Ngày đăng ký");
 
-        jTextField_ten.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jTextField_ten.setForeground(new java.awt.Color(94, 42, 14));
-
-        jTextField_sdt.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jTextField_sdt.setForeground(new java.awt.Color(94, 42, 14));
+        jTextField_makh.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jTextField_makh.setForeground(new java.awt.Color(94, 42, 14));
 
         jTextField_diachi.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jTextField_diachi.setForeground(new java.awt.Color(94, 42, 14));
@@ -96,6 +95,21 @@ public class SuaKH extends javax.swing.JFrame {
         jButton_huy.setForeground(new java.awt.Color(255, 255, 255));
         jButton_huy.setText("HỦY");
 
+        jTextField_sdt.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jTextField_sdt.setForeground(new java.awt.Color(94, 42, 14));
+        jTextField_sdt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField_sdtActionPerformed(evt);
+            }
+        });
+
+        jLabel_ten.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel_ten.setForeground(new java.awt.Color(147, 94, 64));
+        jLabel_ten.setText("Tên khách hàng");
+
+        jTextField_ten.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jTextField_ten.setForeground(new java.awt.Color(94, 42, 14));
+
         javax.swing.GroupLayout jPanel_noidungLayout = new javax.swing.GroupLayout(jPanel_noidung);
         jPanel_noidung.setLayout(jPanel_noidungLayout);
         jPanel_noidungLayout.setHorizontalGroup(
@@ -104,13 +118,18 @@ public class SuaKH extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel_noidungLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel_noidungLayout.createSequentialGroup()
-                        .addComponent(jLabel_ten, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel_makh, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField_ten))
+                        .addComponent(jTextField_makh))
                     .addGroup(jPanel_noidungLayout.createSequentialGroup()
                         .addComponent(jLabel_ngdk, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jTextField_ngdk))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel_noidungLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jButton_huy)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton_update))
                     .addGroup(jPanel_noidungLayout.createSequentialGroup()
                         .addComponent(jLabel_sdt, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -119,11 +138,10 @@ public class SuaKH extends javax.swing.JFrame {
                         .addComponent(jLabel_diachi, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jTextField_diachi))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel_noidungLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jButton_huy)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButton_update)))
+                    .addGroup(jPanel_noidungLayout.createSequentialGroup()
+                        .addComponent(jLabel_ten, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jTextField_ten)))
                 .addContainerGap())
         );
         jPanel_noidungLayout.setVerticalGroup(
@@ -131,25 +149,29 @@ public class SuaKH extends javax.swing.JFrame {
             .addGroup(jPanel_noidungLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel_noidungLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel_ten, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField_ten, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel_makh, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField_makh, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel_noidungLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel_sdt, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField_sdt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel_ten, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField_ten, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel_noidungLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel_diachi, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextField_diachi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel_noidungLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel_sdt, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField_sdt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel_noidungLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel_ngdk, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextField_ngdk, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 70, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
                 .addGroup(jPanel_noidungLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton_update)
-                    .addComponent(jButton_huy))
-                .addContainerGap())
+                    .addComponent(jButton_huy)
+                    .addComponent(jButton_update))
+                .addGap(23, 23, 23))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -171,9 +193,9 @@ public class SuaKH extends javax.swing.JFrame {
                 .addComponent(jLabel_title, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel_noidung, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(166, 166, 166))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout panelBackgpround1Layout = new javax.swing.GroupLayout(panelBackgpround1);
@@ -212,6 +234,10 @@ public class SuaKH extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jTextField_sdtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField_sdtActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField_sdtActionPerformed
 
     /**
      * @param args the command line arguments
@@ -252,6 +278,7 @@ public class SuaKH extends javax.swing.JFrame {
     private javax.swing.JButton jButton_huy;
     private javax.swing.JButton jButton_update;
     private javax.swing.JLabel jLabel_diachi;
+    private javax.swing.JLabel jLabel_makh;
     private javax.swing.JLabel jLabel_ngdk;
     private javax.swing.JLabel jLabel_sdt;
     private javax.swing.JLabel jLabel_ten;
@@ -260,6 +287,7 @@ public class SuaKH extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel_noidung;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTextField jTextField_diachi;
+    private javax.swing.JTextField jTextField_makh;
     private javax.swing.JTextField jTextField_ngdk;
     private javax.swing.JTextField jTextField_sdt;
     private javax.swing.JTextField jTextField_ten;
