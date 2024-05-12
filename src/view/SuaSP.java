@@ -31,20 +31,24 @@ public class SuaSP extends javax.swing.JFrame {
         jLabel_title = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         jPanel_noidung = new javax.swing.JPanel();
-        jLabel_ten = new javax.swing.JLabel();
-        jLabel_gia = new javax.swing.JLabel();
-        jLabel_diachi = new javax.swing.JLabel();
-        jLabel_sl = new javax.swing.JLabel();
-        jTextField_ten = new javax.swing.JTextField();
-        jTextField_gia = new javax.swing.JTextField();
-        jTextField_diachi = new javax.swing.JTextField();
-        jTextField_sl = new javax.swing.JTextField();
+        jLabel_masp = new javax.swing.JLabel();
+        jLabel_dvt = new javax.swing.JLabel();
+        jLabel_gianhap = new javax.swing.JLabel();
+        jLabel_giaban = new javax.swing.JLabel();
+        jTextField_masp = new javax.swing.JTextField();
+        jTextField_dvt = new javax.swing.JTextField();
+        jTextField_gianhap = new javax.swing.JTextField();
+        jTextField_giaban = new javax.swing.JTextField();
         jButton_update = new javax.swing.JButton();
         jButton_huy = new javax.swing.JButton();
-        jLabel_chatlieu = new javax.swing.JLabel();
+        jLabel_sl = new javax.swing.JLabel();
         jLabel_mota = new javax.swing.JLabel();
-        jTextField_chatlieu = new javax.swing.JTextField();
+        jTextField_sl = new javax.swing.JTextField();
         jTextField_mota = new javax.swing.JTextField();
+        jLabel_maloai = new javax.swing.JLabel();
+        jTextField_maloai = new javax.swing.JTextField();
+        jLabel_ten = new javax.swing.JLabel();
+        jTextField_ten = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -62,33 +66,33 @@ public class SuaSP extends javax.swing.JFrame {
 
         jPanel_noidung.setBackground(new java.awt.Color(245, 237, 224));
 
-        jLabel_ten.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel_ten.setForeground(new java.awt.Color(147, 94, 64));
-        jLabel_ten.setText("Tên sản phẩm");
+        jLabel_masp.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel_masp.setForeground(new java.awt.Color(147, 94, 64));
+        jLabel_masp.setText("Mã sản phẩm");
 
-        jLabel_gia.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel_gia.setForeground(new java.awt.Color(147, 94, 64));
-        jLabel_gia.setText("Giá tiền");
+        jLabel_dvt.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel_dvt.setForeground(new java.awt.Color(147, 94, 64));
+        jLabel_dvt.setText("Đơn vị tính");
 
-        jLabel_diachi.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel_diachi.setForeground(new java.awt.Color(147, 94, 64));
-        jLabel_diachi.setText("Địa chỉ");
+        jLabel_gianhap.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel_gianhap.setForeground(new java.awt.Color(147, 94, 64));
+        jLabel_gianhap.setText("Giá nhập");
 
-        jLabel_sl.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel_sl.setForeground(new java.awt.Color(147, 94, 64));
-        jLabel_sl.setText("Số lượng");
+        jLabel_giaban.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel_giaban.setForeground(new java.awt.Color(147, 94, 64));
+        jLabel_giaban.setText("Giá bán");
 
-        jTextField_ten.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jTextField_ten.setForeground(new java.awt.Color(94, 42, 14));
+        jTextField_masp.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jTextField_masp.setForeground(new java.awt.Color(94, 42, 14));
 
-        jTextField_gia.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jTextField_gia.setForeground(new java.awt.Color(94, 42, 14));
+        jTextField_dvt.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jTextField_dvt.setForeground(new java.awt.Color(94, 42, 14));
 
-        jTextField_diachi.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jTextField_diachi.setForeground(new java.awt.Color(94, 42, 14));
+        jTextField_gianhap.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jTextField_gianhap.setForeground(new java.awt.Color(94, 42, 14));
 
-        jTextField_sl.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jTextField_sl.setForeground(new java.awt.Color(94, 42, 14));
+        jTextField_giaban.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jTextField_giaban.setForeground(new java.awt.Color(94, 42, 14));
 
         jButton_update.setBackground(new java.awt.Color(147, 94, 64));
         jButton_update.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -105,19 +109,33 @@ public class SuaSP extends javax.swing.JFrame {
             }
         });
 
-        jLabel_chatlieu.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel_chatlieu.setForeground(new java.awt.Color(147, 94, 64));
-        jLabel_chatlieu.setText("Chất liệu");
+        jLabel_sl.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel_sl.setForeground(new java.awt.Color(147, 94, 64));
+        jLabel_sl.setText("Số lượng");
 
         jLabel_mota.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel_mota.setForeground(new java.awt.Color(147, 94, 64));
         jLabel_mota.setText("Mô tả");
 
-        jTextField_chatlieu.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jTextField_chatlieu.setForeground(new java.awt.Color(94, 42, 14));
+        jTextField_sl.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jTextField_sl.setForeground(new java.awt.Color(94, 42, 14));
 
         jTextField_mota.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jTextField_mota.setForeground(new java.awt.Color(94, 42, 14));
+
+        jLabel_maloai.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel_maloai.setForeground(new java.awt.Color(147, 94, 64));
+        jLabel_maloai.setText("Mã loại");
+
+        jTextField_maloai.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jTextField_maloai.setForeground(new java.awt.Color(94, 42, 14));
+
+        jLabel_ten.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel_ten.setForeground(new java.awt.Color(147, 94, 64));
+        jLabel_ten.setText("Tên sản phẩm");
+
+        jTextField_ten.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jTextField_ten.setForeground(new java.awt.Color(94, 42, 14));
 
         javax.swing.GroupLayout jPanel_noidungLayout = new javax.swing.GroupLayout(jPanel_noidung);
         jPanel_noidung.setLayout(jPanel_noidungLayout);
@@ -127,21 +145,21 @@ public class SuaSP extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel_noidungLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel_noidungLayout.createSequentialGroup()
-                        .addComponent(jLabel_ten, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel_masp, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField_ten, javax.swing.GroupLayout.DEFAULT_SIZE, 340, Short.MAX_VALUE))
+                        .addComponent(jTextField_masp))
                     .addGroup(jPanel_noidungLayout.createSequentialGroup()
-                        .addComponent(jLabel_sl, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel_giaban, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField_sl))
+                        .addComponent(jTextField_giaban))
                     .addGroup(jPanel_noidungLayout.createSequentialGroup()
-                        .addComponent(jLabel_gia, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel_dvt, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField_gia))
+                        .addComponent(jTextField_dvt))
                     .addGroup(jPanel_noidungLayout.createSequentialGroup()
-                        .addComponent(jLabel_diachi, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel_gianhap, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField_diachi))
+                        .addComponent(jTextField_gianhap))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel_noidungLayout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(jButton_huy)
@@ -152,9 +170,17 @@ public class SuaSP extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jTextField_mota))
                     .addGroup(jPanel_noidungLayout.createSequentialGroup()
-                        .addComponent(jLabel_chatlieu, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel_sl, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField_chatlieu)))
+                        .addComponent(jTextField_sl))
+                    .addGroup(jPanel_noidungLayout.createSequentialGroup()
+                        .addComponent(jLabel_maloai, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jTextField_maloai))
+                    .addGroup(jPanel_noidungLayout.createSequentialGroup()
+                        .addComponent(jLabel_ten, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jTextField_ten)))
                 .addContainerGap())
         );
         jPanel_noidungLayout.setVerticalGroup(
@@ -162,29 +188,37 @@ public class SuaSP extends javax.swing.JFrame {
             .addGroup(jPanel_noidungLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel_noidungLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel_masp, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField_masp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel_noidungLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel_maloai, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField_maloai, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel_noidungLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel_ten, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextField_ten, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel_noidungLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel_gia, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField_gia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel_dvt, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField_dvt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel_noidungLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel_diachi, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField_diachi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel_gianhap, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField_gianhap, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel_noidungLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel_giaban, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField_giaban, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel_noidungLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel_sl, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextField_sl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel_noidungLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel_chatlieu, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField_chatlieu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel_noidungLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel_mota, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextField_mota, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel_noidungLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton_update)
                     .addComponent(jButton_huy))
@@ -207,7 +241,7 @@ public class SuaSP extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel_title, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jLabel_title, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -292,9 +326,11 @@ public class SuaSP extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton_huy;
     private javax.swing.JButton jButton_update;
-    private javax.swing.JLabel jLabel_chatlieu;
-    private javax.swing.JLabel jLabel_diachi;
-    private javax.swing.JLabel jLabel_gia;
+    private javax.swing.JLabel jLabel_dvt;
+    private javax.swing.JLabel jLabel_giaban;
+    private javax.swing.JLabel jLabel_gianhap;
+    private javax.swing.JLabel jLabel_maloai;
+    private javax.swing.JLabel jLabel_masp;
     private javax.swing.JLabel jLabel_mota;
     private javax.swing.JLabel jLabel_sl;
     private javax.swing.JLabel jLabel_ten;
@@ -302,9 +338,11 @@ public class SuaSP extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel_noidung;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JTextField jTextField_chatlieu;
-    private javax.swing.JTextField jTextField_diachi;
-    private javax.swing.JTextField jTextField_gia;
+    private javax.swing.JTextField jTextField_dvt;
+    private javax.swing.JTextField jTextField_giaban;
+    private javax.swing.JTextField jTextField_gianhap;
+    private javax.swing.JTextField jTextField_maloai;
+    private javax.swing.JTextField jTextField_masp;
     private javax.swing.JTextField jTextField_mota;
     private javax.swing.JTextField jTextField_sl;
     private javax.swing.JTextField jTextField_ten;

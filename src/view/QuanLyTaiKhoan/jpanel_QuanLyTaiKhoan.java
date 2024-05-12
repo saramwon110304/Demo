@@ -34,7 +34,7 @@ public class jpanel_QuanLyTaiKhoan extends javax.swing.JPanel {
 
         jpanel_Search.setOpaque(false);
 
-        jtextfield_Search.setText("Search");
+        jtextfield_Search.setToolTipText("Search");
         jtextfield_Search.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jtextfield_SearchActionPerformed(evt);

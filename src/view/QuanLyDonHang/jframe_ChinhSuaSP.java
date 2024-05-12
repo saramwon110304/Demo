@@ -36,8 +36,8 @@ public class jframe_ChinhSuaSP extends javax.swing.JFrame {
         jtxt_TenSP = new javax.swing.JTextField();
         jtxt_MaSP = new javax.swing.JTextField();
         jtxt_DVT = new javax.swing.JTextField();
-        jlable_Gia = new javax.swing.JLabel();
-        jtxt_Gia = new javax.swing.JTextField();
+        jlable_GiaBan = new javax.swing.JLabel();
+        jtxt_GiaBan = new javax.swing.JTextField();
         jbtn_Huy = new javax.swing.JButton();
         jbtn_XacNhan = new javax.swing.JButton();
 
@@ -67,10 +67,15 @@ public class jframe_ChinhSuaSP extends javax.swing.JFrame {
 
         jtxt_DVT.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
-        jlable_Gia.setFont(new java.awt.Font("UTM Helve", 1, 12)); // NOI18N
-        jlable_Gia.setText("Giá");
+        jlable_GiaBan.setFont(new java.awt.Font("UTM Helve", 1, 12)); // NOI18N
+        jlable_GiaBan.setText("Giá bán");
 
-        jtxt_Gia.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jtxt_GiaBan.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jtxt_GiaBan.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtxt_GiaBanActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jpanel_ThongTinSuaLayout = new javax.swing.GroupLayout(jpanel_ThongTinSua);
         jpanel_ThongTinSua.setLayout(jpanel_ThongTinSuaLayout);
@@ -79,8 +84,8 @@ public class jframe_ChinhSuaSP extends javax.swing.JFrame {
             .addGroup(jpanel_ThongTinSuaLayout.createSequentialGroup()
                 .addGap(46, 46, 46)
                 .addGroup(jpanel_ThongTinSuaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jlable_Gia, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jtxt_Gia, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jlable_GiaBan, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jtxt_GiaBan, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jtxt_SL, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jlable_SL, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jlabel_TenSP, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -111,9 +116,9 @@ public class jframe_ChinhSuaSP extends javax.swing.JFrame {
                 .addGap(6, 6, 6)
                 .addComponent(jtxt_DVT, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jlable_Gia)
+                .addComponent(jlable_GiaBan)
                 .addGap(6, 6, 6)
-                .addComponent(jtxt_Gia, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jtxt_GiaBan, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(31, Short.MAX_VALUE))
         );
 
@@ -184,6 +189,10 @@ public class jframe_ChinhSuaSP extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jbtn_XacNhanActionPerformed
 
+    private void jtxt_GiaBanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtxt_GiaBanActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jtxt_GiaBanActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -225,12 +234,12 @@ public class jframe_ChinhSuaSP extends javax.swing.JFrame {
     private javax.swing.JLabel jlabel_DVT;
     private javax.swing.JLabel jlabel_MaSP;
     private javax.swing.JLabel jlabel_TenSP;
-    private javax.swing.JLabel jlable_Gia;
+    private javax.swing.JLabel jlable_GiaBan;
     private javax.swing.JLabel jlable_SL;
     private javax.swing.JPanel jpanel_ChinhSuaSP;
     private javax.swing.JPanel jpanel_ThongTinSua;
     private javax.swing.JTextField jtxt_DVT;
-    private javax.swing.JTextField jtxt_Gia;
+    private javax.swing.JTextField jtxt_GiaBan;
     private javax.swing.JTextField jtxt_MaSP;
     private javax.swing.JTextField jtxt_SL;
     private javax.swing.JTextField jtxt_TenSP;

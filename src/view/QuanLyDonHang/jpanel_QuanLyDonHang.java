@@ -31,6 +31,7 @@ public class jpanel_QuanLyDonHang extends javax.swing.JPanel {
         jtextfield_Search = new javax.swing.JTextField();
         jlable_Search = new javax.swing.JLabel();
         jbutton_TaoDH = new javax.swing.JButton();
+        jbutton_TaoDH1 = new javax.swing.JButton();
         jpanel_BangDH = new javax.swing.JPanel();
         jscrollpane_BangDH = new javax.swing.JScrollPane();
         jtable_BangDH = new javax.swing.JTable();
@@ -80,13 +81,24 @@ public class jpanel_QuanLyDonHang extends javax.swing.JPanel {
         jbutton_TaoDH.setBackground(new java.awt.Color(94, 42, 14));
         jbutton_TaoDH.setFont(new java.awt.Font("UTM Helve", 1, 14)); // NOI18N
         jbutton_TaoDH.setForeground(new java.awt.Color(255, 255, 255));
-        jbutton_TaoDH.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/them+.png"))); // NOI18N
         jbutton_TaoDH.setText("Tạo đơn hàng");
         jbutton_TaoDH.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jbutton_TaoDH.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         jbutton_TaoDH.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbutton_TaoDHActionPerformed(evt);
+            }
+        });
+
+        jbutton_TaoDH1.setBackground(new java.awt.Color(236, 227, 214));
+        jbutton_TaoDH1.setFont(new java.awt.Font("UTM Helve", 1, 14)); // NOI18N
+        jbutton_TaoDH1.setForeground(new java.awt.Color(94, 42, 14));
+        jbutton_TaoDH1.setText("Xóa đơn hàng");
+        jbutton_TaoDH1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jbutton_TaoDH1.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        jbutton_TaoDH1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbutton_TaoDH1ActionPerformed(evt);
             }
         });
 
@@ -97,17 +109,22 @@ public class jpanel_QuanLyDonHang extends javax.swing.JPanel {
             .addGroup(jpanel_DieuKhienLayout.createSequentialGroup()
                 .addGap(38, 38, 38)
                 .addComponent(jpanel_Search, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(99, 99, 99)
-                .addComponent(jbutton_TaoDH)
-                .addContainerGap(71, Short.MAX_VALUE))
+                .addGap(122, 122, 122)
+                .addGroup(jpanel_DieuKhienLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jbutton_TaoDH, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jbutton_TaoDH1))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jpanel_DieuKhienLayout.setVerticalGroup(
             jpanel_DieuKhienLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpanel_DieuKhienLayout.createSequentialGroup()
-                .addContainerGap(51, Short.MAX_VALUE)
+                .addContainerGap(59, Short.MAX_VALUE)
                 .addGroup(jpanel_DieuKhienLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jbutton_TaoDH, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jpanel_Search, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jpanel_Search, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jpanel_DieuKhienLayout.createSequentialGroup()
+                        .addComponent(jbutton_TaoDH, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jbutton_TaoDH1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(37, 37, 37))
         );
 
@@ -123,18 +140,23 @@ public class jpanel_QuanLyDonHang extends javax.swing.JPanel {
         jtable_BangDH.setFont(new java.awt.Font("UTM Helve", 0, 14)); // NOI18N
         jtable_BangDH.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {"", "", "", null},
-                {"", "", "", null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {"", "", null, "", null},
+                {"", "", null, "", null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
-                "MÃ ĐƠN HÀNG", "MÃ NHÂN VIÊN", "NGÀY HÓA ĐƠN", "TRỊ GIÁ"
+                "MÃ ĐƠN HÀNG", "MÃ NHÂN VIÊN", "MÃ KHÁCH HÀNG", "NGÀY ĐƠN HÀNG", "TRỊ GIÁ"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Float.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Float.class
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -152,7 +174,7 @@ public class jpanel_QuanLyDonHang extends javax.swing.JPanel {
             .addGroup(jpanel_BangDHLayout.createSequentialGroup()
                 .addGap(40, 40, 40)
                 .addComponent(jscrollpane_BangDH, javax.swing.GroupLayout.PREFERRED_SIZE, 646, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(67, Short.MAX_VALUE))
+                .addContainerGap(439, Short.MAX_VALUE))
         );
         jpanel_BangDHLayout.setVerticalGroup(
             jpanel_BangDHLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -167,19 +189,19 @@ public class jpanel_QuanLyDonHang extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jpanel_BangDH, javax.swing.GroupLayout.DEFAULT_SIZE, 753, Short.MAX_VALUE)
+                .addComponent(jpanel_BangDH, javax.swing.GroupLayout.DEFAULT_SIZE, 1125, Short.MAX_VALUE)
                 .addGap(12, 12, 12))
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jpanel_DieuKhien, javax.swing.GroupLayout.DEFAULT_SIZE, 759, Short.MAX_VALUE)
+                .addComponent(jpanel_DieuKhien, javax.swing.GroupLayout.DEFAULT_SIZE, 1131, Short.MAX_VALUE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(jpanel_DieuKhien, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jpanel_DieuKhien, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jpanel_BangDH, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(144, Short.MAX_VALUE))
+                .addContainerGap(132, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -191,9 +213,14 @@ public class jpanel_QuanLyDonHang extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_jbutton_TaoDHActionPerformed
 
+    private void jbutton_TaoDH1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbutton_TaoDH1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jbutton_TaoDH1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jbutton_TaoDH;
+    private javax.swing.JButton jbutton_TaoDH1;
     private javax.swing.JLabel jlable_Search;
     private javax.swing.JPanel jpanel_BangDH;
     private javax.swing.JPanel jpanel_DieuKhien;
