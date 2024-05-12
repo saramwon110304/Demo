@@ -23,7 +23,7 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
+          <Component id="jPanel2" alignment="1" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
@@ -49,12 +49,11 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jLabel_xacnhan" alignment="0" max="32767" attributes="0"/>
-                      <Group type="102" alignment="0" attributes="0">
-                          <Component id="jButton_huy" min="-2" pref="150" max="-2" attributes="0"/>
+                      <Component id="jLabel_xacnhan" max="32767" attributes="0"/>
+                      <Group type="102" attributes="0">
+                          <Component id="jButton_huy" max="32767" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="jButton_xoa" min="-2" pref="140" max="-2" attributes="0"/>
-                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                          <Component id="jButton_xoa" min="-2" pref="158" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
@@ -113,7 +112,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="b" green="1c" red="34" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="B&#x1ea1;n ch&#x1eaf;c ch&#x1eaf;n mu&#x1ed1;n x&#xf3;a th&#xf4;ng tin n&#xe0;y ch&#x1ee9;?"/>
+            <Property name="text" type="java.lang.String" value="B&#x1ea1;n ch&#x1eaf;c ch&#x1eaf;n mu&#x1ed1;n c&#x1ead;p nh&#x1ead;t th&#xf4;ng tin n&#xe0;y ch&#x1ee9;?"/>
           </Properties>
         </Component>
       </SubComponents>
