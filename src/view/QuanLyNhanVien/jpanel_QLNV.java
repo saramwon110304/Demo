@@ -17,7 +17,7 @@ public class jpanel_QLNV extends javax.swing.JPanel {
         jButton_Them = new javax.swing.JButton();
         jButton_Update = new javax.swing.JButton();
         jButton_Xoa = new javax.swing.JButton();
-        jpanel_BangTK = new javax.swing.JPanel();
+        jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable_NV = new javax.swing.JTable();
 
@@ -83,9 +83,6 @@ public class jpanel_QLNV extends javax.swing.JPanel {
                 .addContainerGap(21, Short.MAX_VALUE))
         );
 
-        jpanel_BangTK.setOpaque(false);
-        jpanel_BangTK.setPreferredSize(new java.awt.Dimension(765, 300));
-
         jTable_NV.setBackground(new java.awt.Color(245, 237, 224));
         jTable_NV.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jTable_NV.setForeground(new java.awt.Color(193, 149, 120));
@@ -134,20 +131,20 @@ public class jpanel_QLNV extends javax.swing.JPanel {
         jTable_NV.setUpdateSelectionOnSort(false);
         jScrollPane1.setViewportView(jTable_NV);
 
-        javax.swing.GroupLayout jpanel_BangTKLayout = new javax.swing.GroupLayout(jpanel_BangTK);
-        jpanel_BangTK.setLayout(jpanel_BangTKLayout);
-        jpanel_BangTKLayout.setHorizontalGroup(
-            jpanel_BangTKLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jpanel_BangTKLayout.createSequentialGroup()
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPane1)
                 .addContainerGap())
         );
-        jpanel_BangTKLayout.setVerticalGroup(
-            jpanel_BangTKLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jpanel_BangTKLayout.createSequentialGroup()
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 288, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 380, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -157,10 +154,11 @@ public class jpanel_QLNV extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jpanel_DieuKhien, javax.swing.GroupLayout.DEFAULT_SIZE, 777, Short.MAX_VALUE)
-                    .addComponent(jpanel_BangTK, javax.swing.GroupLayout.DEFAULT_SIZE, 777, Short.MAX_VALUE))
+                .addComponent(jpanel_DieuKhien, javax.swing.GroupLayout.PREFERRED_SIZE, 777, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -168,8 +166,8 @@ public class jpanel_QLNV extends javax.swing.JPanel {
                 .addContainerGap()
                 .addComponent(jpanel_DieuKhien, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jpanel_BangTK, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(138, Short.MAX_VALUE))
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(46, Short.MAX_VALUE))
         );
 
         getAccessibleContext().setAccessibleName("");
@@ -181,10 +179,10 @@ public class jpanel_QLNV extends javax.swing.JPanel {
     private javax.swing.JButton jButton_Them;
     private javax.swing.JButton jButton_Update;
     private javax.swing.JButton jButton_Xoa;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable_NV;
     private javax.swing.JTextField jTextField_Search;
-    private javax.swing.JPanel jpanel_BangTK;
     private javax.swing.JPanel jpanel_DieuKhien;
     // End of variables declaration//GEN-END:variables
 }

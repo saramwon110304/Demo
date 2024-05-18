@@ -27,11 +27,12 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
               <EmptySpace max="32767" attributes="0"/>
-              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Component id="jpanel_DieuKhien" pref="777" max="32767" attributes="0"/>
-                  <Component id="jpanel_BangTK" pref="777" max="32767" attributes="0"/>
-              </Group>
+              <Component id="jpanel_DieuKhien" min="-2" pref="777" max="-2" attributes="0"/>
               <EmptySpace max="32767" attributes="0"/>
+          </Group>
+          <Group type="102" alignment="0" attributes="0">
+              <Component id="jPanel1" max="32767" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -41,8 +42,8 @@
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jpanel_DieuKhien" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jpanel_BangTK" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="138" max="32767" attributes="0"/>
+              <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
+              <EmptySpace pref="46" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -165,13 +166,7 @@
         </Component>
       </SubComponents>
     </Container>
-    <Container class="javax.swing.JPanel" name="jpanel_BangTK">
-      <Properties>
-        <Property name="opaque" type="boolean" value="false"/>
-        <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-          <Dimension value="[765, 300]"/>
-        </Property>
-      </Properties>
+    <Container class="javax.swing.JPanel" name="jPanel1">
 
       <Layout>
         <DimensionLayout dim="0">
@@ -187,7 +182,7 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="jScrollPane1" pref="288" max="32767" attributes="0"/>
+                  <Component id="jScrollPane1" pref="380" max="32767" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>

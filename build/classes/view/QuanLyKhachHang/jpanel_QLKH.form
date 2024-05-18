@@ -26,12 +26,14 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
-              <EmptySpace max="32767" attributes="0"/>
-              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Component id="jpanel_DieuKhien" pref="777" max="32767" attributes="0"/>
-                  <Component id="jpanel_BangTK" pref="777" max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Component id="jpanel_DieuKhien" min="-2" pref="777" max="-2" attributes="0"/>
+                  </Group>
+                  <Component id="jPanel_bangKH" alignment="0" max="32767" attributes="0"/>
               </Group>
-              <EmptySpace max="32767" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -40,9 +42,9 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jpanel_DieuKhien" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
-              <Component id="jpanel_BangTK" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="138" max="32767" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Component id="jPanel_bangKH" min="-2" max="-2" attributes="0"/>
+              <EmptySpace pref="43" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -62,18 +64,25 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="0" attributes="0">
+              <Group type="102" alignment="1" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="jTextField_Search" min="-2" pref="339" max="-2" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Component id="jButton1" min="-2" pref="100" max="-2" attributes="0"/>
-                  <EmptySpace pref="140" max="32767" attributes="0"/>
-                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                      <Component id="jButtonChinhSua" alignment="0" max="32767" attributes="0"/>
-                      <Component id="jButtonXoa" alignment="0" max="32767" attributes="0"/>
-                      <Component id="jButtonThemKH" alignment="1" min="-2" pref="180" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="1" attributes="0">
+                      <Group type="102" attributes="0">
+                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                          <Component id="jButtonXoa" min="-2" pref="163" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <Component id="jTextField_Search" min="-2" pref="339" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jButton1" min="-2" pref="100" max="-2" attributes="0"/>
+                          <EmptySpace pref="140" max="32767" attributes="0"/>
+                          <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                              <Component id="jButtonChinhSua" max="32767" attributes="0"/>
+                              <Component id="jButtonThemKH" pref="163" max="32767" attributes="0"/>
+                          </Group>
+                      </Group>
                   </Group>
-                  <EmptySpace max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -86,14 +95,14 @@
                           <Component id="jButtonThemKH" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="jButtonChinhSua" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jButtonXoa" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jTextField_Search" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                           <Component id="jButton1" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                       </Group>
                   </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="jButtonXoa" min="-2" max="-2" attributes="0"/>
                   <EmptySpace pref="21" max="32767" attributes="0"/>
               </Group>
           </Group>
@@ -180,13 +189,7 @@
         </Component>
       </SubComponents>
     </Container>
-    <Container class="javax.swing.JPanel" name="jpanel_BangTK">
-      <Properties>
-        <Property name="opaque" type="boolean" value="false"/>
-        <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-          <Dimension value="[765, 300]"/>
-        </Property>
-      </Properties>
+    <Container class="javax.swing.JPanel" name="jPanel_bangKH">
 
       <Layout>
         <DimensionLayout dim="0">
@@ -202,7 +205,7 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="1" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="jScrollPane1" pref="288" max="32767" attributes="0"/>
+                  <Component id="jScrollPane1" pref="377" max="32767" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
