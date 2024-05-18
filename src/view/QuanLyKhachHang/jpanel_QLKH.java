@@ -1,12 +1,10 @@
-package view.QuanLyTaiKhoan;
+package view.QuanLyKhachHang;
 
-/**
- *
- * @author NANG TIEN HANH
- */
-public class jpanel_QuanLyTaiKhoan extends javax.swing.JPanel {
+//import view.jpanel_QLKH.*;
 
-    public jpanel_QuanLyTaiKhoan() {
+public class jpanel_QLKH extends javax.swing.JPanel {
+
+    public jpanel_QLKH() {
         initComponents();
     }
 
@@ -15,15 +13,14 @@ public class jpanel_QuanLyTaiKhoan extends javax.swing.JPanel {
     private void initComponents() {
 
         jpanel_DieuKhien = new javax.swing.JPanel();
-        jpanel_Search = new javax.swing.JPanel();
-        jtextfield_Search = new javax.swing.JTextField();
-        jlable_Search = new javax.swing.JLabel();
-        jbutton_ThemTK = new javax.swing.JButton();
-        jbutton_XoaTK = new javax.swing.JButton();
-        jbutton_ChinhSuaTK = new javax.swing.JButton();
+        jTextField_Search = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
+        jButtonThemKH = new javax.swing.JButton();
+        jButtonChinhSua = new javax.swing.JButton();
+        jButtonXoa = new javax.swing.JButton();
         jpanel_BangTK = new javax.swing.JPanel();
-        jscrollpane_BangTK = new javax.swing.JScrollPane();
-        jtable_BangrTK = new javax.swing.JTable();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTableKH = new javax.swing.JTable();
 
         setOpaque(false);
         setPreferredSize(new java.awt.Dimension(765, 600));
@@ -32,151 +29,142 @@ public class jpanel_QuanLyTaiKhoan extends javax.swing.JPanel {
         jpanel_DieuKhien.setOpaque(false);
         jpanel_DieuKhien.setPreferredSize(new java.awt.Dimension(765, 150));
 
-        jpanel_Search.setOpaque(false);
-
-        jtextfield_Search.setToolTipText("Search");
-        jtextfield_Search.addActionListener(new java.awt.event.ActionListener() {
+        jTextField_Search.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jTextField_Search.setForeground(new java.awt.Color(94, 42, 14));
+        jTextField_Search.setPreferredSize(new java.awt.Dimension(805, 75));
+        jTextField_Search.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jtextfield_SearchActionPerformed(evt);
+                jTextField_SearchActionPerformed(evt);
             }
         });
 
-        jlable_Search.setBackground(new java.awt.Color(255, 255, 255));
-        jlable_Search.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/search_FILL0_wght400_GRAD0_opsz24.png"))); // NOI18N
-        jlable_Search.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jlable_Search.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jlable_Search.setOpaque(true);
+        jButton1.setBackground(new java.awt.Color(52, 28, 11));
+        jButton1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
+        jButton1.setText("Tìm kiếm");
 
-        javax.swing.GroupLayout jpanel_SearchLayout = new javax.swing.GroupLayout(jpanel_Search);
-        jpanel_Search.setLayout(jpanel_SearchLayout);
-        jpanel_SearchLayout.setHorizontalGroup(
-            jpanel_SearchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jpanel_SearchLayout.createSequentialGroup()
-                .addComponent(jtextfield_Search, javax.swing.GroupLayout.PREFERRED_SIZE, 319, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
-                .addComponent(jlable_Search, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(40, Short.MAX_VALUE))
-        );
-        jpanel_SearchLayout.setVerticalGroup(
-            jpanel_SearchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jpanel_SearchLayout.createSequentialGroup()
-                .addGap(0, 0, 0)
-                .addGroup(jpanel_SearchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jlable_Search, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jtextfield_Search, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(30, Short.MAX_VALUE))
-        );
-
-        jbutton_ThemTK.setBackground(new java.awt.Color(94, 42, 14));
-        jbutton_ThemTK.setFont(new java.awt.Font("UTM Helve", 1, 14)); // NOI18N
-        jbutton_ThemTK.setForeground(new java.awt.Color(255, 255, 255));
-        jbutton_ThemTK.setText("Thêm tài khoản");
-        jbutton_ThemTK.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jbutton_ThemTK.addActionListener(new java.awt.event.ActionListener() {
+        jButtonThemKH.setBackground(new java.awt.Color(52, 28, 11));
+        jButtonThemKH.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jButtonThemKH.setForeground(new java.awt.Color(255, 255, 255));
+        jButtonThemKH.setText("Thêm khách hàng");
+        jButtonThemKH.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbutton_ThemTKActionPerformed(evt);
+                jButtonThemKHActionPerformed(evt);
             }
         });
 
-        jbutton_XoaTK.setBackground(new java.awt.Color(147, 94, 64));
-        jbutton_XoaTK.setFont(new java.awt.Font("UTM Helve", 1, 14)); // NOI18N
-        jbutton_XoaTK.setForeground(new java.awt.Color(255, 255, 255));
-        jbutton_XoaTK.setText("Xóa tài khoản");
-        jbutton_XoaTK.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jbutton_XoaTK.addActionListener(new java.awt.event.ActionListener() {
+        jButtonChinhSua.setBackground(new java.awt.Color(94, 42, 14));
+        jButtonChinhSua.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jButtonChinhSua.setForeground(new java.awt.Color(255, 255, 255));
+        jButtonChinhSua.setText("Chỉnh sửa");
+        jButtonChinhSua.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbutton_XoaTKActionPerformed(evt);
+                jButtonChinhSuaActionPerformed(evt);
             }
         });
 
-        jbutton_ChinhSuaTK.setBackground(new java.awt.Color(177, 137, 101));
-        jbutton_ChinhSuaTK.setFont(new java.awt.Font("UTM Helve", 1, 14)); // NOI18N
-        jbutton_ChinhSuaTK.setForeground(new java.awt.Color(255, 255, 255));
-        jbutton_ChinhSuaTK.setText("Chỉnh sửa");
-        jbutton_ChinhSuaTK.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jbutton_ChinhSuaTK.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbutton_ChinhSuaTKActionPerformed(evt);
-            }
-        });
+        jButtonXoa.setBackground(new java.awt.Color(193, 149, 120));
+        jButtonXoa.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jButtonXoa.setForeground(new java.awt.Color(255, 255, 255));
+        jButtonXoa.setText("Xóa");
 
         javax.swing.GroupLayout jpanel_DieuKhienLayout = new javax.swing.GroupLayout(jpanel_DieuKhien);
         jpanel_DieuKhien.setLayout(jpanel_DieuKhienLayout);
         jpanel_DieuKhienLayout.setHorizontalGroup(
             jpanel_DieuKhienLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jpanel_DieuKhienLayout.createSequentialGroup()
-                .addGap(0, 0, 0)
-                .addComponent(jpanel_Search, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(138, 138, 138)
-                .addGroup(jpanel_DieuKhienLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jpanel_DieuKhienLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jbutton_XoaTK, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
-                        .addComponent(jbutton_ChinhSuaTK, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(jbutton_ThemTK, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 90, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(jTextField_Search, javax.swing.GroupLayout.PREFERRED_SIZE, 339, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 140, Short.MAX_VALUE)
+                .addGroup(jpanel_DieuKhienLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jButtonChinhSua, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButtonXoa, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButtonThemKH, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
         );
         jpanel_DieuKhienLayout.setVerticalGroup(
             jpanel_DieuKhienLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jpanel_DieuKhienLayout.createSequentialGroup()
                 .addGap(36, 36, 36)
                 .addGroup(jpanel_DieuKhienLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jpanel_Search, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jpanel_DieuKhienLayout.createSequentialGroup()
-                        .addComponent(jbutton_ThemTK, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jButtonThemKH)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jbutton_XoaTK, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jbutton_ChinhSuaTK, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(12, Short.MAX_VALUE))
+                        .addComponent(jButtonChinhSua)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButtonXoa))
+                    .addGroup(jpanel_DieuKhienLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jTextField_Search, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(21, Short.MAX_VALUE))
         );
 
         jpanel_BangTK.setOpaque(false);
         jpanel_BangTK.setPreferredSize(new java.awt.Dimension(765, 300));
 
-        jscrollpane_BangTK.setBackground(new java.awt.Color(255, 204, 204));
-        jscrollpane_BangTK.setFont(new java.awt.Font("UTM Helve", 1, 14)); // NOI18N
+        jScrollPane1.setBackground(new java.awt.Color(245, 237, 224));
 
-        jtable_BangrTK.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 14))); // NOI18N
-        jtable_BangrTK.setFont(new java.awt.Font("UTM Helve", 0, 14)); // NOI18N
-        jtable_BangrTK.setModel(new javax.swing.table.DefaultTableModel(
+        jTableKH.setBackground(new java.awt.Color(245, 237, 224));
+        jTableKH.setForeground(new java.awt.Color(148, 135, 119));
+        jTableKH.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {"", "", "", ""},
-                {"", "", "", ""},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
-                "MÃ TÀI KHOẢN", "MÃ NHÂN VIÊN", "TÊN ĐĂNG NHẬP", "MẬT KHẨU"
+                "MÃ KHÁCH HÀNG", "TÊN KHÁCH HÀNG", "ĐỊA CHỈ", "SỐ ĐIỆN THOẠI", "NGÀY ĐĂNG KÝ"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
 
             public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
             }
         });
-        jtable_BangrTK.getTableHeader().setResizingAllowed(false);
-        jtable_BangrTK.getTableHeader().setReorderingAllowed(false);
-        jscrollpane_BangTK.setViewportView(jtable_BangrTK);
-        jtable_BangrTK.getAccessibleContext().setAccessibleParent(jtable_BangrTK);
+        jTableKH.setGridColor(new java.awt.Color(255, 255, 255));
+        jTableKH.setSelectionBackground(new java.awt.Color(255, 255, 255));
+        jScrollPane1.setViewportView(jTableKH);
 
         javax.swing.GroupLayout jpanel_BangTKLayout = new javax.swing.GroupLayout(jpanel_BangTK);
         jpanel_BangTK.setLayout(jpanel_BangTKLayout);
         jpanel_BangTKLayout.setHorizontalGroup(
             jpanel_BangTKLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jpanel_BangTKLayout.createSequentialGroup()
-                .addComponent(jscrollpane_BangTK, javax.swing.GroupLayout.PREFERRED_SIZE, 686, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpanel_BangTKLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1)
+                .addContainerGap())
         );
         jpanel_BangTKLayout.setVerticalGroup(
             jpanel_BangTKLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jpanel_BangTKLayout.createSequentialGroup()
-                .addGap(22, 22, 22)
-                .addComponent(jscrollpane_BangTK, javax.swing.GroupLayout.PREFERRED_SIZE, 303, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpanel_BangTKLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 288, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -197,39 +185,34 @@ public class jpanel_QuanLyTaiKhoan extends javax.swing.JPanel {
                 .addComponent(jpanel_DieuKhien, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jpanel_BangTK, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(138, Short.MAX_VALUE))
         );
 
         getAccessibleContext().setAccessibleName("");
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jtextfield_SearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtextfield_SearchActionPerformed
+    private void jTextField_SearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField_SearchActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jtextfield_SearchActionPerformed
+    }//GEN-LAST:event_jTextField_SearchActionPerformed
 
-    private void jbutton_ThemTKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbutton_ThemTKActionPerformed
+    private void jButtonThemKHActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonThemKHActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jbutton_ThemTKActionPerformed
+    }//GEN-LAST:event_jButtonThemKHActionPerformed
 
-    private void jbutton_XoaTKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbutton_XoaTKActionPerformed
+    private void jButtonChinhSuaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonChinhSuaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jbutton_XoaTKActionPerformed
-
-    private void jbutton_ChinhSuaTKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbutton_ChinhSuaTKActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jbutton_ChinhSuaTKActionPerformed
+    }//GEN-LAST:event_jButtonChinhSuaActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jbutton_ChinhSuaTK;
-    private javax.swing.JButton jbutton_ThemTK;
-    private javax.swing.JButton jbutton_XoaTK;
-    private javax.swing.JLabel jlable_Search;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButtonChinhSua;
+    private javax.swing.JButton jButtonThemKH;
+    private javax.swing.JButton jButtonXoa;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTableKH;
+    private javax.swing.JTextField jTextField_Search;
     private javax.swing.JPanel jpanel_BangTK;
     private javax.swing.JPanel jpanel_DieuKhien;
-    private javax.swing.JPanel jpanel_Search;
-    private javax.swing.JScrollPane jscrollpane_BangTK;
-    private javax.swing.JTable jtable_BangrTK;
-    private javax.swing.JTextField jtextfield_Search;
     // End of variables declaration//GEN-END:variables
 }

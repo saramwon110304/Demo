@@ -23,11 +23,11 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <Component id="jpanel_BangDH" pref="1125" max="32767" attributes="0"/>
+              <Component id="jpanel_BangDH" pref="753" max="32767" attributes="0"/>
               <EmptySpace min="12" pref="12" max="-2" attributes="0"/>
           </Group>
           <Group type="102" attributes="0">
-              <Component id="jpanel_DieuKhien" pref="1131" max="32767" attributes="0"/>
+              <Component id="jpanel_DieuKhien" pref="759" max="32767" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>

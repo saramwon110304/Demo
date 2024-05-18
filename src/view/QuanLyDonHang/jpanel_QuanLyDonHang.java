@@ -189,10 +189,10 @@ public class jpanel_QuanLyDonHang extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jpanel_BangDH, javax.swing.GroupLayout.DEFAULT_SIZE, 1125, Short.MAX_VALUE)
+                .addComponent(jpanel_BangDH, javax.swing.GroupLayout.DEFAULT_SIZE, 753, Short.MAX_VALUE)
                 .addGap(12, 12, 12))
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jpanel_DieuKhien, javax.swing.GroupLayout.DEFAULT_SIZE, 1131, Short.MAX_VALUE)
+                .addComponent(jpanel_DieuKhien, javax.swing.GroupLayout.DEFAULT_SIZE, 759, Short.MAX_VALUE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
