@@ -1,8 +1,16 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
- */
 package view.QuanLyDonHang;
+
+import Model.DonHang;
+import Model.TaiKhoan;
+import controller.DonHangDAO;
+import java.util.ArrayList;
+import java.util.List;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+import view.QuanLyDonHang.jpanel_QuanLyDonHang;
+import view.QuanLyTaiKhoan.jframe_ThemTK;
+import view.QuanLyTaiKhoan.jpanel_QuanLyTaiKhoan;
 
 /**
  *
@@ -13,8 +21,12 @@ public class jpanel_QuanLyDonHang extends javax.swing.JPanel {
     /**
      * Creates new form jpanel_QuanLyDonHang
      */
+    private List <DonHang> donhang;
+    private DefaultTableModel ModelDH;
     public jpanel_QuanLyDonHang() {
         initComponents();
+        ModelDH = (DefaultTableModel) jtable_BangDH.getModel();
+        showTableDH();
     }
 
     /**
@@ -31,7 +43,7 @@ public class jpanel_QuanLyDonHang extends javax.swing.JPanel {
         jtextfield_Search = new javax.swing.JTextField();
         jlable_Search = new javax.swing.JLabel();
         jbutton_TaoDH = new javax.swing.JButton();
-        jbutton_TaoDH1 = new javax.swing.JButton();
+        jbutton_XoaDH = new javax.swing.JButton();
         jpanel_BangDH = new javax.swing.JPanel();
         jscrollpane_BangDH = new javax.swing.JScrollPane();
         jtable_BangDH = new javax.swing.JTable();
@@ -90,15 +102,15 @@ public class jpanel_QuanLyDonHang extends javax.swing.JPanel {
             }
         });
 
-        jbutton_TaoDH1.setBackground(new java.awt.Color(236, 227, 214));
-        jbutton_TaoDH1.setFont(new java.awt.Font("UTM Helve", 1, 14)); // NOI18N
-        jbutton_TaoDH1.setForeground(new java.awt.Color(94, 42, 14));
-        jbutton_TaoDH1.setText("Xóa đơn hàng");
-        jbutton_TaoDH1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jbutton_TaoDH1.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
-        jbutton_TaoDH1.addActionListener(new java.awt.event.ActionListener() {
+        jbutton_XoaDH.setBackground(new java.awt.Color(236, 227, 214));
+        jbutton_XoaDH.setFont(new java.awt.Font("UTM Helve", 1, 14)); // NOI18N
+        jbutton_XoaDH.setForeground(new java.awt.Color(94, 42, 14));
+        jbutton_XoaDH.setText("Xóa đơn hàng");
+        jbutton_XoaDH.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jbutton_XoaDH.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        jbutton_XoaDH.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbutton_TaoDH1ActionPerformed(evt);
+                jbutton_XoaDHActionPerformed(evt);
             }
         });
 
@@ -110,10 +122,10 @@ public class jpanel_QuanLyDonHang extends javax.swing.JPanel {
                 .addGap(38, 38, 38)
                 .addComponent(jpanel_Search, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(122, 122, 122)
-                .addGroup(jpanel_DieuKhienLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jbutton_TaoDH, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jbutton_TaoDH1))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(jpanel_DieuKhienLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jbutton_XoaDH, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jbutton_TaoDH, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(73, Short.MAX_VALUE))
         );
         jpanel_DieuKhienLayout.setVerticalGroup(
             jpanel_DieuKhienLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -124,7 +136,7 @@ public class jpanel_QuanLyDonHang extends javax.swing.JPanel {
                     .addGroup(jpanel_DieuKhienLayout.createSequentialGroup()
                         .addComponent(jbutton_TaoDH, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jbutton_TaoDH1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jbutton_XoaDH, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(37, 37, 37))
         );
 
@@ -156,7 +168,7 @@ public class jpanel_QuanLyDonHang extends javax.swing.JPanel {
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Float.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Double.class
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -207,20 +219,116 @@ public class jpanel_QuanLyDonHang extends javax.swing.JPanel {
 
     private void jtextfield_SearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtextfield_SearchActionPerformed
         // TODO add your handling code here:
+        // Lấy từ khóa tìm kiếm từ textfield
+    String searchText = jtextfield_Search.getText().trim();
+
+    // Kiểm tra xem có từ khóa không
+    if (!searchText.isEmpty()) {
+        try {
+            int MADH = Integer.parseInt(searchText); // Chuyển đổi từ string sang int
+            ArrayList<DonHang> resultList = new DonHangDAO().FindByMADH(MADH);
+
+            if (!resultList.isEmpty()) {
+                // Hiển thị kết quả tìm kiếm trên bảng
+                DefaultTableModel model = (DefaultTableModel) jtable_BangDH.getModel();
+                model.setRowCount(0); // Xóa dữ liệu cũ
+
+                for (DonHang dh : resultList) {
+                    model.addRow(new Object[]{
+                        dh.getMADH(), // Hiển thị MADH trực tiếp
+                        dh.getMANV(),
+                        dh.getMAKH(),
+                        dh.getNGAYDH(),
+                        dh.getTRIGIA()
+                    });
+                }
+            } else {
+                JOptionPane.showMessageDialog(this, "Không tìm thấy đơn hàng với mã đơn hàng: " + MADH, "Kết quả tìm kiếm", JOptionPane.INFORMATION_MESSAGE);
+                showTableDH(); // Hiển thị lại toàn bộ dữ liệu nếu không tìm thấy
+            }
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, "Mã đơn hàng phải là số nguyên.", "Lỗi", JOptionPane.ERROR_MESSAGE);
+        }
+    } else {
+        // Nếu không có từ khóa, hiển thị toàn bộ dữ liệu
+        showTableSearch();
+    }
     }//GEN-LAST:event_jtextfield_SearchActionPerformed
 
     private void jbutton_TaoDHActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbutton_TaoDHActionPerformed
         // TODO add your handling code here:
+    
+    // Hiển thị JFrame hoặc JDialog khác đã có
+    jframe_ThemDonHang frame = new jframe_ThemDonHang(); // Tạo một đối tượng của JFrame mới
+    
+    // Hiển thị JFrame hoặc JDialog đã có
+    frame.setVisible(true);
+    
+    
+    
+        // Hiển thị frame xác nhận xoá như một popup
+        frame.setAlwaysOnTop(true);
+        frame.addWindowListener(new java.awt.event.WindowAdapter() {
+            @Override
+            public void windowClosed(java.awt.event.WindowEvent windowEvent) {
+                // Sau khi frame xác nhận xoá đóng, gọi phương thức showTable() để cập nhật lại bảng
+                showTableDH();
+            }
+        });
     }//GEN-LAST:event_jbutton_TaoDHActionPerformed
 
-    private void jbutton_TaoDH1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbutton_TaoDH1ActionPerformed
+    private void jbutton_XoaDHActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbutton_XoaDHActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jbutton_TaoDH1ActionPerformed
+        // Kiểm tra xem đã chọn hàng trong bảng chưa
+        if (jtable_BangDH.getSelectedRow() != -1) {
+        // Lấy vị trí mục hàng được chọn
+        int selectedIndex = jtable_BangDH.getSelectedRow();
+        // Lấy thông tin tài khoản từ danh sách taikhoan
+        DonHang dh = donhang.get(selectedIndex);
+        
+        // Tạo một instance của frame Xác nhận Xóa
+        // Tạo một frame xác nhận xoá và truyền dữ liệu tài khoản vào
+        
+        view.QuanLyDonHang.jframe_XacNhanXoaDH xacNhanXoaFrame = new view.QuanLyDonHang.jframe_XacNhanXoaDH();
+        xacNhanXoaFrame.setDonHangToDelete(dh);
+    
+        // Hiển thị frame xác nhận xoá như một popup
+        xacNhanXoaFrame.setAlwaysOnTop(true);
+        xacNhanXoaFrame.setVisible(true);
+        
+        xacNhanXoaFrame.addWindowListener(new java.awt.event.WindowAdapter() {
+            @Override
+            public void windowClosed(java.awt.event.WindowEvent windowEvent) {
+                // Sau khi frame xác nhận xoá đóng, gọi phương thức showTable() để cập nhật lại bảng
+                showTableDH();
+            }
+        });
+        
+        }
+        else
+        {
+            JOptionPane.showMessageDialog(jpanel_QuanLyDonHang.this, "Hãy chọn một đơn hàng trong bảng");
+        }
+    }//GEN-LAST:event_jbutton_XoaDHActionPerformed
 
+    public static void main (String args[]) {
+        /* Set the Nimbus look and feel */
+        
+        /*Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+        public void run() {
+            JFrame frame = new JFrame("Quản lý đơn hàng");
+            frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // Thêm dòng này để đặt thao tác khi đóng cửa sổ
+            frame.getContentPane().add(new jpanel_QuanLyDonHang()); // Thêm JPanel vào JFrame
+            frame.pack(); // Tự động điều chỉnh kích thước cửa sổ
+            frame.setVisible(true); // Hiển thị cửa sổ
+        }
+    });
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jbutton_TaoDH;
-    private javax.swing.JButton jbutton_TaoDH1;
+    private javax.swing.JButton jbutton_XoaDH;
     private javax.swing.JLabel jlable_Search;
     private javax.swing.JPanel jpanel_BangDH;
     private javax.swing.JPanel jpanel_DieuKhien;
@@ -229,4 +337,31 @@ public class jpanel_QuanLyDonHang extends javax.swing.JPanel {
     private javax.swing.JTable jtable_BangDH;
     private javax.swing.JTextField jtextfield_Search;
     // End of variables declaration//GEN-END:variables
+
+    private void showTableDH() {
+    donhang = new DonHangDAO().getListDH();
+    ModelDH.setRowCount(0);
+    for (DonHang dh : donhang) {
+        ModelDH.addRow(new Object[]{
+            dh.getMADH(), dh.getMANV(), dh.getMAKH(), dh.getNGAYDH(), dh.getTRIGIA()
+        });
+    }
+}
+    
+        // Hàm hiển thị toàn bộ dữ liệu trên bảng
+private void showTableSearch() {
+    ArrayList<DonHang> list = new DonHangDAO().getListDH();
+    DefaultTableModel model = (DefaultTableModel) jtable_BangDH.getModel();
+    model.setRowCount(0);
+    for (DonHang dh : list) {
+        model.addRow(new Object[]{
+            dh.getMADH(), // Hiển thị MADH
+            dh.getMANV(),
+            dh.getMANV(),
+            dh.getNGAYDH(),
+            dh.getTRIGIA()
+        });
+    }
+
+}
 }

@@ -1,16 +1,28 @@
 
 package view.QuanLyDonHang;
 
+import Model.SanPham;
+import java.awt.Window;
+import javax.swing.SwingUtilities;
+
 /**
  *
  * @author NANG TIEN HANH
  */
-public class jframe_XacNhanXoa extends javax.swing.JFrame {
-
-   
-    public jframe_XacNhanXoa() {
+public class jframe_XacNhanXoaSP extends javax.swing.JFrame {
+    // Khai báo một biến tham chiếu đến cửa sổ chính
+    private jframe_ThemDonHang parentFrame;
+    private SanPham sanPhamToDelete;
+    public jframe_XacNhanXoaSP(jframe_ThemDonHang parentFrame) {
         initComponents();
+        this.parentFrame = parentFrame;
+        
     }
+    
+        public void setSanPhamToDelete(SanPham sp) {
+        this.sanPhamToDelete = sp;
+    }
+    
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -39,6 +51,11 @@ public class jframe_XacNhanXoa extends javax.swing.JFrame {
         jButton2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jButton2.setForeground(new java.awt.Color(255, 255, 255));
         jButton2.setText("Xác nhận");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel1.setText("Bạn có muốn xóa sản phẩm này không?");
@@ -87,8 +104,21 @@ public class jframe_XacNhanXoa extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+        // Lấy cửa sổ cha của cửa sổ hiện tại và đóng nó
+            Window window = SwingUtilities.getWindowAncestor(jButton2);
+            window.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        // Xoá sản phẩm khỏi danh sách trên cửa sổ chính
+    if (parentFrame != null && sanPhamToDelete != null) {
+        parentFrame.xoaSanPhamKhoiDanhSach(sanPhamToDelete.getMASP());
+        // Đóng frame xác nhận xoá
+        dispose();
+    }
+    }//GEN-LAST:event_jButton2ActionPerformed
+    
 //    /**
 //     * @param args the command line arguments
 //     */

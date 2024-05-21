@@ -4,13 +4,28 @@ package view.QuanLyTaiKhoan;
  *
  * @author NANG TIEN HANH
  */
-public class jframe_ChinhSuaTK extends javax.swing.JFrame {
 
+import Model.TaiKhoan;
+import controller.TaiKhoanDAO;
+import java.awt.Window;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.JOptionPane;
+import javax.swing.SwingUtilities;
+
+public class jframe_ChinhSuaTK extends javax.swing.JFrame {
+private TaiKhoan taiKhoanToEdit;
     
     public jframe_ChinhSuaTK() {
+        this.setLocationRelativeTo(null);
         initComponents();
     }
-
+    
+    public void setTaiKhoanToEdit(TaiKhoan tk) {
+        this.taiKhoanToEdit = tk;
+        jtxt_MaTK.setText(String.valueOf(tk.getMATK()));
+    }
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -98,6 +113,11 @@ public class jframe_ChinhSuaTK extends javax.swing.JFrame {
         jbtn_Huy.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jbtn_Huy.setForeground(new java.awt.Color(94, 42, 14));
         jbtn_Huy.setText("Hủy");
+        jbtn_Huy.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbtn_HuyActionPerformed(evt);
+            }
+        });
 
         jbtn_XacNhan.setBackground(new java.awt.Color(94, 42, 14));
         jbtn_XacNhan.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -153,8 +173,77 @@ public class jframe_ChinhSuaTK extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jbtn_XacNhanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_XacNhanActionPerformed
-        // TODO add your handling code here:
+        // Lấy thông tin từ các trường nhập liệu
+    String maNVStr = jtxt_MaTK1.getText();
+    String tenDangNhap = jtxt_TenDangNhap.getText();
+    String matKhauStr = jtxt_MatKhau.getText();
+    
+    TaiKhoanDAO taiKhoanDAO = new TaiKhoanDAO();
+    TaiKhoan taiKhoanMoi = new TaiKhoan();
+    
+    int matk_luu = taiKhoanToEdit.getMATK();
+    taiKhoanDAO.DeleteTK(taiKhoanToEdit.getMATK());
+
+    // Kiểm tra trường rỗng
+    if (maNVStr.equals("") || tenDangNhap.equals("") || matKhauStr.equals("")) {
+        JOptionPane.showMessageDialog(jframe_ChinhSuaTK.this, "Bạn cần nhập đủ dữ liệu");
+        return;
+    }
+
+    int maNV = 0;
+    int matKhau = 0;
+    boolean isValid = true;
+
+    // Kiểm tra định dạng mã nhân viên mới nhập
+    try {
+        maNV = Integer.parseInt(maNVStr);
+    } catch (NumberFormatException e) {
+        JOptionPane.showMessageDialog(jframe_ChinhSuaTK.this, "Mã nhân viên không hợp lệ");
+        isValid = false;
+    }
+
+    // Kiểm tra định dạng mật khẩu mới nhập
+    try {
+        matKhau = Integer.parseInt(matKhauStr);
+    } catch (NumberFormatException e) {
+        JOptionPane.showMessageDialog(jframe_ChinhSuaTK.this, "Mật khẩu không hợp lệ");
+        isValid = false;
+    } finally {
+        if (!isValid) {
+            return;
+        }
+    }
+
+    taiKhoanMoi.setMATK(matk_luu);
+    taiKhoanMoi.setMANV(maNV);
+    taiKhoanMoi.setTENDANGNHAP(tenDangNhap);
+    taiKhoanMoi.setMATKHAU(matKhau);
+    
+    // Kiểm tra mã nhân viên đã tồn tại hay chưa
+    if (new TaiKhoanDAO().isMaNVExists(maNV)) {
+        JOptionPane.showMessageDialog(jframe_ChinhSuaTK.this, "Mã nhân viên mà bạn cập nhật đã tồn tại");
+        taiKhoanDAO.AddTK(taiKhoanToEdit);
+    } else
+    
+    // Kiểm tra tên đăng nhập đã tồn tại hay chưa
+    if (taiKhoanDAO.isTenDangNhapExists(tenDangNhap)) {
+        JOptionPane.showMessageDialog(jframe_ChinhSuaTK.this, "Tên đăng nhập mà bạn cập nhật đã tồn tại");
+        // Phục hồi tài khoản cũ nếu cập nhật thất bại
+        taiKhoanDAO.AddTK(taiKhoanToEdit);
+    } else {
+        taiKhoanDAO.AddTK(taiKhoanMoi);
+        JOptionPane.showMessageDialog(jframe_ChinhSuaTK.this, "Cập nhật thành công");
+        dispose(); // Đóng cửa sổ sau khi cập nhật thành công
+    }
+    
     }//GEN-LAST:event_jbtn_XacNhanActionPerformed
+
+    private void jbtn_HuyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_HuyActionPerformed
+        // TODO add your handling code here:
+        // Lấy cửa sổ cha của cửa sổ hiện tại và đóng nó
+        Window window = SwingUtilities.getWindowAncestor(jbtn_Huy);
+        window.dispose();
+    }//GEN-LAST:event_jbtn_HuyActionPerformed
 
 //    /**
 //     * @param args the command line arguments

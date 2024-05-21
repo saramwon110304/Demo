@@ -1,15 +1,23 @@
 
 package view.QuanLyTaiKhoan;
+
+import Model.TaiKhoan;
+import controller.TaiKhoanDAO;
+import java.awt.Window;
+import javax.swing.JOptionPane;
+import javax.swing.SwingUtilities;
+
 /**
  *
  * @author NANG TIEN HANH
  */
 public class jframe_ThemTK extends javax.swing.JFrame {
-
   
     public jframe_ThemTK() {
+        this.setLocationRelativeTo(null);
         initComponents();
     }
+        
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -116,11 +124,21 @@ public class jframe_ThemTK extends javax.swing.JFrame {
         jbtn_Huy.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jbtn_Huy.setForeground(new java.awt.Color(94, 42, 14));
         jbtn_Huy.setText("Hủy");
+        jbtn_Huy.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbtn_HuyActionPerformed(evt);
+            }
+        });
 
         jbtn_XacNhan.setBackground(new java.awt.Color(94, 42, 14));
         jbtn_XacNhan.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jbtn_XacNhan.setForeground(new java.awt.Color(255, 255, 255));
         jbtn_XacNhan.setText("Xác nhận");
+        jbtn_XacNhan.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbtn_XacNhanActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jpanel_ThemTKLayout = new javax.swing.GroupLayout(jpanel_ThemTK);
         jpanel_ThemTK.setLayout(jpanel_ThemTKLayout);
@@ -167,7 +185,103 @@ public class jframe_ThemTK extends javax.swing.JFrame {
 
     private void jtxt_MaNVActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtxt_MaNVActionPerformed
         // TODO add your handling code here:
+        
     }//GEN-LAST:event_jtxt_MaNVActionPerformed
+
+    private void jbtn_XacNhanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_XacNhanActionPerformed
+    // TODO add your handling code here:
+    TaiKhoan tk = new TaiKhoan();
+
+    String maTKStr = jtxt_MaTK.getText();
+    String maNVStr = jtxt_MaNV.getText();
+    String tenDangNhap = jtxt_TenDangNhap.getText();
+    String matKhauStr = jtxt_MatKhau.getText();
+    String xacNhanMKStr = jtxt_XacNhanMK.getText();
+
+    // Kiểm tra trường rỗng
+    if (maTKStr.equals("") || maNVStr.equals("") || tenDangNhap.equals("") || matKhauStr.equals("") || xacNhanMKStr.equals("")) {
+        JOptionPane.showMessageDialog(jframe_ThemTK.this, "Bạn cần nhập đủ dữ liệu");
+        return;
+    }
+
+    int maTK = 0, maNV = 0, matKhau = 0, xacNhanMK = 0;
+    boolean isValid = true;
+
+    try {
+        maTK = Integer.parseInt(maTKStr);
+    } catch (NumberFormatException e) {
+        JOptionPane.showMessageDialog(jframe_ThemTK.this, "Mã tài khoản không hợp lệ");
+        isValid = false;
+    }
+
+    try {
+        maNV = Integer.parseInt(maNVStr);
+    } catch (NumberFormatException e) {
+        JOptionPane.showMessageDialog(jframe_ThemTK.this, "Mã nhân viên không hợp lệ");
+        isValid = false;
+    }
+
+    try {
+        matKhau = Integer.parseInt(matKhauStr);
+    } catch (NumberFormatException e) {
+        JOptionPane.showMessageDialog(jframe_ThemTK.this, "Mật khẩu không hợp lệ");
+        isValid = false;
+    }
+
+    try {
+        xacNhanMK = Integer.parseInt(xacNhanMKStr);
+    } catch (NumberFormatException e) {
+        JOptionPane.showMessageDialog(jframe_ThemTK.this, "Xác nhận mật khẩu không hợp lệ");
+        isValid = false;
+    } finally {
+        if (!isValid) {
+            return;
+        }
+    }
+
+    tk.setMATK(maTK);
+    tk.setMANV(maNV);
+    tk.setTENDANGNHAP(tenDangNhap);
+    tk.setMATKHAU(matKhau);
+
+    // Kiểm tra xác nhận mật khẩu
+    if (!matKhauStr.equals(xacNhanMKStr)) {
+        JOptionPane.showMessageDialog(jframe_ThemTK.this, "Xác nhận mật khẩu không khớp");
+        return;
+    }
+
+    TaiKhoanDAO taiKhoanDAO = new TaiKhoanDAO();
+    // Kiểm tra mã tài khoản đã tồn tại hay chưa
+    if (taiKhoanDAO.isMaTKExists(maTK)) {
+        JOptionPane.showMessageDialog(jframe_ThemTK.this, "Mã tài khoản đã tồn tại");
+        return;
+    }
+    
+    // Kiểm tra mã nhân viên đã tồn tại hay chưa
+    if (taiKhoanDAO.isMaNVExists(maNV)) {
+        JOptionPane.showMessageDialog(jframe_ThemTK.this, "Mã nhân viên đã tồn tại");
+        return;
+    }
+
+    // Kiểm tra tên đăng nhập đã tồn tại hay chưa
+    if (taiKhoanDAO.isTenDangNhapExists(tenDangNhap)) {
+        JOptionPane.showMessageDialog(jframe_ThemTK.this, "Tên đăng nhập đã tồn tại");
+        return;
+    }
+
+    // Thêm tài khoản mới
+    taiKhoanDAO.AddTK(tk);
+    JOptionPane.showMessageDialog(jframe_ThemTK.this, "Thêm thành công");
+    Window window = SwingUtilities.getWindowAncestor(jbtn_XacNhan);
+        window.dispose();
+    }//GEN-LAST:event_jbtn_XacNhanActionPerformed
+
+    private void jbtn_HuyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_HuyActionPerformed
+        // TODO add your handling code here:
+            // Đóng cửa sổ hiện tại
+            Window window = SwingUtilities.getWindowAncestor(jbtn_Huy);
+            window.dispose();
+    }//GEN-LAST:event_jbtn_HuyActionPerformed
 
 //    /**
 //     * @param args the command line arguments

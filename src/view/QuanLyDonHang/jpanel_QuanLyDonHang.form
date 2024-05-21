@@ -62,11 +62,11 @@
                   <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
                   <Component id="jpanel_Search" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="122" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="1" attributes="0">
-                      <Component id="jbutton_TaoDH" min="-2" pref="125" max="-2" attributes="0"/>
-                      <Component id="jbutton_TaoDH1" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                      <Component id="jbutton_XoaDH" max="32767" attributes="0"/>
+                      <Component id="jbutton_TaoDH" max="32767" attributes="0"/>
                   </Group>
-                  <EmptySpace max="32767" attributes="0"/>
+                  <EmptySpace pref="73" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -79,7 +79,7 @@
                       <Group type="102" alignment="0" attributes="0">
                           <Component id="jbutton_TaoDH" min="-2" pref="30" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jbutton_TaoDH1" min="-2" pref="30" max="-2" attributes="0"/>
+                          <Component id="jbutton_XoaDH" min="-2" pref="30" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
@@ -164,7 +164,7 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jbutton_TaoDHActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="jbutton_TaoDH1">
+        <Component class="javax.swing.JButton" name="jbutton_XoaDH">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="d6" green="e3" red="ec" type="rgb"/>
@@ -182,7 +182,7 @@
             <Property name="horizontalTextPosition" type="int" value="4"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jbutton_TaoDH1ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jbutton_XoaDHActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>
@@ -293,7 +293,7 @@
                       <Data value="null"/>
                       <Data value="null"/>
                     </Column>
-                    <Column editable="true" title="TR&#x1eca; GI&#xc1;" type="java.lang.Float"/>
+                    <Column editable="true" title="TR&#x1eca; GI&#xc1;" type="java.lang.Double"/>
                   </Table>
                 </Property>
                 <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
