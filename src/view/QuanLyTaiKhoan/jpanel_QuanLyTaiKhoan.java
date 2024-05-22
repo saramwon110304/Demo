@@ -30,7 +30,7 @@ public class jpanel_QuanLyTaiKhoan extends javax.swing.JPanel {
         jpanel_DieuKhien = new javax.swing.JPanel();
         jpanel_Search = new javax.swing.JPanel();
         jtextfield_Search = new javax.swing.JTextField();
-        jlable_Search = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
         jbutton_ThemTK = new javax.swing.JButton();
         jbutton_XoaTK = new javax.swing.JButton();
         jbutton_ChinhSuaTK = new javax.swing.JButton();
@@ -54,11 +54,15 @@ public class jpanel_QuanLyTaiKhoan extends javax.swing.JPanel {
             }
         });
 
-        jlable_Search.setBackground(new java.awt.Color(255, 255, 255));
-        jlable_Search.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/search_FILL0_wght400_GRAD0_opsz24.png"))); // NOI18N
-        jlable_Search.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jlable_Search.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jlable_Search.setOpaque(true);
+        jButton1.setBackground(new java.awt.Color(52, 28, 11));
+        jButton1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
+        jButton1.setText("Tìm kiếm");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jpanel_SearchLayout = new javax.swing.GroupLayout(jpanel_Search);
         jpanel_Search.setLayout(jpanel_SearchLayout);
@@ -66,17 +70,17 @@ public class jpanel_QuanLyTaiKhoan extends javax.swing.JPanel {
             jpanel_SearchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jpanel_SearchLayout.createSequentialGroup()
                 .addComponent(jtextfield_Search, javax.swing.GroupLayout.PREFERRED_SIZE, 319, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
-                .addComponent(jlable_Search, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(40, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jpanel_SearchLayout.setVerticalGroup(
             jpanel_SearchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jpanel_SearchLayout.createSequentialGroup()
                 .addGap(0, 0, 0)
-                .addGroup(jpanel_SearchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jlable_Search, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jtextfield_Search, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jpanel_SearchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jtextfield_Search, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(30, Short.MAX_VALUE))
         );
 
@@ -126,7 +130,7 @@ public class jpanel_QuanLyTaiKhoan extends javax.swing.JPanel {
                         .addComponent(jbutton_XoaTK, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
                         .addComponent(jbutton_ChinhSuaTK, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addComponent(jbutton_ThemTK, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 90, Short.MAX_VALUE))
+                .addGap(0, 47, Short.MAX_VALUE))
         );
         jpanel_DieuKhienLayout.setVerticalGroup(
             jpanel_DieuKhienLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -140,7 +144,7 @@ public class jpanel_QuanLyTaiKhoan extends javax.swing.JPanel {
                         .addComponent(jbutton_XoaTK, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jbutton_ChinhSuaTK, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(12, Short.MAX_VALUE))
+                .addContainerGap(13, Short.MAX_VALUE))
         );
 
         jpanel_BangTK.setOpaque(false);
@@ -312,33 +316,65 @@ public class jpanel_QuanLyTaiKhoan extends javax.swing.JPanel {
         // TODO add your handling code here:
         // Kiểm tra xem đã chọn hàng trong bảng chưa
         if (jtable_BangrTK.getSelectedRow() != -1) {
-        // Lấy chỉ mục hàng được chọn
-        int selectedIndex = jtable_BangrTK.getSelectedRow();
-        // Lấy thông tin tài khoản từ danh sách taikhoan
-        TaiKhoan tk = taikhoan.get(selectedIndex);
-        
-        // Tạo một instance của frame Sửa Tài Khoản
-        jframe_ChinhSuaTK suaTaiKhoanFrame = new jframe_ChinhSuaTK();
-        suaTaiKhoanFrame.setTaiKhoanToEdit(tk);
-    
-        // Hiển thị frame sửa tài khoản như một popup
-        suaTaiKhoanFrame.setAlwaysOnTop(true);
-        suaTaiKhoanFrame.setVisible(true);
-        
-        suaTaiKhoanFrame.addWindowListener(new java.awt.event.WindowAdapter() {
-            @Override
-            public void windowClosed(java.awt.event.WindowEvent windowEvent) {
-                // Sau khi frame xác nhận xoá đóng, gọi phương thức showTable() để cập nhật lại bảng
-                showTable();
-            }
-        });
-        
-        }
-        else
-        {
+            // Lấy chỉ mục hàng được chọn
+            int selectedIndex = jtable_BangrTK.getSelectedRow();
+            // Lấy thông tin tài khoản từ danh sách taikhoan
+            TaiKhoan tk = taikhoan.get(selectedIndex);
+
+            // Tạo một instance của frame SuaTK và truyền dữ liệu qua constructor
+            jframe_ChinhSuaTK suaTaiKhoanFrame = new jframe_ChinhSuaTK(tk);
+
+            // Hiển thị frame sửa tài khoản như một popup
+            suaTaiKhoanFrame.setAlwaysOnTop(true);
+            suaTaiKhoanFrame.setVisible(true);
+
+            suaTaiKhoanFrame.addWindowListener(new java.awt.event.WindowAdapter() {
+                @Override
+                public void windowClosed(java.awt.event.WindowEvent windowEvent) {
+                    // Sau khi frame xác nhận xoá đóng, gọi phương thức showTable() để cập nhật lại bảng
+                    showTable();
+                }
+            });
+        } else {
             JOptionPane.showMessageDialog(jpanel_QuanLyTaiKhoan.this, "Hãy chọn một tài khoản trong bảng");
         }
     }//GEN-LAST:event_jbutton_ChinhSuaTKActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        String searchText = jtextfield_Search.getText().trim();
+
+    // Kiểm tra xem có từ khóa không
+    if (!searchText.isEmpty()) {
+        try {
+            int MATK = Integer.parseInt(searchText); // Chuyển đổi từ string sang int
+            ArrayList<TaiKhoan> resultList = new TaiKhoanDAO().FindByMATK(MATK);
+
+            if (!resultList.isEmpty()) {
+                // Hiển thị kết quả tìm kiếm trên bảng
+                DefaultTableModel model = (DefaultTableModel) jtable_BangrTK.getModel();
+                model.setRowCount(0); // Xóa dữ liệu cũ
+
+                for (TaiKhoan tk : resultList) {
+                    model.addRow(new Object[]{
+                        tk.getMATK(), // Hiển thị MATK trực tiếp
+                        tk.getMANV(),
+                        tk.getTENDANGNHAP(),
+                        tk.getMATKHAU()
+                    });
+                }
+            } else {
+                JOptionPane.showMessageDialog(this, "Không tìm thấy tài khoản với mã tài khoản: " + MATK, "Kết quả tìm kiếm", JOptionPane.INFORMATION_MESSAGE);
+                showTable(); // Hiển thị lại toàn bộ dữ liệu nếu không tìm thấy
+            }
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, "Mã tài khoản phải là số nguyên.", "Lỗi", JOptionPane.ERROR_MESSAGE);
+        }
+    } else {
+        // Nếu không có từ khóa, hiển thị toàn bộ dữ liệu
+        showTableSearch();
+    }
+    }//GEN-LAST:event_jButton1ActionPerformed
     public static void main (String args[]) {
         /* Set the Nimbus look and feel */
         
@@ -355,10 +391,10 @@ public class jpanel_QuanLyTaiKhoan extends javax.swing.JPanel {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jbutton_ChinhSuaTK;
     private javax.swing.JButton jbutton_ThemTK;
     private javax.swing.JButton jbutton_XoaTK;
-    private javax.swing.JLabel jlable_Search;
     private javax.swing.JPanel jpanel_BangTK;
     private javax.swing.JPanel jpanel_DieuKhien;
     private javax.swing.JPanel jpanel_Search;

@@ -16,9 +16,15 @@ import javax.swing.SwingUtilities;
 public class jframe_ChinhSuaTK extends javax.swing.JFrame {
 private TaiKhoan taiKhoanToEdit;
     
-    public jframe_ChinhSuaTK() {
-        this.setLocationRelativeTo(null);
+    public jframe_ChinhSuaTK(TaiKhoan tk) {
         initComponents();
+        this.taiKhoanToEdit = tk;
+        
+        // Hiển thị dữ liệu của tài khoản được chọn trong các trường nhập liệu
+        jtxt_MaTK.setText(String.valueOf(tk.getMATK()));
+        jtxt_MaNV.setText(String.valueOf(tk.getMANV()));
+        jtxt_TenDangNhap.setText(tk.getTENDANGNHAP());
+        jtxt_MatKhau.setText(String.valueOf(tk.getMATKHAU()));
     }
     
     public void setTaiKhoanToEdit(TaiKhoan tk) {
@@ -38,7 +44,7 @@ private TaiKhoan taiKhoanToEdit;
         jtxt_TenDangNhap = new javax.swing.JTextField();
         jtxt_MatKhau = new javax.swing.JTextField();
         jtxt_MaTK = new javax.swing.JTextField();
-        jtxt_MaTK1 = new javax.swing.JTextField();
+        jtxt_MaNV = new javax.swing.JTextField();
         jlabel_MaTK1 = new javax.swing.JLabel();
         jbtn_Huy = new javax.swing.JButton();
         jbtn_XacNhan = new javax.swing.JButton();
@@ -65,7 +71,7 @@ private TaiKhoan taiKhoanToEdit;
 
         jtxt_MaTK.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
-        jtxt_MaTK1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jtxt_MaNV.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
         jlabel_MaTK1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jlabel_MaTK1.setText("Mã nhân viên");
@@ -77,7 +83,7 @@ private TaiKhoan taiKhoanToEdit;
             .addGroup(jpanel_ThongTinChinhSuaLayout.createSequentialGroup()
                 .addGap(46, 46, 46)
                 .addGroup(jpanel_ThongTinChinhSuaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jtxt_MaTK1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jtxt_MaNV, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jlabel_MaTK1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jtxt_TenDangNhap, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jlabel_TenDangNhap, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -97,7 +103,7 @@ private TaiKhoan taiKhoanToEdit;
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jlabel_MaTK1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jtxt_MaTK1, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jtxt_MaNV, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jlabel_TenDangNhap)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -174,68 +180,65 @@ private TaiKhoan taiKhoanToEdit;
 
     private void jbtn_XacNhanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_XacNhanActionPerformed
         // Lấy thông tin từ các trường nhập liệu
-    String maNVStr = jtxt_MaTK1.getText();
-    String tenDangNhap = jtxt_TenDangNhap.getText();
-    String matKhauStr = jtxt_MatKhau.getText();
-    
-    TaiKhoanDAO taiKhoanDAO = new TaiKhoanDAO();
-    TaiKhoan taiKhoanMoi = new TaiKhoan();
-    
-    int matk_luu = taiKhoanToEdit.getMATK();
-    taiKhoanDAO.DeleteTK(taiKhoanToEdit.getMATK());
+        String maNVStr = jtxt_MaNV.getText();
+        String tenDangNhap = jtxt_TenDangNhap.getText();
+        String matKhauStr = jtxt_MatKhau.getText();
 
-    // Kiểm tra trường rỗng
-    if (maNVStr.equals("") || tenDangNhap.equals("") || matKhauStr.equals("")) {
-        JOptionPane.showMessageDialog(jframe_ChinhSuaTK.this, "Bạn cần nhập đủ dữ liệu");
-        return;
-    }
+        TaiKhoanDAO taiKhoanDAO = new TaiKhoanDAO();
+        TaiKhoan taiKhoanMoi = new TaiKhoan();
 
-    int maNV = 0;
-    int matKhau = 0;
-    boolean isValid = true;
+        int matk_luu = taiKhoanToEdit.getMATK();
+        taiKhoanDAO.DeleteTK(taiKhoanToEdit.getMATK());
 
-    // Kiểm tra định dạng mã nhân viên mới nhập
-    try {
-        maNV = Integer.parseInt(maNVStr);
-    } catch (NumberFormatException e) {
-        JOptionPane.showMessageDialog(jframe_ChinhSuaTK.this, "Mã nhân viên không hợp lệ");
-        isValid = false;
-    }
-
-    // Kiểm tra định dạng mật khẩu mới nhập
-    try {
-        matKhau = Integer.parseInt(matKhauStr);
-    } catch (NumberFormatException e) {
-        JOptionPane.showMessageDialog(jframe_ChinhSuaTK.this, "Mật khẩu không hợp lệ");
-        isValid = false;
-    } finally {
-        if (!isValid) {
+        // Kiểm tra trường rỗng
+        if (maNVStr.equals("") || tenDangNhap.equals("") || matKhauStr.equals("")) {
+            JOptionPane.showMessageDialog(jframe_ChinhSuaTK.this, "Bạn cần nhập đủ dữ liệu");
             return;
         }
-    }
 
-    taiKhoanMoi.setMATK(matk_luu);
-    taiKhoanMoi.setMANV(maNV);
-    taiKhoanMoi.setTENDANGNHAP(tenDangNhap);
-    taiKhoanMoi.setMATKHAU(matKhau);
-    
-    // Kiểm tra mã nhân viên đã tồn tại hay chưa
-    if (new TaiKhoanDAO().isMaNVExists(maNV)) {
-        JOptionPane.showMessageDialog(jframe_ChinhSuaTK.this, "Mã nhân viên mà bạn cập nhật đã tồn tại");
-        taiKhoanDAO.AddTK(taiKhoanToEdit);
-    } else
-    
-    // Kiểm tra tên đăng nhập đã tồn tại hay chưa
-    if (taiKhoanDAO.isTenDangNhapExists(tenDangNhap)) {
-        JOptionPane.showMessageDialog(jframe_ChinhSuaTK.this, "Tên đăng nhập mà bạn cập nhật đã tồn tại");
-        // Phục hồi tài khoản cũ nếu cập nhật thất bại
-        taiKhoanDAO.AddTK(taiKhoanToEdit);
-    } else {
-        taiKhoanDAO.AddTK(taiKhoanMoi);
-        JOptionPane.showMessageDialog(jframe_ChinhSuaTK.this, "Cập nhật thành công");
-        dispose(); // Đóng cửa sổ sau khi cập nhật thành công
-    }
-    
+        int maNV = 0;
+        int matKhau = 0;
+        boolean isValid = true;
+
+        // Kiểm tra định dạng mã nhân viên mới nhập
+        try {
+            maNV = Integer.parseInt(maNVStr);
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(jframe_ChinhSuaTK.this, "Mã nhân viên không hợp lệ");
+            isValid = false;
+        }
+
+        // Kiểm tra định dạng mật khẩu mới nhập
+        try {
+            matKhau = Integer.parseInt(matKhauStr);
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(jframe_ChinhSuaTK.this, "Mật khẩu không hợp lệ");
+            isValid = false;
+        } finally {
+            if (!isValid) {
+                return;
+            }
+        }
+
+        taiKhoanMoi.setMATK(matk_luu);
+        taiKhoanMoi.setMANV(maNV);
+        taiKhoanMoi.setTENDANGNHAP(tenDangNhap);
+        taiKhoanMoi.setMATKHAU(matKhau);
+
+        // Kiểm tra mã nhân viên đã tồn tại hay chưa
+        if (new TaiKhoanDAO().isMaNVExists(maNV)) {
+            JOptionPane.showMessageDialog(jframe_ChinhSuaTK.this, "Mã nhân viên mà bạn cập nhật đã tồn tại");
+            taiKhoanDAO.AddTK(taiKhoanToEdit);
+        } else // Kiểm tra tên đăng nhập đã tồn tại hay chưa
+        if (taiKhoanDAO.isTenDangNhapExists(tenDangNhap)) {
+            JOptionPane.showMessageDialog(jframe_ChinhSuaTK.this, "Tên đăng nhập mà bạn cập nhật đã tồn tại");
+            // Phục hồi tài khoản cũ nếu cập nhật thất bại
+            taiKhoanDAO.AddTK(taiKhoanToEdit);
+        } else {
+            taiKhoanDAO.AddTK(taiKhoanMoi);
+            JOptionPane.showMessageDialog(jframe_ChinhSuaTK.this, "Cập nhật thành công");
+            dispose(); // Đóng cửa sổ sau khi cập nhật thành công
+        }
     }//GEN-LAST:event_jbtn_XacNhanActionPerformed
 
     private void jbtn_HuyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_HuyActionPerformed
@@ -245,10 +248,8 @@ private TaiKhoan taiKhoanToEdit;
         window.dispose();
     }//GEN-LAST:event_jbtn_HuyActionPerformed
 
-//    /**
-//     * @param args the command line arguments
-//     */
-//    public static void main(String args[]) {
+
+    public static void main(String args[]) {
 //        /* Set the Nimbus look and feel */
 //        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
 //        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -273,12 +274,12 @@ private TaiKhoan taiKhoanToEdit;
 //        //</editor-fold>
 //
 //        /* Create and display the form */
-//        java.awt.EventQueue.invokeLater(new Runnable() {
-//            public void run() {
-//                new jframe_ChinhSuaTK().setVisible(true);
-//            }
-//        });
-//    }
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new jframe_ChinhSuaTK().setVisible(true);
+            }
+        });
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jbtn_Huy;
@@ -289,8 +290,8 @@ private TaiKhoan taiKhoanToEdit;
     private javax.swing.JLabel jlabel_TenDangNhap;
     private javax.swing.JPanel jpanel_ChinhSuaTK;
     private javax.swing.JPanel jpanel_ThongTinChinhSua;
+    private javax.swing.JTextField jtxt_MaNV;
     private javax.swing.JTextField jtxt_MaTK;
-    private javax.swing.JTextField jtxt_MaTK1;
     private javax.swing.JTextField jtxt_MatKhau;
     private javax.swing.JTextField jtxt_TenDangNhap;
     // End of variables declaration//GEN-END:variables

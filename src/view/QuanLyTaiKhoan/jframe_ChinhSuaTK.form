@@ -90,7 +90,7 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="46" pref="46" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jtxt_MaTK1" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
+                          <Component id="jtxt_MaNV" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
                           <Component id="jlabel_MaTK1" alignment="0" min="-2" pref="120" max="-2" attributes="0"/>
                           <Component id="jtxt_TenDangNhap" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
                           <Component id="jlabel_TenDangNhap" alignment="0" min="-2" pref="120" max="-2" attributes="0"/>
@@ -113,7 +113,7 @@
                       <EmptySpace max="32767" attributes="0"/>
                       <Component id="jlabel_MaTK1" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="jtxt_MaTK1" min="-2" pref="26" max="-2" attributes="0"/>
+                      <Component id="jtxt_MaNV" min="-2" pref="26" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="jlabel_TenDangNhap" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
@@ -173,7 +173,7 @@
                 </Property>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="jtxt_MaTK1">
+            <Component class="javax.swing.JTextField" name="jtxt_MaNV">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="14" style="0"/>

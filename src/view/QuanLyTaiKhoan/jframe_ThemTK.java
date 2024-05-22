@@ -25,13 +25,11 @@ public class jframe_ThemTK extends javax.swing.JFrame {
 
         jpanel_ThemTK = new javax.swing.JPanel();
         jpanel_ThongTinThem = new javax.swing.JPanel();
-        jlabel_MaTK = new javax.swing.JLabel();
         jlabel_MatKhau = new javax.swing.JLabel();
         jlabel_XacNhanMK = new javax.swing.JLabel();
         jlabel_TenDangNhap = new javax.swing.JLabel();
         jtxt_TenDangNhap = new javax.swing.JTextField();
         jtxt_MatKhau = new javax.swing.JTextField();
-        jtxt_MaTK = new javax.swing.JTextField();
         jtxt_XacNhanMK = new javax.swing.JTextField();
         jtxt_MaNV = new javax.swing.JTextField();
         jlabel_MaNV = new javax.swing.JLabel();
@@ -45,9 +43,6 @@ public class jframe_ThemTK extends javax.swing.JFrame {
 
         jpanel_ThongTinThem.setBackground(new java.awt.Color(255, 255, 255));
 
-        jlabel_MaTK.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jlabel_MaTK.setText("Mã tài khoản");
-
         jlabel_MatKhau.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jlabel_MatKhau.setText("Mật khẩu");
 
@@ -60,8 +55,6 @@ public class jframe_ThemTK extends javax.swing.JFrame {
         jtxt_TenDangNhap.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
         jtxt_MatKhau.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-
-        jtxt_MaTK.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
         jtxt_XacNhanMK.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
@@ -80,44 +73,38 @@ public class jframe_ThemTK extends javax.swing.JFrame {
         jpanel_ThongTinThemLayout.setHorizontalGroup(
             jpanel_ThongTinThemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jpanel_ThongTinThemLayout.createSequentialGroup()
-                .addGap(46, 46, 46)
+                .addGap(38, 38, 38)
                 .addGroup(jpanel_ThongTinThemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jtxt_XacNhanMK, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jtxt_MaNV, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jlabel_MaNV, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jtxt_TenDangNhap, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jlabel_TenDangNhap, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jtxt_TenDangNhap, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jlabel_MatKhau, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jtxt_MaTK, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jtxt_MatKhau, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jlabel_MaTK, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jlabel_XacNhanMK, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jtxt_XacNhanMK, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(51, Short.MAX_VALUE))
+                    .addComponent(jlabel_XacNhanMK, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(59, Short.MAX_VALUE))
         );
         jpanel_ThongTinThemLayout.setVerticalGroup(
             jpanel_ThongTinThemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jpanel_ThongTinThemLayout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addComponent(jlabel_MaTK)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jtxt_MaTK, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(45, 45, 45)
                 .addComponent(jlabel_MaNV)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(18, 18, 18)
                 .addComponent(jtxt_MaNV, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(3, 3, 3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jlabel_TenDangNhap)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(18, 18, 18)
                 .addComponent(jtxt_TenDangNhap, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jlabel_MatKhau)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jtxt_MatKhau, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(12, 12, 12)
                 .addComponent(jlabel_XacNhanMK)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jtxt_XacNhanMK, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(18, Short.MAX_VALUE))
         );
 
         jbtn_Huy.setBackground(new java.awt.Color(236, 227, 214));
@@ -145,7 +132,7 @@ public class jframe_ThemTK extends javax.swing.JFrame {
         jpanel_ThemTKLayout.setHorizontalGroup(
             jpanel_ThemTKLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpanel_ThemTKLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(43, Short.MAX_VALUE)
                 .addComponent(jpanel_ThongTinThem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(45, 45, 45))
             .addGroup(jpanel_ThemTKLayout.createSequentialGroup()
@@ -160,7 +147,7 @@ public class jframe_ThemTK extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpanel_ThemTKLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jpanel_ThongTinThem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 13, Short.MAX_VALUE)
                 .addGroup(jpanel_ThemTKLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jbtn_Huy)
                     .addComponent(jbtn_XacNhan))
@@ -189,98 +176,81 @@ public class jframe_ThemTK extends javax.swing.JFrame {
     }//GEN-LAST:event_jtxt_MaNVActionPerformed
 
     private void jbtn_XacNhanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_XacNhanActionPerformed
-    // TODO add your handling code here:
-    TaiKhoan tk = new TaiKhoan();
+        // TODO add your handling code here:
+        TaiKhoanDAO taiKhoanDAO = new TaiKhoanDAO();
+        TaiKhoan tk = new TaiKhoan();
 
-    String maTKStr = jtxt_MaTK.getText();
-    String maNVStr = jtxt_MaNV.getText();
-    String tenDangNhap = jtxt_TenDangNhap.getText();
-    String matKhauStr = jtxt_MatKhau.getText();
-    String xacNhanMKStr = jtxt_XacNhanMK.getText();
+        String maNVStr = jtxt_MaNV.getText();
+        String tenDangNhap = jtxt_TenDangNhap.getText();
+        String matKhauStr = jtxt_MatKhau.getText();
+        String xacNhanMKStr = jtxt_XacNhanMK.getText();
 
-    // Kiểm tra trường rỗng
-    if (maTKStr.equals("") || maNVStr.equals("") || tenDangNhap.equals("") || matKhauStr.equals("") || xacNhanMKStr.equals("")) {
-        JOptionPane.showMessageDialog(jframe_ThemTK.this, "Bạn cần nhập đủ dữ liệu");
-        return;
-    }
+        // Kiểm tra trường rỗng
+        if (maNVStr.equals("") || tenDangNhap.equals("") || matKhauStr.equals("") || xacNhanMKStr.equals("")) {
+            JOptionPane.showMessageDialog(this, "Bạn cần nhập đủ dữ liệu");
+            return;
+        }
 
-    int maTK = 0, maNV = 0, matKhau = 0, xacNhanMK = 0;
-    boolean isValid = true;
+        int maNV = 0, matKhau = 0, xacNhanMK = 0;
+        boolean isValid = true;
 
-    try {
-        maTK = Integer.parseInt(maTKStr);
-    } catch (NumberFormatException e) {
-        JOptionPane.showMessageDialog(jframe_ThemTK.this, "Mã tài khoản không hợp lệ");
-        isValid = false;
-    }
+        try {
+            maNV = Integer.parseInt(maNVStr);
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, "Mã nhân viên không hợp lệ");
+            isValid = false;
+        }
 
-    try {
-        maNV = Integer.parseInt(maNVStr);
-    } catch (NumberFormatException e) {
-        JOptionPane.showMessageDialog(jframe_ThemTK.this, "Mã nhân viên không hợp lệ");
-        isValid = false;
-    }
+        try {
+            matKhau = Integer.parseInt(matKhauStr);
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, "Mật khẩu không hợp lệ");
+            isValid = false;
+        }
 
-    try {
-        matKhau = Integer.parseInt(matKhauStr);
-    } catch (NumberFormatException e) {
-        JOptionPane.showMessageDialog(jframe_ThemTK.this, "Mật khẩu không hợp lệ");
-        isValid = false;
-    }
+        try {
+            xacNhanMK = Integer.parseInt(xacNhanMKStr);
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, "Xác nhận mật khẩu không hợp lệ");
+            isValid = false;
+        }
 
-    try {
-        xacNhanMK = Integer.parseInt(xacNhanMKStr);
-    } catch (NumberFormatException e) {
-        JOptionPane.showMessageDialog(jframe_ThemTK.this, "Xác nhận mật khẩu không hợp lệ");
-        isValid = false;
-    } finally {
         if (!isValid) {
             return;
         }
-    }
 
-    tk.setMATK(maTK);
-    tk.setMANV(maNV);
-    tk.setTENDANGNHAP(tenDangNhap);
-    tk.setMATKHAU(matKhau);
+        // Kiểm tra xác nhận mật khẩu
+        if (!matKhauStr.equals(xacNhanMKStr)) {
+            JOptionPane.showMessageDialog(this, "Xác nhận mật khẩu không khớp");
+            return;
+        }
 
-    // Kiểm tra xác nhận mật khẩu
-    if (!matKhauStr.equals(xacNhanMKStr)) {
-        JOptionPane.showMessageDialog(jframe_ThemTK.this, "Xác nhận mật khẩu không khớp");
-        return;
-    }
+        // Get the next available MATK
+        int maTK = taiKhoanDAO.getNextMaTK();
 
-    TaiKhoanDAO taiKhoanDAO = new TaiKhoanDAO();
-    // Kiểm tra mã tài khoản đã tồn tại hay chưa
-    if (taiKhoanDAO.isMaTKExists(maTK)) {
-        JOptionPane.showMessageDialog(jframe_ThemTK.this, "Mã tài khoản đã tồn tại");
-        return;
-    }
-    
-    // Kiểm tra mã nhân viên đã tồn tại hay chưa
-    if (taiKhoanDAO.isMaNVExists(maNV)) {
-        JOptionPane.showMessageDialog(jframe_ThemTK.this, "Mã nhân viên đã tồn tại");
-        return;
-    }
+        tk.setMATK(maTK);
+        tk.setMANV(maNV);
+        tk.setTENDANGNHAP(tenDangNhap);
+        tk.setMATKHAU(matKhau);
 
-    // Kiểm tra tên đăng nhập đã tồn tại hay chưa
-    if (taiKhoanDAO.isTenDangNhapExists(tenDangNhap)) {
-        JOptionPane.showMessageDialog(jframe_ThemTK.this, "Tên đăng nhập đã tồn tại");
-        return;
-    }
+        // Kiểm tra tên đăng nhập đã tồn tại hay chưa
+        if (taiKhoanDAO.isTenDangNhapExists(tenDangNhap)) {
+            JOptionPane.showMessageDialog(this, "Tên đăng nhập đã tồn tại");
+            return;
+        }
 
-    // Thêm tài khoản mới
-    taiKhoanDAO.AddTK(tk);
-    JOptionPane.showMessageDialog(jframe_ThemTK.this, "Thêm thành công");
-    Window window = SwingUtilities.getWindowAncestor(jbtn_XacNhan);
+        // Thêm tài khoản mới
+        taiKhoanDAO.AddTK(tk);
+        JOptionPane.showMessageDialog(this, "Thêm thành công");
+        Window window = SwingUtilities.getWindowAncestor(jbtn_XacNhan);
         window.dispose();
     }//GEN-LAST:event_jbtn_XacNhanActionPerformed
 
     private void jbtn_HuyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_HuyActionPerformed
         // TODO add your handling code here:
-            // Đóng cửa sổ hiện tại
-            Window window = SwingUtilities.getWindowAncestor(jbtn_Huy);
-            window.dispose();
+        // Đóng cửa sổ hiện tại
+        Window window = SwingUtilities.getWindowAncestor(jbtn_Huy);
+        window.dispose();
     }//GEN-LAST:event_jbtn_HuyActionPerformed
 
 //    /**
@@ -322,14 +292,12 @@ public class jframe_ThemTK extends javax.swing.JFrame {
     private javax.swing.JButton jbtn_Huy;
     private javax.swing.JButton jbtn_XacNhan;
     private javax.swing.JLabel jlabel_MaNV;
-    private javax.swing.JLabel jlabel_MaTK;
     private javax.swing.JLabel jlabel_MatKhau;
     private javax.swing.JLabel jlabel_TenDangNhap;
     private javax.swing.JLabel jlabel_XacNhanMK;
     private javax.swing.JPanel jpanel_ThemTK;
     private javax.swing.JPanel jpanel_ThongTinThem;
     private javax.swing.JTextField jtxt_MaNV;
-    private javax.swing.JTextField jtxt_MaTK;
     private javax.swing.JTextField jtxt_MatKhau;
     private javax.swing.JTextField jtxt_TenDangNhap;
     private javax.swing.JTextField jtxt_XacNhanMK;

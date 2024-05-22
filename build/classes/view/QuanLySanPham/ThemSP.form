@@ -83,7 +83,7 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="jSeparator1" alignment="1" max="32767" attributes="0"/>
-                          <Component id="jLabel_title" alignment="1" pref="488" max="32767" attributes="0"/>
+                          <Component id="jLabel_title" alignment="1" pref="476" max="32767" attributes="0"/>
                           <Component id="jPanel_noidung" alignment="1" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
@@ -140,47 +140,42 @@
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
-                                  <Component id="jLabel_masp" min="-2" pref="130" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="jTextField_masp" pref="340" max="32767" attributes="0"/>
-                              </Group>
-                              <Group type="102" alignment="0" attributes="0">
                                   <Component id="jLabel_giaban" min="-2" pref="130" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="jTextField_giaban" max="32767" attributes="0"/>
+                                  <Component id="jtf_giaban" max="32767" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <Component id="jLabel_dvt" min="-2" pref="130" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="jTextField_dvt" max="32767" attributes="0"/>
+                                  <Component id="jtf_dvt" max="32767" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <Component id="jLabel_gianhap" min="-2" pref="130" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="jTextField_gianhap" max="32767" attributes="0"/>
+                                  <Component id="jtf_gianhap" max="32767" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <Component id="jLabel_mota" min="-2" pref="130" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="jTextField_mota" max="32767" attributes="0"/>
+                                  <Component id="jtf_mota" max="32767" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <Component id="jLabel_sl" min="-2" pref="130" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="jTextField_sl" max="32767" attributes="0"/>
+                                  <Component id="jtf_sl" max="32767" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <Component id="jLabel_maloai" min="-2" pref="130" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="jTextField_maloai" max="32767" attributes="0"/>
+                                  <Component id="jtf_maloai" max="32767" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <Component id="jLabel_ten" min="-2" pref="130" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="jTextField_ten" max="32767" attributes="0"/>
+                                  <Component id="jtf_ten" max="32767" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="1" attributes="0">
-                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                  <EmptySpace min="0" pref="294" max="32767" attributes="0"/>
                                   <Component id="jButton_huy" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Component id="jButton_update" min="-2" max="-2" attributes="0"/>
@@ -193,47 +188,42 @@
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jLabel_masp" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                              <Component id="jTextField_masp" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="jLabel_maloai" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                              <Component id="jTextField_maloai" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jtf_maloai" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="jtf_ten" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel_ten" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                              <Component id="jTextField_ten" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="jLabel_dvt" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                              <Component id="jTextField_dvt" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jtf_dvt" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="jLabel_gianhap" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                              <Component id="jTextField_gianhap" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jtf_gianhap" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="jLabel_giaban" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                              <Component id="jTextField_giaban" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jtf_giaban" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="jLabel_sl" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                              <Component id="jTextField_sl" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jtf_sl" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="jLabel_mota" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                              <Component id="jTextField_mota" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jtf_mota" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace pref="23" max="32767" attributes="0"/>
+                          <EmptySpace pref="9" max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="jButton_huy" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jButton_update" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -244,17 +234,6 @@
                 </DimensionLayout>
               </Layout>
               <SubComponents>
-                <Component class="javax.swing.JLabel" name="jLabel_masp">
-                  <Properties>
-                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Segoe UI" size="14" style="1"/>
-                    </Property>
-                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                      <Color blue="40" green="5e" red="93" type="rgb"/>
-                    </Property>
-                    <Property name="text" type="java.lang.String" value="M&#xe3; s&#x1ea3;n ph&#x1ea9;m"/>
-                  </Properties>
-                </Component>
                 <Component class="javax.swing.JLabel" name="jLabel_dvt">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -288,7 +267,7 @@
                     <Property name="text" type="java.lang.String" value="Gi&#xe1; b&#xe1;n"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="jTextField_masp">
+                <Component class="javax.swing.JTextField" name="jtf_dvt">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Segoe UI" size="14" style="0"/>
@@ -298,7 +277,7 @@
                     </Property>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="jTextField_dvt">
+                <Component class="javax.swing.JTextField" name="jtf_gianhap">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Segoe UI" size="14" style="0"/>
@@ -308,17 +287,7 @@
                     </Property>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="jTextField_gianhap">
-                  <Properties>
-                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Segoe UI" size="14" style="0"/>
-                    </Property>
-                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                      <Color blue="e" green="2a" red="5e" type="rgb"/>
-                    </Property>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JTextField" name="jTextField_giaban">
+                <Component class="javax.swing.JTextField" name="jtf_giaban">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Segoe UI" size="14" style="0"/>
@@ -341,6 +310,9 @@
                     </Property>
                     <Property name="text" type="java.lang.String" value="TH&#xca;M"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton_updateActionPerformed"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JButton" name="jButton_huy">
                   <Properties>
@@ -381,7 +353,7 @@
                     <Property name="text" type="java.lang.String" value="M&#xf4; t&#x1ea3;"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="jTextField_sl">
+                <Component class="javax.swing.JTextField" name="jtf_sl">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Segoe UI" size="14" style="0"/>
@@ -391,7 +363,7 @@
                     </Property>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="jTextField_mota">
+                <Component class="javax.swing.JTextField" name="jtf_mota">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Segoe UI" size="14" style="0"/>
@@ -412,7 +384,7 @@
                     <Property name="text" type="java.lang.String" value="M&#xe3; lo&#x1ea1;i"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="jTextField_maloai">
+                <Component class="javax.swing.JTextField" name="jtf_maloai">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Segoe UI" size="14" style="0"/>
@@ -433,7 +405,7 @@
                     <Property name="text" type="java.lang.String" value="T&#xea;n s&#x1ea3;n ph&#x1ea9;m"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="jTextField_ten">
+                <Component class="javax.swing.JTextField" name="jtf_ten">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Segoe UI" size="14" style="0"/>

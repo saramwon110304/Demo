@@ -11,13 +11,14 @@ import java.util.ArrayList;
 
 public class SanPhamDAO {
     
-    private Connection cons = null;
+    private Connection conn = null;
     public SanPhamDAO() {
         try {
-            String url="jdbc:oracle:thin:@localhost:1521:orcl21";
-            String user = "c##sinhvien01";
-            String password = "094492";
-            cons = DriverManager.getConnection(url, user, password);
+            Class.forName("oracle.jdbc.OracleDriver");
+            String url = "jdbc:oracle:thin:@localhost:1521:orcl";
+            String uname = "c##QuanLyCuaHangBanTrangSuc";
+            String upass = "userpass";
+            conn = DriverManager.getConnection(url, uname, upass);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -27,7 +28,7 @@ public class SanPhamDAO {
     ArrayList<SanPham> list = new ArrayList<>();
     String sql = "SELECT * FROM TAIKHOAN ORDER BY MASP ASC"; // Thay đổi cú pháp SQL phù hợp với Oracle SQL
     try {
-        PreparedStatement ps = cons.prepareStatement(sql);
+        PreparedStatement ps = conn.prepareStatement(sql);
         ResultSet rs = ps.executeQuery();
         while (rs.next()) {
             SanPham sp = new SanPham();
@@ -52,7 +53,7 @@ public class SanPhamDAO {
         SanPham sanPham = null;
         String sql = "SELECT * FROM SANPHAM WHERE MASP = ?"; // Sửa lại cú pháp SQL phù hợp với Oracle SQL
         try {
-            PreparedStatement ps = cons.prepareStatement(sql);
+            PreparedStatement ps = conn.prepareStatement(sql);
             ps.setInt(1, maSP);
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
@@ -77,7 +78,7 @@ public int laySoLuongSanPham(int maSP) {
     int soLuong = 0;
     String sql = "SELECT SOLUONG FROM SANPHAM WHERE MASP = ?";
     try {
-        PreparedStatement ps = cons.prepareStatement(sql);
+        PreparedStatement ps = conn.prepareStatement(sql);
         ps.setInt(1, maSP);
         ResultSet rs = ps.executeQuery();
         if (rs.next()) {
@@ -95,7 +96,7 @@ public int laySoLuongSanPham(int maSP) {
     try {
         // Xóa tài khoản từ bảng TAIKHOAN
         String deleteTaiKhoanSQL = "DELETE FROM TAIKHOAN WHERE MASP = ?";
-        PreparedStatement deleteTaiKhoanStmt = cons.prepareStatement(deleteTaiKhoanSQL);
+        PreparedStatement deleteTaiKhoanStmt = conn.prepareStatement(deleteTaiKhoanSQL);
         deleteTaiKhoanStmt.setInt(1, MASP);
         deleteTaiKhoanStmt.executeUpdate();
 
@@ -109,7 +110,7 @@ public int laySoLuongSanPham(int maSP) {
 
         // Tiến hành thêm tài khoản mới vào bảng TAIKHOAN
         String sql = "INSERT INTO SANPHAM (MATK, MANV, TENDNHAP, MATKHAU) VALUES (?, ?, ?, ?)";
-        PreparedStatement ps = cons.prepareStatement(sql);
+        PreparedStatement ps = conn.prepareStatement(sql);
         ps.setInt(1, sanpham.getMASP());
         ps.setInt(2, sanpham.getMALOAI());
         ps.setString(3, sanpham.getTENSP());

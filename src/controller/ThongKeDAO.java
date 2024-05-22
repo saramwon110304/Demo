@@ -8,13 +8,14 @@ import java.util.TreeMap;
 
 public class ThongKeDAO {
     
-    private Connection cons = null;
+    private Connection conn = null;
     public ThongKeDAO() {
         try {
-            String url="jdbc:oracle:thin:@localhost:1521:orcl21";
-            String user = "c##sinhvien01";
-            String password = "094492";
-            cons = DriverManager.getConnection(url, user, password);
+            Class.forName("oracle.jdbc.OracleDriver");
+            String url = "jdbc:oracle:thin:@localhost:1521:orcl";
+            String uname = "c##QuanLyCuaHangBanTrangSuc";
+            String upass = "userpass";
+            conn = DriverManager.getConnection(url, uname, upass);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -25,7 +26,7 @@ public class ThongKeDAO {
     String query = "SELECT EXTRACT(MONTH FROM NGAYDH) AS month, SUM(TRIGIA) AS revenue " +
                    "FROM DonHang WHERE EXTRACT(YEAR FROM NGAYDH) = ? " +
                    "GROUP BY EXTRACT(MONTH FROM NGAYDH) ORDER BY month";
-    try (PreparedStatement ps = cons.prepareStatement(query)) {
+    try (PreparedStatement ps = conn.prepareStatement(query)) {
         ps.setInt(1, year);
         try (ResultSet rs = ps.executeQuery()) {
             while (rs.next()) {
@@ -46,7 +47,7 @@ public class ThongKeDAO {
     String query = "SELECT EXTRACT(DAY FROM NGAYDH) AS day, SUM(TRIGIA) AS revenue " +
                    "FROM DonHang WHERE EXTRACT(YEAR FROM NGAYDH) = ? AND EXTRACT(MONTH FROM NGAYDH) = ? " +
                    "GROUP BY EXTRACT(DAY FROM NGAYDH) ORDER BY day";
-    try (PreparedStatement ps = cons.prepareStatement(query)) {
+    try (PreparedStatement ps = conn.prepareStatement(query)) {
         ps.setInt(1, year);
         ps.setInt(2, month);
         try (ResultSet rs = ps.executeQuery()) {

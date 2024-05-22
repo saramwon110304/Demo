@@ -1,18 +1,27 @@
-
 package view.QuanLyKhachHang;
 
-import java.awt.image.BufferedImage;
-import java.io.IOException;
-import javax.imageio.ImageIO;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import javax.swing.JOptionPane;
+import view.ConnectDB;
 
-/**
- *
- * @author Tran Thi Kieu Oanh
- */
 public class ThemKH extends javax.swing.JFrame {
+
+    Connection conn = null;
+    ConnectDB cn = new ConnectDB();
+    ResultSet rs = null;
+    PreparedStatement pst = null;
 
     public ThemKH() {
         initComponents();
+    }
+
+    private void xoatrang() {
+        jtf_ten.setText("");
+        jtf_diachi.setText("");
+        jtf_sodt.setText("");
+        jtf_ngaydk.setText("");
     }
 
     @SuppressWarnings("unchecked")
@@ -24,18 +33,16 @@ public class ThemKH extends javax.swing.JFrame {
         jLabel_TitleThem = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         jPanel_noidung = new javax.swing.JPanel();
-        jLabel_makh = new javax.swing.JLabel();
         jLabel_sdt = new javax.swing.JLabel();
         jLabel_diachi = new javax.swing.JLabel();
-        jLabel_ngdk = new javax.swing.JLabel();
-        jTextField_makh = new javax.swing.JTextField();
-        jTextField_diachi = new javax.swing.JTextField();
-        jTextField_ngdk = new javax.swing.JTextField();
+        jLabel_ngaydk = new javax.swing.JLabel();
+        jtf_diachi = new javax.swing.JTextField();
+        jtf_ngaydk = new javax.swing.JTextField();
         jButton_update = new javax.swing.JButton();
         jButton_huy = new javax.swing.JButton();
-        jTextField_sdt = new javax.swing.JTextField();
+        jtf_sodt = new javax.swing.JTextField();
         jLabel_ten = new javax.swing.JLabel();
-        jTextField_ten = new javax.swing.JTextField();
+        jtf_ten = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -53,10 +60,6 @@ public class ThemKH extends javax.swing.JFrame {
 
         jPanel_noidung.setBackground(new java.awt.Color(245, 237, 224));
 
-        jLabel_makh.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel_makh.setForeground(new java.awt.Color(147, 94, 64));
-        jLabel_makh.setText("Mã khách hàng");
-
         jLabel_sdt.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel_sdt.setForeground(new java.awt.Color(147, 94, 64));
         jLabel_sdt.setText("Số điện thoại");
@@ -65,34 +68,41 @@ public class ThemKH extends javax.swing.JFrame {
         jLabel_diachi.setForeground(new java.awt.Color(147, 94, 64));
         jLabel_diachi.setText("Địa chỉ");
 
-        jLabel_ngdk.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel_ngdk.setForeground(new java.awt.Color(147, 94, 64));
-        jLabel_ngdk.setText("Ngày đăng ký");
+        jLabel_ngaydk.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel_ngaydk.setForeground(new java.awt.Color(147, 94, 64));
+        jLabel_ngaydk.setText("Ngày đăng ký");
 
-        jTextField_makh.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jTextField_makh.setForeground(new java.awt.Color(94, 42, 14));
+        jtf_diachi.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jtf_diachi.setForeground(new java.awt.Color(94, 42, 14));
 
-        jTextField_diachi.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jTextField_diachi.setForeground(new java.awt.Color(94, 42, 14));
-
-        jTextField_ngdk.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jTextField_ngdk.setForeground(new java.awt.Color(94, 42, 14));
+        jtf_ngaydk.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jtf_ngaydk.setForeground(new java.awt.Color(94, 42, 14));
 
         jButton_update.setBackground(new java.awt.Color(147, 94, 64));
         jButton_update.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jButton_update.setForeground(new java.awt.Color(255, 255, 255));
         jButton_update.setText("THÊM");
+        jButton_update.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton_updateActionPerformed(evt);
+            }
+        });
 
         jButton_huy.setBackground(new java.awt.Color(147, 94, 64));
         jButton_huy.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jButton_huy.setForeground(new java.awt.Color(255, 255, 255));
         jButton_huy.setText("HỦY");
-
-        jTextField_sdt.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jTextField_sdt.setForeground(new java.awt.Color(94, 42, 14));
-        jTextField_sdt.addActionListener(new java.awt.event.ActionListener() {
+        jButton_huy.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField_sdtActionPerformed(evt);
+                jButton_huyActionPerformed(evt);
+            }
+        });
+
+        jtf_sodt.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jtf_sodt.setForeground(new java.awt.Color(94, 42, 14));
+        jtf_sodt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtf_sodtActionPerformed(evt);
             }
         });
 
@@ -100,8 +110,8 @@ public class ThemKH extends javax.swing.JFrame {
         jLabel_ten.setForeground(new java.awt.Color(147, 94, 64));
         jLabel_ten.setText("Tên khách hàng");
 
-        jTextField_ten.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jTextField_ten.setForeground(new java.awt.Color(94, 42, 14));
+        jtf_ten.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jtf_ten.setForeground(new java.awt.Color(94, 42, 14));
 
         javax.swing.GroupLayout jPanel_noidungLayout = new javax.swing.GroupLayout(jPanel_noidung);
         jPanel_noidung.setLayout(jPanel_noidungLayout);
@@ -111,55 +121,47 @@ public class ThemKH extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel_noidungLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel_noidungLayout.createSequentialGroup()
-                        .addComponent(jLabel_makh, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel_ngaydk, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField_makh))
-                    .addGroup(jPanel_noidungLayout.createSequentialGroup()
-                        .addComponent(jLabel_ngdk, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField_ngdk))
+                        .addComponent(jtf_ngaydk))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel_noidungLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGap(0, 294, Short.MAX_VALUE)
                         .addComponent(jButton_huy)
                         .addGap(18, 18, 18)
                         .addComponent(jButton_update))
                     .addGroup(jPanel_noidungLayout.createSequentialGroup()
                         .addComponent(jLabel_sdt, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField_sdt))
+                        .addComponent(jtf_sodt))
                     .addGroup(jPanel_noidungLayout.createSequentialGroup()
                         .addComponent(jLabel_diachi, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField_diachi))
+                        .addComponent(jtf_diachi))
                     .addGroup(jPanel_noidungLayout.createSequentialGroup()
                         .addComponent(jLabel_ten, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField_ten)))
+                        .addComponent(jtf_ten)))
                 .addContainerGap())
         );
         jPanel_noidungLayout.setVerticalGroup(
             jPanel_noidungLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel_noidungLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel_noidungLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel_makh, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField_makh, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(39, 39, 39)
                 .addGroup(jPanel_noidungLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel_ten, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField_ten, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jtf_ten, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel_noidungLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel_diachi, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField_diachi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jtf_diachi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel_noidungLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel_sdt, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField_sdt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jtf_sodt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel_noidungLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel_ngdk, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField_ngdk, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel_ngaydk, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jtf_ngaydk, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
                 .addGroup(jPanel_noidungLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton_huy)
@@ -175,7 +177,7 @@ public class ThemKH extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jSeparator1, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel_TitleThem, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 488, Short.MAX_VALUE)
+                    .addComponent(jLabel_TitleThem, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 476, Short.MAX_VALUE)
                     .addComponent(jPanel_noidung, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -186,7 +188,7 @@ public class ThemKH extends javax.swing.JFrame {
                 .addComponent(jLabel_TitleThem, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 7, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jPanel_noidung, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
@@ -227,9 +229,87 @@ public class ThemKH extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField_sdtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField_sdtActionPerformed
+    private void jtf_sodtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtf_sodtActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField_sdtActionPerformed
+    }//GEN-LAST:event_jtf_sodtActionPerformed
+
+    private void jButton_updateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_updateActionPerformed
+        // TODO add your handling code here:
+        // TODO add your handling code here:
+        conn = cn.getConnection();
+        try {
+            if (jtf_ten.getText().equals("") || jtf_diachi.getText().equals("") || jtf_sodt.getText().equals("") || jtf_ngaydk.getText().equals("")) {
+                JOptionPane.showMessageDialog(this, "Bạn cần nhập đủ dữ liệu");
+            } else {
+                StringBuffer sb = new StringBuffer();
+                String sql_check = "SELECT HOTEN, DIACHI, SODT, NGDK FROM KHACHHANG WHERE hoten = ? AND DIACHI = ? AND SODT = ? AND NGDK = ?";
+                pst = conn.prepareStatement(sql_check);
+                pst.setString(1, jtf_ten.getText());
+                pst.setString(2, jtf_diachi.getText());
+                pst.setString(3, jtf_sodt.getText());
+                pst.setString(4, jtf_ngaydk.getText());
+                rs = pst.executeQuery();
+
+                if (rs.next()) {
+                    sb.append("Khách hàng này đã tồn tại");
+                }
+                if (sb.length() > 0) {
+                    JOptionPane.showMessageDialog(this, sb.toString());
+                } else {
+                    String sqlMax = "SELECT MAX(MAKH) AS MAX_MAKH FROM KHACHHANG";
+                    pst = conn.prepareStatement(sqlMax);
+                    rs = pst.executeQuery();
+
+                    int newMAKH = 0;
+                    if (rs.next()) {
+                        int maxMAKH = rs.getInt("MAX_MAKH");
+                        newMAKH = maxMAKH + 1;
+                    }
+                    String sql = "INSERT INTO KHACHHANG (MAKH, HOTEN, DIACHI, SODT, NGDK) VALUES (?, ?, ?, ?, ?)";
+                    pst = conn.prepareStatement(sql);
+                    pst.setInt(1, newMAKH); // Thiết lập giá trị MAKH mới
+                    pst.setString(2, jtf_ten.getText());
+                    pst.setString(3, jtf_diachi.getText());
+                    pst.setString(4, jtf_sodt.getText());
+                    pst.setString(5, jtf_ngaydk.getText());
+                    int kq = pst.executeUpdate();
+
+                    if (kq > 0) {
+                        JOptionPane.showMessageDialog(this, "Thêm mới thành công");
+                        xoatrang();
+                        // Quay lại jpanel_QLKH và cập nhật thông tin lên jtable_KH
+                        jpanel_QLKH panelQLKH = new jpanel_QLKH();
+                        panelQLKH.showTableData();
+                        // Đóng frame hiện tại
+                        this.dispose();
+                    } else {
+                        JOptionPane.showMessageDialog(this, "Thêm mới thất bại");
+                    }
+                }
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Lỗi SQL:" + e.getMessage());
+        } finally {
+            try {
+                if (pst != null) {
+                    pst.close();
+                }
+                if (conn != null) {
+                    conn.close();
+                }
+            } catch (Exception e) {
+                System.out.println("Lỗi đóng kết nối: " + e.getMessage());
+            }
+        }
+    }//GEN-LAST:event_jButton_updateActionPerformed
+
+    private void jButton_huyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_huyActionPerformed
+        // TODO add your handling code here:
+        jpanel_QLKH panelQLKH = new jpanel_QLKH();
+        panelQLKH.setVisible(true);
+        // Đóng frame hiện tại
+        this.dispose();
+    }//GEN-LAST:event_jButton_huyActionPerformed
 
     /**
      * @param args the command line arguments
@@ -271,18 +351,16 @@ public class ThemKH extends javax.swing.JFrame {
     private javax.swing.JButton jButton_update;
     private javax.swing.JLabel jLabel_TitleThem;
     private javax.swing.JLabel jLabel_diachi;
-    private javax.swing.JLabel jLabel_makh;
-    private javax.swing.JLabel jLabel_ngdk;
+    private javax.swing.JLabel jLabel_ngaydk;
     private javax.swing.JLabel jLabel_sdt;
     private javax.swing.JLabel jLabel_ten;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel_noidung;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JTextField jTextField_diachi;
-    private javax.swing.JTextField jTextField_makh;
-    private javax.swing.JTextField jTextField_ngdk;
-    private javax.swing.JTextField jTextField_sdt;
-    private javax.swing.JTextField jTextField_ten;
+    private javax.swing.JTextField jtf_diachi;
+    private javax.swing.JTextField jtf_ngaydk;
+    private javax.swing.JTextField jtf_sodt;
+    private javax.swing.JTextField jtf_ten;
     private view.panelBackgpround panelBackgpround1;
     // End of variables declaration//GEN-END:variables
 }

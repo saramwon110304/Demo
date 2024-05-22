@@ -12,12 +12,16 @@ import view.*;
  */
 public class XacNhanXoa extends javax.swing.JDialog {
 
-    /**
-     * Creates new form XacNhanXoa
-     */
-    public XacNhanXoa(java.awt.Frame parent, boolean modal) {
-        super(parent, modal);
+    private boolean confirmed = false;
+    private int maKhachHang;
+
+    public XacNhanXoa(int maKhachHang) {
+        this.maKhachHang = maKhachHang;
         initComponents();
+    }
+
+    public boolean isConfirmed() {
+        return confirmed;
     }
 
     /**
@@ -42,11 +46,21 @@ public class XacNhanXoa extends javax.swing.JDialog {
         jButton_xoa.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jButton_xoa.setForeground(new java.awt.Color(255, 255, 255));
         jButton_xoa.setText("XÁC NHẬN");
+        jButton_xoa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton_xoaActionPerformed(evt);
+            }
+        });
 
         jButton_huy.setBackground(new java.awt.Color(147, 94, 64));
         jButton_huy.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jButton_huy.setForeground(new java.awt.Color(255, 255, 255));
         jButton_huy.setText("HỦY");
+        jButton_huy.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton_huyActionPerformed(evt);
+            }
+        });
 
         jLabel_xacnhan.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel_xacnhan.setForeground(new java.awt.Color(52, 28, 11));
@@ -95,6 +109,18 @@ public class XacNhanXoa extends javax.swing.JDialog {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jButton_xoaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_xoaActionPerformed
+        // TODO add your handling code here:
+        confirmed = true; // Set confirmation status to true
+        dispose(); // Close the XacNhanXoa frame
+    }//GEN-LAST:event_jButton_xoaActionPerformed
+
+    private void jButton_huyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_huyActionPerformed
+        // TODO add your handling code here:
+        confirmed = false; // Set confirmation status to false
+        dispose(); // Close the XacNhanXoa frame
+    }//GEN-LAST:event_jButton_huyActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -126,14 +152,8 @@ public class XacNhanXoa extends javax.swing.JDialog {
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                XacNhanXoa dialog = new XacNhanXoa(new javax.swing.JFrame(), true);
-                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
-                    @Override
-                    public void windowClosing(java.awt.event.WindowEvent e) {
-                        System.exit(0);
-                    }
-                });
-                dialog.setVisible(true);
+                int maKhachHang = Integer.parseInt(args[0]);
+                new XacNhanXoa(maKhachHang).setVisible(true);
             }
         });
     }

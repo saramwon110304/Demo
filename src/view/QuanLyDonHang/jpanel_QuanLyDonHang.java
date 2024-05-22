@@ -41,7 +41,7 @@ public class jpanel_QuanLyDonHang extends javax.swing.JPanel {
         jpanel_DieuKhien = new javax.swing.JPanel();
         jpanel_Search = new javax.swing.JPanel();
         jtextfield_Search = new javax.swing.JTextField();
-        jlable_Search = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
         jbutton_TaoDH = new javax.swing.JButton();
         jbutton_XoaDH = new javax.swing.JButton();
         jpanel_BangDH = new javax.swing.JPanel();
@@ -57,18 +57,21 @@ public class jpanel_QuanLyDonHang extends javax.swing.JPanel {
 
         jpanel_Search.setOpaque(false);
 
-        jtextfield_Search.setText("Search");
         jtextfield_Search.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jtextfield_SearchActionPerformed(evt);
             }
         });
 
-        jlable_Search.setBackground(new java.awt.Color(255, 255, 255));
-        jlable_Search.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/search_FILL0_wght400_GRAD0_opsz24.png"))); // NOI18N
-        jlable_Search.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jlable_Search.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jlable_Search.setOpaque(true);
+        jButton1.setBackground(new java.awt.Color(52, 28, 11));
+        jButton1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
+        jButton1.setText("Tìm kiếm");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jpanel_SearchLayout = new javax.swing.GroupLayout(jpanel_Search);
         jpanel_Search.setLayout(jpanel_SearchLayout);
@@ -76,16 +79,15 @@ public class jpanel_QuanLyDonHang extends javax.swing.JPanel {
             jpanel_SearchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jpanel_SearchLayout.createSequentialGroup()
                 .addComponent(jtextfield_Search, javax.swing.GroupLayout.PREFERRED_SIZE, 319, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
-                .addComponent(jlable_Search, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(40, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jpanel_SearchLayout.setVerticalGroup(
             jpanel_SearchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jpanel_SearchLayout.createSequentialGroup()
-                .addGap(0, 0, 0)
                 .addGroup(jpanel_SearchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jlable_Search, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jtextfield_Search, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(30, Short.MAX_VALUE))
         );
@@ -121,23 +123,23 @@ public class jpanel_QuanLyDonHang extends javax.swing.JPanel {
             .addGroup(jpanel_DieuKhienLayout.createSequentialGroup()
                 .addGap(38, 38, 38)
                 .addComponent(jpanel_Search, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(122, 122, 122)
-                .addGroup(jpanel_DieuKhienLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jbutton_XoaDH, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jbutton_TaoDH, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(73, Short.MAX_VALUE))
+                .addGap(70, 70, 70)
+                .addGroup(jpanel_DieuKhienLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jbutton_TaoDH, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jbutton_XoaDH))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jpanel_DieuKhienLayout.setVerticalGroup(
             jpanel_DieuKhienLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpanel_DieuKhienLayout.createSequentialGroup()
-                .addContainerGap(59, Short.MAX_VALUE)
+                .addContainerGap(60, Short.MAX_VALUE)
                 .addGroup(jpanel_DieuKhienLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jpanel_Search, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jpanel_DieuKhienLayout.createSequentialGroup()
                         .addComponent(jbutton_TaoDH, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jbutton_XoaDH, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(37, 37, 37))
+                .addGap(31, 31, 31))
         );
 
         jpanel_BangDH.setBackground(new java.awt.Color(204, 255, 204));
@@ -145,7 +147,7 @@ public class jpanel_QuanLyDonHang extends javax.swing.JPanel {
         jpanel_BangDH.setPreferredSize(new java.awt.Dimension(765, 300));
 
         jscrollpane_BangDH.setBackground(new java.awt.Color(255, 204, 204));
-        jscrollpane_BangDH.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 12), new java.awt.Color(255, 255, 255))); // NOI18N
+        jscrollpane_BangDH.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 0, 11), new java.awt.Color(255, 255, 255))); // NOI18N
         jscrollpane_BangDH.setFont(new java.awt.Font("UTM Helve", 1, 14)); // NOI18N
 
         jtable_BangDH.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 14), new java.awt.Color(255, 255, 255))); // NOI18N
@@ -186,7 +188,7 @@ public class jpanel_QuanLyDonHang extends javax.swing.JPanel {
             .addGroup(jpanel_BangDHLayout.createSequentialGroup()
                 .addGap(40, 40, 40)
                 .addComponent(jscrollpane_BangDH, javax.swing.GroupLayout.PREFERRED_SIZE, 646, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(439, Short.MAX_VALUE))
+                .addContainerGap(144, Short.MAX_VALUE))
         );
         jpanel_BangDHLayout.setVerticalGroup(
             jpanel_BangDHLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -201,10 +203,10 @@ public class jpanel_QuanLyDonHang extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jpanel_BangDH, javax.swing.GroupLayout.DEFAULT_SIZE, 753, Short.MAX_VALUE)
+                .addComponent(jpanel_BangDH, javax.swing.GroupLayout.DEFAULT_SIZE, 830, Short.MAX_VALUE)
                 .addGap(12, 12, 12))
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jpanel_DieuKhien, javax.swing.GroupLayout.DEFAULT_SIZE, 759, Short.MAX_VALUE)
+                .addComponent(jpanel_DieuKhien, javax.swing.GroupLayout.DEFAULT_SIZE, 830, Short.MAX_VALUE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -220,38 +222,38 @@ public class jpanel_QuanLyDonHang extends javax.swing.JPanel {
     private void jtextfield_SearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtextfield_SearchActionPerformed
         // TODO add your handling code here:
         // Lấy từ khóa tìm kiếm từ textfield
-    String searchText = jtextfield_Search.getText().trim();
+        String searchText = jtextfield_Search.getText().trim();
 
-    // Kiểm tra xem có từ khóa không
-    if (!searchText.isEmpty()) {
-        try {
-            int MADH = Integer.parseInt(searchText); // Chuyển đổi từ string sang int
-            ArrayList<DonHang> resultList = new DonHangDAO().FindByMADH(MADH);
+        // Kiểm tra xem có từ khóa không
+        if (!searchText.isEmpty()) {
+            try {
+                int MADH = Integer.parseInt(searchText); // Chuyển đổi từ string sang int
+                ArrayList<DonHang> resultList = new DonHangDAO().FindByMADH(MADH);
 
-            if (!resultList.isEmpty()) {
-                // Hiển thị kết quả tìm kiếm trên bảng
-                DefaultTableModel model = (DefaultTableModel) jtable_BangDH.getModel();
-                model.setRowCount(0); // Xóa dữ liệu cũ
+                if (!resultList.isEmpty()) {
+                    // Hiển thị kết quả tìm kiếm trên bảng
+                    DefaultTableModel model = (DefaultTableModel) jtable_BangDH.getModel();
+                    model.setRowCount(0); // Xóa dữ liệu cũ
 
-                for (DonHang dh : resultList) {
-                    model.addRow(new Object[]{
-                        dh.getMADH(), // Hiển thị MADH trực tiếp
-                        dh.getMANV(),
-                        dh.getMAKH(),
-                        dh.getNGAYDH(),
-                        dh.getTRIGIA()
-                    });
+                    for (DonHang dh : resultList) {
+                        model.addRow(new Object[]{
+                            dh.getMADH(), // Hiển thị MADH trực tiếp
+                            dh.getMANV(),
+                            dh.getMAKH(),
+                            dh.getNGAYDH(),
+                            dh.getTRIGIA()
+                        });
+                    }
+                } else {
+                    JOptionPane.showMessageDialog(this, "Không tìm thấy đơn hàng với mã đơn hàng: " + MADH, "Kết quả tìm kiếm", JOptionPane.INFORMATION_MESSAGE);
+                    showTableDH(); // Hiển thị lại toàn bộ dữ liệu nếu không tìm thấy
                 }
-            } else {
-                JOptionPane.showMessageDialog(this, "Không tìm thấy đơn hàng với mã đơn hàng: " + MADH, "Kết quả tìm kiếm", JOptionPane.INFORMATION_MESSAGE);
-                showTableDH(); // Hiển thị lại toàn bộ dữ liệu nếu không tìm thấy
+            } catch (NumberFormatException e) {
+                JOptionPane.showMessageDialog(this, "Mã đơn hàng phải là số nguyên.", "Lỗi", JOptionPane.ERROR_MESSAGE);
             }
-        } catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(this, "Mã đơn hàng phải là số nguyên.", "Lỗi", JOptionPane.ERROR_MESSAGE);
-        }
-    } else {
-        // Nếu không có từ khóa, hiển thị toàn bộ dữ liệu
-        showTableSearch();
+        } else {
+            // Nếu không có từ khóa, hiển thị toàn bộ dữ liệu
+            showTableSearch();
     }
     }//GEN-LAST:event_jtextfield_SearchActionPerformed
 
@@ -311,6 +313,45 @@ public class jpanel_QuanLyDonHang extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_jbutton_XoaDHActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+                // TODO add your handling code here:
+        // Lấy từ khóa tìm kiếm từ textfield
+        String searchText = jtextfield_Search.getText().trim();
+
+        // Kiểm tra xem có từ khóa không
+        if (!searchText.isEmpty()) {
+            try {
+                int MADH = Integer.parseInt(searchText); // Chuyển đổi từ string sang int
+                ArrayList<DonHang> resultList = new DonHangDAO().FindByMADH(MADH);
+
+                if (!resultList.isEmpty()) {
+                    // Hiển thị kết quả tìm kiếm trên bảng
+                    DefaultTableModel model = (DefaultTableModel) jtable_BangDH.getModel();
+                    model.setRowCount(0); // Xóa dữ liệu cũ
+
+                    for (DonHang dh : resultList) {
+                        model.addRow(new Object[]{
+                            dh.getMADH(), // Hiển thị MADH trực tiếp
+                            dh.getMANV(),
+                            dh.getMAKH(),
+                            dh.getNGAYDH(),
+                            dh.getTRIGIA()
+                        });
+                    }
+                } else {
+                    JOptionPane.showMessageDialog(this, "Không tìm thấy đơn hàng với mã đơn hàng: " + MADH, "Kết quả tìm kiếm", JOptionPane.INFORMATION_MESSAGE);
+                    showTableDH(); // Hiển thị lại toàn bộ dữ liệu nếu không tìm thấy
+                }
+            } catch (NumberFormatException e) {
+                JOptionPane.showMessageDialog(this, "Mã đơn hàng phải là số nguyên.", "Lỗi", JOptionPane.ERROR_MESSAGE);
+            }
+        } else {
+            // Nếu không có từ khóa, hiển thị toàn bộ dữ liệu
+            showTableSearch();
+    }
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     public static void main (String args[]) {
         /* Set the Nimbus look and feel */
         
@@ -327,9 +368,9 @@ public class jpanel_QuanLyDonHang extends javax.swing.JPanel {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jbutton_TaoDH;
     private javax.swing.JButton jbutton_XoaDH;
-    private javax.swing.JLabel jlable_Search;
     private javax.swing.JPanel jpanel_BangDH;
     private javax.swing.JPanel jpanel_DieuKhien;
     private javax.swing.JPanel jpanel_Search;
