@@ -188,34 +188,34 @@ public class jpanel_ThongKe extends javax.swing.JPanel {
     private void jbutton_XemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbutton_XemActionPerformed
         // TODO add your handling code here:
         if (jcombobox_ChuKy.getSelectedItem().equals("Tháng")) {
-        String selectedYear = (String) jcombobox_ThoiGianTheoNam.getSelectedItem();
-        String selectedMonth = (String) jcombobox_ThoiGianTheoThang.getSelectedItem();
-        if (selectedYear != null && selectedMonth != null) {
-        int year = Integer.parseInt(selectedYear);
-        int month = Integer.parseInt(selectedMonth);
-        Map<Integer, Double> revenueData = thongKeDAO.getRevenueByMonth(year, month);
-        JFreeChart chart = createChartt(revenueData, year, month);
-            ChartPanel chartPanel = new ChartPanel(chart);
-            chartPanel.setPreferredSize(new Dimension(675, 400));
-            chart_ThongKe.removeAll();
-            chart_ThongKe.setLayout(new BorderLayout());
-            chart_ThongKe.add(chartPanel, BorderLayout.CENTER);
-            chart_ThongKe.validate();
+            String selectedYear = (String) jcombobox_ThoiGianTheoNam.getSelectedItem();
+            String selectedMonth = (String) jcombobox_ThoiGianTheoThang.getSelectedItem();
+            if (selectedYear != null && selectedMonth != null) {
+                int year = Integer.parseInt(selectedYear);
+                int month = Integer.parseInt(selectedMonth);
+                Map<Integer, Double> revenueData = thongKeDAO.getRevenueByMonth(year, month);
+                JFreeChart chart = createChartt(revenueData, year, month);
+                ChartPanel chartPanel = new ChartPanel(chart);
+                chartPanel.setPreferredSize(new Dimension(675, 400));
+                chart_ThongKe.removeAll();
+                chart_ThongKe.setLayout(new BorderLayout());
+                chart_ThongKe.add(chartPanel, BorderLayout.CENTER);
+                chart_ThongKe.validate();
             }
         } else {
-        String selectedYear = (String) jcombobox_ThoiGianTheoNam.getSelectedItem();
-        if (selectedYear != null) {
-            int year = Integer.parseInt(selectedYear);
-            Map<Integer, Double> revenueData = thongKeDAO.getRevenueByYear(year);
-            JFreeChart barChart = createChart(revenueData, year);
-            ChartPanel chartPanel = new ChartPanel(barChart);
-            chartPanel.setPreferredSize(new Dimension(675, 400));
-            chart_ThongKe.removeAll();
-            chart_ThongKe.setLayout(new BorderLayout());
-            chart_ThongKe.add(chartPanel, BorderLayout.CENTER);
-            chart_ThongKe.validate();
-                }
+            String selectedYear = (String) jcombobox_ThoiGianTheoNam.getSelectedItem();
+            if (selectedYear != null) {
+                int year = Integer.parseInt(selectedYear);
+                Map<Integer, Double> revenueData = thongKeDAO.getRevenueByYear(year);
+                JFreeChart barChart = createChart(revenueData, year);
+                ChartPanel chartPanel = new ChartPanel(barChart);
+                chartPanel.setPreferredSize(new Dimension(675, 400));
+                chart_ThongKe.removeAll();
+                chart_ThongKe.setLayout(new BorderLayout());
+                chart_ThongKe.add(chartPanel, BorderLayout.CENTER);
+                chart_ThongKe.validate();
             }
+        }
     }//GEN-LAST:event_jbutton_XemActionPerformed
 
     private JFreeChart createChart(Map<Integer, Double> revenueData, int year) {
@@ -231,7 +231,7 @@ public class jpanel_ThongKe extends javax.swing.JPanel {
                 PlotOrientation.VERTICAL,
                 false, true, false);
     }
-    
+
     private JFreeChart createChartt(Map<Integer, Double> revenueData, int year, int month) {
         DefaultCategoryDataset dataset = new DefaultCategoryDataset();
         for (Map.Entry<Integer, Double> entry : revenueData.entrySet()) {
@@ -249,58 +249,60 @@ public class jpanel_ThongKe extends javax.swing.JPanel {
     private void jbutton_LapBaoCaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbutton_LapBaoCaoActionPerformed
         // TODO add your handling code here:
         String chuKy = (String) jcombobox_ChuKy.getSelectedItem();
-    int year = Integer.parseInt((String) jcombobox_ThoiGianTheoNam.getSelectedItem());
-    Map<Integer, Double> revenueData = null;
+        int year = Integer.parseInt((String) jcombobox_ThoiGianTheoNam.getSelectedItem());
+        Map<Integer, Double> revenueData = null;
 
-    if ("Tháng".equals(chuKy)) {
-        int month = Integer.parseInt((String) jcombobox_ThoiGianTheoThang.getSelectedItem());
-        revenueData = thongKeDAO.getRevenueByMonth(year, month);
-    } else {
-        revenueData = thongKeDAO.getRevenueByYear(year);
-    }
-
-    if (revenueData != null) {
-        try (XSSFWorkbook workbook = new XSSFWorkbook()) {
-            XSSFSheet spreadsheet = workbook.createSheet("Doanh Thu");
-            XSSFRow row;
-            Cell cell;
-
-            // Tiêu đề báo cáo
-            row = spreadsheet.createRow((short) 0);
-            cell = row.createCell(0, CellType.STRING);
-            cell.setCellValue("BÁO CÁO DOANH THU");
-
-            // Tiêu đề các cột
-            row = spreadsheet.createRow((short) 1);
-            cell = row.createCell(0, CellType.STRING);
-            if ("Tháng".equals(chuKy)) {
-            cell.setCellValue("Thời gian (ngày)");
-            } else {
-            cell.setCellValue("Thời gian (tháng)");
-            }
-            cell = row.createCell(1, CellType.STRING);
-            cell.setCellValue("Doanh thu");
-
-            // Ghi dữ liệu doanh thu vào bảng tính
-            int rowNum = 2;
-            for (Map.Entry<Integer, Double> entry : revenueData.entrySet()) {
-                row = spreadsheet.createRow(rowNum++);
-                row.createCell(0, CellType.NUMERIC).setCellValue(entry.getKey());
-                row.createCell(1, CellType.NUMERIC).setCellValue(entry.getValue());
-            }
-
-            // Đường dẫn lưu file báo cáo
-            String filePath = "D:\\Clone Do An JAVA\\Quan-ly-cua-hang-ban-trang-suc\\File_bao_cao\\DoanhThu_" + chuKy + "_" + year + ".xlsx";
-            File file = new File(filePath);
-            try (FileOutputStream out = new FileOutputStream(file)) {
-                workbook.write(out);
-            }
-            System.out.println("File báo cáo đã được lưu tại: " + filePath);
-
-        } catch (IOException e) {
-            e.printStackTrace();
+        if ("Tháng".equals(chuKy)) {
+            int month = Integer.parseInt((String) jcombobox_ThoiGianTheoThang.getSelectedItem());
+            revenueData = thongKeDAO.getRevenueByMonth(year, month);
+        } else {
+            revenueData = thongKeDAO.getRevenueByYear(year);
         }
-    }
+
+        if (revenueData != null) {
+            try (XSSFWorkbook workbook = new XSSFWorkbook()) {
+                XSSFSheet spreadsheet = workbook.createSheet("Doanh Thu");
+                XSSFRow row;
+                Cell cell;
+
+                // Tiêu đề báo cáo
+                row = spreadsheet.createRow((short) 0);
+                cell = row.createCell(0, CellType.STRING);
+                cell.setCellValue("BÁO CÁO DOANH THU");
+
+                // Tiêu đề các cột
+                row = spreadsheet.createRow((short) 1);
+                cell = row.createCell(0, CellType.STRING);
+                if ("Tháng".equals(chuKy)) {
+                    cell.setCellValue("Thời gian (ngày)");
+                } else {
+                    cell.setCellValue("Thời gian (tháng)");
+                }
+                cell = row.createCell(1, CellType.STRING);
+                cell.setCellValue("Doanh thu");
+
+                // Ghi dữ liệu doanh thu vào bảng tính
+                int rowNum = 2;
+                for (Map.Entry<Integer, Double> entry : revenueData.entrySet()) {
+                    row = spreadsheet.createRow(rowNum++);
+                    row.createCell(0, CellType.NUMERIC).setCellValue(entry.getKey());
+                    row.createCell(1, CellType.NUMERIC).setCellValue(entry.getValue());
+                }
+
+                // Đường dẫn lưu file báo cáo
+                String filePath = "D:\\Clone Do An Java\\Quan-ly-cua-hang-ban-trang-suc_Clone\\File_bao_cao" + chuKy + "_" + year + ".xlsx";
+                File file = new File(filePath);
+                try (FileOutputStream out = new FileOutputStream(file)) {
+                    workbook.write(out);
+                    // Hiển thị dialog thông báo khi lập báo cáo thành công
+                    JOptionPane.showMessageDialog(this, "Báo cáo đã được lưu thành công tại:\n" + filePath, "Lập báo cáo thành công", JOptionPane.INFORMATION_MESSAGE);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
     }//GEN-LAST:event_jbutton_LapBaoCaoActionPerformed
 
     public static void main (String args[]) {

@@ -127,6 +127,16 @@ public class SuaSP extends javax.swing.JFrame {
 
         jtf_masp.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jtf_masp.setForeground(new java.awt.Color(94, 42, 14));
+        jtf_masp.addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentShown(java.awt.event.ComponentEvent evt) {
+                jtf_maspComponentShown(evt);
+            }
+        });
+        jtf_masp.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jtf_maspKeyTyped(evt);
+            }
+        });
 
         jtf_dvt.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jtf_dvt.setForeground(new java.awt.Color(94, 42, 14));
@@ -374,6 +384,17 @@ public class SuaSP extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Lỗi khi cập nhật sản phẩm: " + e.getMessage());
         }
     }//GEN-LAST:event_jButton_updateActionPerformed
+
+    private void jtf_maspComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_jtf_maspComponentShown
+        // TODO add your handling code here:
+        jtf_masp.setText(String.valueOf(maSanPham));
+        jtf_masp.setEditable(false);
+    }//GEN-LAST:event_jtf_maspComponentShown
+
+    private void jtf_maspKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtf_maspKeyTyped
+        // TODO add your handling code here:
+        JOptionPane.showMessageDialog(this, "Không được sửa dữ liệu của MASP", "Thông báo", JOptionPane.WARNING_MESSAGE);
+    }//GEN-LAST:event_jtf_maspKeyTyped
     
     private void QLSPFrame() {
         jpanel_QLSP qlsp = new jpanel_QLSP();

@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package view.QuanLyNhanVien;
 
 import java.sql.Connection;
@@ -49,18 +45,18 @@ public class ThemNV extends javax.swing.JFrame {
         jtf_ten = new javax.swing.JTextField();
         jtf_ngsinh = new javax.swing.JTextField();
         jtf_diachi = new javax.swing.JTextField();
-        jButton_them = new javax.swing.JButton();
-        jButton_huy = new javax.swing.JButton();
         jLabel_ngayvl = new javax.swing.JLabel();
         jLabel_ngsinh = new javax.swing.JLabel();
         jtf_sdt = new javax.swing.JTextField();
         jtf_ngvl = new javax.swing.JTextField();
         jLabel_manql = new javax.swing.JLabel();
         jtf_manql = new javax.swing.JTextField();
-        jLabel_matk = new javax.swing.JLabel();
-        jtf_matk = new javax.swing.JTextField();
         jLabel_gioitinh = new javax.swing.JLabel();
         jtf_gioitinh = new javax.swing.JTextField();
+        jLabel_matk = new javax.swing.JLabel();
+        jtf_matk = new javax.swing.JTextField();
+        jButton_huy = new javax.swing.JButton();
+        jButton_them = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -99,26 +95,6 @@ public class ThemNV extends javax.swing.JFrame {
         jtf_diachi.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jtf_diachi.setForeground(new java.awt.Color(94, 42, 14));
 
-        jButton_them.setBackground(new java.awt.Color(94, 42, 14));
-        jButton_them.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jButton_them.setForeground(new java.awt.Color(255, 255, 255));
-        jButton_them.setText("THÊM");
-        jButton_them.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton_themActionPerformed(evt);
-            }
-        });
-
-        jButton_huy.setBackground(new java.awt.Color(94, 42, 14));
-        jButton_huy.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jButton_huy.setForeground(new java.awt.Color(255, 255, 255));
-        jButton_huy.setText("HỦY");
-        jButton_huy.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton_huyActionPerformed(evt);
-            }
-        });
-
         jLabel_ngayvl.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel_ngayvl.setForeground(new java.awt.Color(94, 42, 14));
         jLabel_ngayvl.setText("Ngày vào làm");
@@ -140,19 +116,19 @@ public class ThemNV extends javax.swing.JFrame {
         jtf_manql.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jtf_manql.setForeground(new java.awt.Color(94, 42, 14));
 
-        jLabel_matk.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel_matk.setForeground(new java.awt.Color(94, 42, 14));
-        jLabel_matk.setText("Mã tài khoản");
-
-        jtf_matk.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jtf_matk.setForeground(new java.awt.Color(94, 42, 14));
-
         jLabel_gioitinh.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel_gioitinh.setForeground(new java.awt.Color(94, 42, 14));
         jLabel_gioitinh.setText("Giới tính");
 
         jtf_gioitinh.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jtf_gioitinh.setForeground(new java.awt.Color(94, 42, 14));
+
+        jLabel_matk.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel_matk.setForeground(new java.awt.Color(94, 42, 14));
+        jLabel_matk.setText("Mã tài khoản");
+
+        jtf_matk.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jtf_matk.setForeground(new java.awt.Color(94, 42, 14));
 
         javax.swing.GroupLayout jPanel_noidungLayout = new javax.swing.GroupLayout(jPanel_noidung);
         jPanel_noidung.setLayout(jPanel_noidungLayout);
@@ -162,30 +138,9 @@ public class ThemNV extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel_noidungLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel_noidungLayout.createSequentialGroup()
-                        .addComponent(jLabel_diachi, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jtf_diachi))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel_noidungLayout.createSequentialGroup()
-                        .addGap(0, 294, Short.MAX_VALUE)
-                        .addComponent(jButton_huy)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButton_them))
-                    .addGroup(jPanel_noidungLayout.createSequentialGroup()
-                        .addComponent(jLabel_ngayvl, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jtf_ngvl))
-                    .addGroup(jPanel_noidungLayout.createSequentialGroup()
-                        .addComponent(jLabel_sdt, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jtf_sdt))
-                    .addGroup(jPanel_noidungLayout.createSequentialGroup()
                         .addComponent(jLabel_manql, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jtf_manql))
-                    .addGroup(jPanel_noidungLayout.createSequentialGroup()
-                        .addComponent(jLabel_matk, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jtf_matk))
+                        .addComponent(jtf_manql, javax.swing.GroupLayout.DEFAULT_SIZE, 310, Short.MAX_VALUE))
                     .addGroup(jPanel_noidungLayout.createSequentialGroup()
                         .addGroup(jPanel_noidungLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel_ten, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -195,7 +150,23 @@ public class ThemNV extends javax.swing.JFrame {
                         .addGroup(jPanel_noidungLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jtf_ngsinh)
                             .addComponent(jtf_ten)
-                            .addComponent(jtf_gioitinh))))
+                            .addComponent(jtf_gioitinh)))
+                    .addGroup(jPanel_noidungLayout.createSequentialGroup()
+                        .addComponent(jLabel_ngayvl, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jtf_ngvl))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel_noidungLayout.createSequentialGroup()
+                        .addComponent(jLabel_sdt, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jtf_sdt))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel_noidungLayout.createSequentialGroup()
+                        .addComponent(jLabel_diachi, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jtf_diachi, javax.swing.GroupLayout.DEFAULT_SIZE, 310, Short.MAX_VALUE))
+                    .addGroup(jPanel_noidungLayout.createSequentialGroup()
+                        .addComponent(jLabel_matk, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jtf_matk)))
                 .addContainerGap())
         );
         jPanel_noidungLayout.setVerticalGroup(
@@ -206,39 +177,55 @@ public class ThemNV extends javax.swing.JFrame {
                     .addComponent(jLabel_manql, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jtf_manql, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel_noidungLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel_noidungLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel_matk, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jtf_matk, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(10, 10, 10)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
                 .addGroup(jPanel_noidungLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel_ten, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jtf_ten, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(jtf_ten, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel_ten, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel_noidungLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jtf_ngsinh, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel_ngsinh, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel_noidungLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel_gioitinh, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jtf_gioitinh, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(jtf_gioitinh, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel_gioitinh, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addGroup(jPanel_noidungLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jtf_diachi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel_diachi, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel_noidungLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel_noidungLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jtf_sdt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel_sdt, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(18, 18, 18)
                 .addGroup(jPanel_noidungLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jtf_ngvl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel_ngayvl, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel_noidungLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton_huy)
-                    .addComponent(jButton_them))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jLabel_ngayvl, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jtf_ngvl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
         );
+
+        jButton_huy.setBackground(new java.awt.Color(94, 42, 14));
+        jButton_huy.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jButton_huy.setForeground(new java.awt.Color(255, 255, 255));
+        jButton_huy.setText("HỦY");
+        jButton_huy.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton_huyActionPerformed(evt);
+            }
+        });
+
+        jButton_them.setBackground(new java.awt.Color(94, 42, 14));
+        jButton_them.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jButton_them.setForeground(new java.awt.Color(255, 255, 255));
+        jButton_them.setText("THÊM");
+        jButton_them.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton_themActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -251,6 +238,12 @@ public class ThemNV extends javax.swing.JFrame {
                     .addComponent(jLabel_title, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 476, Short.MAX_VALUE)
                     .addComponent(jPanel_noidung, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton_huy)
+                .addGap(34, 34, 34)
+                .addComponent(jButton_them)
+                .addGap(21, 21, 21))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -261,24 +254,28 @@ public class ThemNV extends javax.swing.JFrame {
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jPanel_noidung, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(182, 182, 182))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton_huy)
+                    .addComponent(jButton_them))
+                .addGap(140, 140, 140))
         );
 
         javax.swing.GroupLayout panelBackgpround1Layout = new javax.swing.GroupLayout(panelBackgpround1);
         panelBackgpround1.setLayout(panelBackgpround1Layout);
         panelBackgpround1Layout.setHorizontalGroup(
             panelBackgpround1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelBackgpround1Layout.createSequentialGroup()
-                .addContainerGap(194, Short.MAX_VALUE)
+            .addGroup(panelBackgpround1Layout.createSequentialGroup()
+                .addGap(177, 177, 177)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(206, 206, 206))
+                .addContainerGap(223, Short.MAX_VALUE))
         );
         panelBackgpround1Layout.setVerticalGroup(
             panelBackgpround1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelBackgpround1Layout.createSequentialGroup()
-                .addGap(78, 78, 78)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 476, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(46, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelBackgpround1Layout.createSequentialGroup()
+                .addContainerGap(59, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 501, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(40, 40, 40))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -302,81 +299,91 @@ public class ThemNV extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton_themActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_themActionPerformed
-        // TODO add your handling code here:
         conn = cn.getConnection();
         try {
-            if (jtf_manql.getText().equals("") || jtf_ten.getText().equals("") || jtf_ngsinh.getText().equals("") || jtf_gioitinh.getText().equals("") || jtf_diachi.getText().equals("") || jtf_sdt.getText().equals("") || jtf_ngvl.getText().equals("")) {
+            // Kiểm tra dữ liệu đầu vào
+            if (jtf_manql.getText().isEmpty() || jtf_ten.getText().isEmpty() || jtf_ngsinh.getText().isEmpty()
+                    || jtf_gioitinh.getText().isEmpty() || jtf_diachi.getText().isEmpty() || jtf_sdt.getText().isEmpty()
+                    || jtf_ngvl.getText().isEmpty()) {
                 JOptionPane.showMessageDialog(this, "Bạn cần nhập đủ dữ liệu");
-            } else {
-                StringBuffer sb = new StringBuffer();
+                return;
+            }
 
-                // Check if the employee already exists
-                String sql_check = "SELECT 1 FROM NHANVIEN WHERE MANQL = ? AND HOTEN = ? AND NGSINH = ? AND GIOITINH = ? AND DIACHI = ? AND SODT = ? AND NGVL = ?";
-                try (PreparedStatement pst = conn.prepareStatement(sql_check)) {
-                    pst.setString(1, jtf_manql.getText());
-                    pst.setString(2, jtf_ten.getText());
-                    pst.setString(3, jtf_ngsinh.getText());
-                    pst.setString(4, jtf_gioitinh.getText());
-                    pst.setString(5, jtf_diachi.getText());
-                    pst.setString(6, jtf_sdt.getText());
-                    pst.setString(7, jtf_ngvl.getText());
-                    try (ResultSet rs = pst.executeQuery()) {
-                        if (rs.next()) {
-                            sb.append("Nhân viên này đã tồn tại\n");
-                        }
+            // Kiểm tra xem nhân viên đã tồn tại chưa
+            String sql_check = "SELECT 1 FROM NHANVIEN WHERE MANQL = ? AND HOTEN = ? AND NGSINH = ? AND GIOITINH = ? AND DIACHI = ? AND SODT = ? AND NGVL = ?";
+            try (PreparedStatement pstCheck = conn.prepareStatement(sql_check)) {
+                pstCheck.setString(1, jtf_manql.getText());
+                pstCheck.setString(2, jtf_ten.getText());
+                pstCheck.setString(3, jtf_ngsinh.getText());
+                pstCheck.setString(4, jtf_gioitinh.getText());
+                pstCheck.setString(5, jtf_diachi.getText());
+                pstCheck.setString(6, jtf_sdt.getText());
+                pstCheck.setString(7, jtf_ngvl.getText());
+
+                try (ResultSet rsCheck = pstCheck.executeQuery()) {
+                    if (rsCheck.next()) {
+                        JOptionPane.showMessageDialog(this, "Nhân viên này đã tồn tại");
+                        return;
                     }
                 }
+            }
 
-                // Check if the manager (MANQL) exists in the NHANVIEN table
-                String sql_check_manager = "SELECT 1 FROM NHANVIEN WHERE MANV = ?";
-                try (PreparedStatement pst = conn.prepareStatement(sql_check_manager)) {
-                    pst.setString(1, jtf_manql.getText());
-                    try (ResultSet rs = pst.executeQuery()) {
-                        if (!rs.next()) {
-                            sb.append("Quản lý không tồn tại\n");
-                        }
+            // Kiểm tra xem quản lý có tồn tại hay không
+            String sql_check_manager = "SELECT 1 FROM NHANVIEN WHERE MANV = ?";
+            try (PreparedStatement pstManagerCheck = conn.prepareStatement(sql_check_manager)) {
+                pstManagerCheck.setString(1, jtf_manql.getText());
+
+                try (ResultSet rsManagerCheck = pstManagerCheck.executeQuery()) {
+                    if (!rsManagerCheck.next()) {
+                        JOptionPane.showMessageDialog(this, "Quản lý không tồn tại");
+                        return;
                     }
                 }
+            }
 
-                if (sb.length() > 0) {
-                    JOptionPane.showMessageDialog(this, sb.toString());
+            // Lấy MANV mới
+            int newMANV;
+            String sqlMaxManv = "SELECT NVL(MAX(MANV), 0) + 1 AS NEW_MANV FROM NHANVIEN";
+            try (PreparedStatement pstMaxManv = conn.prepareStatement(sqlMaxManv); ResultSet rsMaxManv = pstMaxManv.executeQuery()) {
+                newMANV = rsMaxManv.next() ? rsMaxManv.getInt("NEW_MANV") : 1;
+            }
+
+            // Thêm mới nhân viên vào bảng NHANVIEN mà không có MATK
+            String sqlInsertNhanVien = "INSERT INTO NHANVIEN (MANV, MANQL, MATK, HOTEN, NGSINH, GIOITINH, DIACHI, SODT, NGVL) VALUES (?, ?, NULL, ?, ?, ?, ?, ?, ?)";
+            try (PreparedStatement pstInsertNhanVien = conn.prepareStatement(sqlInsertNhanVien)) {
+                pstInsertNhanVien.setInt(1, newMANV);
+                pstInsertNhanVien.setString(2, jtf_manql.getText());
+                pstInsertNhanVien.setString(3, jtf_ten.getText());
+                pstInsertNhanVien.setString(4, jtf_ngsinh.getText());
+                pstInsertNhanVien.setString(5, jtf_gioitinh.getText());
+                pstInsertNhanVien.setString(6, jtf_diachi.getText());
+                pstInsertNhanVien.setString(7, jtf_sdt.getText());
+                pstInsertNhanVien.setString(8, jtf_ngvl.getText());
+
+                int kq = pstInsertNhanVien.executeUpdate();
+                if (kq > 0) {
+                    JOptionPane.showMessageDialog(this, "Thêm mới thành công");
+                    xoatrang();
+                    jpanel_QLNV panelQLNV = new jpanel_QLNV();
+                    panelQLNV.showTableData();
+                    this.dispose();
+
+                    // Thêm tài khoản mới cho nhân viên
+                    int newMATK;
+                    String sqlMaxMatk = "SELECT NVL(MAX(MATK), 0) + 1 AS NEW_MATK FROM TAIKHOAN";
+                    try (PreparedStatement pstMaxMatk = conn.prepareStatement(sqlMaxMatk); ResultSet rsMaxMatk = pstMaxMatk.executeQuery()) {
+                        newMATK = rsMaxMatk.next() ? rsMaxMatk.getInt("NEW_MATK") : 1;
+                    }
+
+                    // Cập nhật MATK cho nhân viên mới thêm
+                    String sqlUpdateMatk = "UPDATE NHANVIEN SET MATK = ? WHERE MANV = ?";
+                    try (PreparedStatement pstUpdateMatk = conn.prepareStatement(sqlUpdateMatk)) {
+                        pstUpdateMatk.setInt(1, newMATK);
+                        pstUpdateMatk.setInt(2, newMANV);
+                        pstUpdateMatk.executeUpdate();
+                    }
                 } else {
-                    int newMANV = 0;
-
-                    // Get the next MANV
-                    String sqlMaxManv = "SELECT NVL(MAX(MANV), 0) + 1 AS NEW_MANV FROM NHANVIEN";
-                    try (PreparedStatement pst = conn.prepareStatement(sqlMaxManv); ResultSet rs = pst.executeQuery()) {
-                        if (rs.next()) {
-                            newMANV = rs.getInt("NEW_MANV");
-                        }
-                    }
-
-                    // Insert the new NHANVIEN
-                    String sqlInsertNhanVien = "INSERT INTO NHANVIEN (MANV, MANQL, MATK, HOTEN, NGSINH, GIOITINH, DIACHI, SODT, NGVL) "
-                            + "VALUES (?, ?, NULL, ?, ?, ?, ?, ?, ?)";
-                    try (PreparedStatement pst = conn.prepareStatement(sqlInsertNhanVien)) {
-                        pst.setInt(1, newMANV);
-                        pst.setString(2, jtf_manql.getText());
-                        // Set MATK to NULL or skip it
-                        pst.setString(3, jtf_ten.getText());
-                        pst.setString(4, jtf_ngsinh.getText());
-                        pst.setString(5, jtf_gioitinh.getText());
-                        pst.setString(6, jtf_diachi.getText());
-                        pst.setString(7, jtf_sdt.getText());
-                        pst.setString(8, jtf_ngvl.getText());
-
-                        int kq = pst.executeUpdate();
-                        if (kq > 0) {
-                            JOptionPane.showMessageDialog(this, "Thêm mới thành công");
-                            xoatrang();
-                            jpanel_QLNV panelQLNV = new jpanel_QLNV();
-                            panelQLNV.showTableData();
-                            // Đóng frame hiện tại
-                            this.dispose();
-                        } else {
-                            JOptionPane.showMessageDialog(this, "Thêm mới thất bại");
-                        }
-                    }
+                    JOptionPane.showMessageDialog(this, "Thêm mới thất bại");
                 }
             }
         } catch (Exception e) {

@@ -297,6 +297,10 @@
                       <Color blue="e" green="2a" red="5e" type="rgb"/>
                     </Property>
                   </Properties>
+                  <Events>
+                    <EventHandler event="componentShown" listener="java.awt.event.ComponentListener" parameters="java.awt.event.ComponentEvent" handler="jtf_maspComponentShown"/>
+                    <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jtf_maspKeyTyped"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JTextField" name="jtf_dvt">
                   <Properties>

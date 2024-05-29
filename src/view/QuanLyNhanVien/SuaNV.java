@@ -134,6 +134,16 @@ public class SuaNV extends javax.swing.JFrame {
         jtf_manv.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jtf_manv.setForeground(new java.awt.Color(94, 42, 14));
         jtf_manv.setText("1");
+        jtf_manv.addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentShown(java.awt.event.ComponentEvent evt) {
+                jtf_manvComponentShown(evt);
+            }
+        });
+        jtf_manv.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jtf_manvKeyTyped(evt);
+            }
+        });
 
         jtf_ten.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jtf_ten.setForeground(new java.awt.Color(94, 42, 14));
@@ -191,6 +201,16 @@ public class SuaNV extends javax.swing.JFrame {
 
         jtf_matk.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jtf_matk.setForeground(new java.awt.Color(94, 42, 14));
+        jtf_matk.addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentShown(java.awt.event.ComponentEvent evt) {
+                jtf_matkComponentShown(evt);
+            }
+        });
+        jtf_matk.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jtf_matkKeyTyped(evt);
+            }
+        });
 
         jLabel_gioitinh.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel_gioitinh.setForeground(new java.awt.Color(94, 42, 14));
@@ -418,6 +438,26 @@ public class SuaNV extends javax.swing.JFrame {
         // Đóng frame hiện tại
         this.dispose();
     }//GEN-LAST:event_jButton_huyActionPerformed
+
+    private void jtf_manvComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_jtf_manvComponentShown
+        // TODO add your handling code here:
+        jtf_manv.setEditable(false);
+    }//GEN-LAST:event_jtf_manvComponentShown
+
+    private void jtf_matkComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_jtf_matkComponentShown
+        // TODO add your handling code here:
+        jtf_matk.setEditable(false);
+    }//GEN-LAST:event_jtf_matkComponentShown
+
+    private void jtf_manvKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtf_manvKeyTyped
+        // TODO add your handling code here:
+        JOptionPane.showMessageDialog(this, "Không được sửa dữ liệu của MANV", "Thông báo", JOptionPane.WARNING_MESSAGE);
+    }//GEN-LAST:event_jtf_manvKeyTyped
+
+    private void jtf_matkKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtf_matkKeyTyped
+        // TODO add your handling code here:
+        JOptionPane.showMessageDialog(this, "Không được sửa dữ liệu của MATK", "Thông báo", JOptionPane.WARNING_MESSAGE);
+    }//GEN-LAST:event_jtf_matkKeyTyped
     
     private void QuanLyNVFrame() {
         jpanel_QLNV qlnv = new jpanel_QLNV();

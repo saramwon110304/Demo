@@ -4,11 +4,14 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import javax.swing.SwingUtilities;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 import view.ConnectDB;
+import view.MainFrame;
 
 
 public class jpanel_QLNV extends javax.swing.JPanel {
@@ -232,6 +235,11 @@ public class jpanel_QLNV extends javax.swing.JPanel {
                 String diaChi = (String) model.getValueAt(selectedRow, 6);
                 String soDienThoai = (String) model.getValueAt(selectedRow, 7);
                 java.sql.Date ngayVaoLam = (java.sql.Date) model.getValueAt(selectedRow, 8); // Sử dụng java.sql.Date
+                
+                SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+
+                String ngaySinhFormatted = sdf.format(ngaySinh);
+                String ngayVaoLamFormatted = sdf.format(ngayVaoLam);
 
                 SuaNV suaNVFrame = new SuaNV(maNhanVien, maNQL, maTaiKhoan, tenNhanVien, ngaySinh, gioiTinh, diaChi, soDienThoai, ngayVaoLam);
                 suaNVFrame.setVisible(true);
@@ -251,8 +259,7 @@ public class jpanel_QLNV extends javax.swing.JPanel {
             TableModel model = jTable_NV.getModel();
             int maNhanVien = (int) model.getValueAt(selectedRow, 0);
 
-            // Call XacNhanXoaFrame and pass the maKhachHang
-            XacNhanXoaFrame(maNhanVien);
+            XacNhanXoaFrame(maNhanVien, (DefaultTableModel) model);
         } else {
             JOptionPane.showMessageDialog(this, "Vui lòng chọn một khách hàng để xóa");
         }
@@ -383,51 +390,84 @@ public class jpanel_QLNV extends javax.swing.JPanel {
         themNV.setVisible(true);
     }
     
-    private void XacNhanXoaFrame(int maNhanVien) {
-        // Initialize XacNhanXoa frame with maKhachHang
+    private void XacNhanXoaFrame(int maNhanVien, DefaultTableModel model) {
         XacNhanXoa xacnhanxoa = new XacNhanXoa(maNhanVien);
-
-        // Show the XacNhanXoa frame
         xacnhanxoa.setVisible(true);
 
-        // Add a window listener to handle frame closure
         xacnhanxoa.addWindowListener(new java.awt.event.WindowAdapter() {
             @Override
             public void windowClosed(java.awt.event.WindowEvent windowEvent) {
-                // Retrieve the confirmation status from the XacNhanXoa frame
                 boolean confirmed = xacnhanxoa.isConfirmed();
 
                 if (confirmed) {
-                    // Proceed with deletion
                     try (Connection conn = cn.getConnection()) {
-                        String sql = "DELETE FROM NHANVIEN WHERE MANV = ?";
-                        try (PreparedStatement pst = conn.prepareStatement(sql)) {
-                            pst.setInt(1, maNhanVien);
+                        conn.setAutoCommit(false);
 
+                        String sqlDeleteAccount = "DELETE FROM TAIKHOAN WHERE MANV = ?";
+                        try (PreparedStatement pst = conn.prepareStatement(sqlDeleteAccount)) {
+                            pst.setInt(1, maNhanVien);
+                            pst.executeUpdate();
+                        }
+
+                        String sqlDeleteEmployee = "DELETE FROM NHANVIEN WHERE MANV = ?";
+                        try (PreparedStatement pst = conn.prepareStatement(sqlDeleteEmployee)) {
+                            pst.setInt(1, maNhanVien);
                             int rowsAffected = pst.executeUpdate();
 
                             if (rowsAffected > 0) {
+                                conn.commit();
                                 JOptionPane.showMessageDialog(null, "Xóa thành công");
-                                // Refresh or update your table here if needed
+                                updateMATKInTable(model);
                             } else {
-                                JOptionPane.showMessageDialog(null, "Không có khách hàng nào được xóa");
+                                conn.rollback();
+                                JOptionPane.showMessageDialog(null, "Không có nhân viên nào được xóa");
                             }
                         }
+
                     } catch (Exception e) {
-                        JOptionPane.showMessageDialog(null, "Lỗi xóa khách hàng: " + e.getMessage());
+                        JOptionPane.showMessageDialog(null, "Lỗi xóa nhân viên: " + e.getMessage());
                         e.printStackTrace();
                     }
                 } else {
-                    JOptionPane.showMessageDialog(null, "Đã hủy xóa khách hàng");
+                    JOptionPane.showMessageDialog(null, "Đã hủy xóa nhân viên");
                 }
             }
         });
     }
-    
+
+    private void updateMATKInTable(DefaultTableModel model) {
+        try (Connection conn = cn.getConnection()) {
+            String sql = "SELECT MANV, MATK FROM NHANVIEN";
+            try (PreparedStatement pst = conn.prepareStatement(sql); ResultSet rs = pst.executeQuery()) {
+                while (rs.next()) {
+                    int maNV = rs.getInt("MANV");
+                    int maTK = rs.getInt("MATK");
+                    int rowIndex = findRowIndex(model, maNV);
+                    if (rowIndex != -1) {
+                        model.setValueAt(maTK, rowIndex, 2);
+                    }
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private int findRowIndex(DefaultTableModel model, int maNV) {
+        for (int i = 0; i < model.getRowCount(); i++) {
+            if (Integer.parseInt(model.getValueAt(i, 0).toString()) == maNV) {
+                return i;
+            }
+        }
+        return -1;
+    }
+
     public void showTableData() {
         try {
             conn = cn.getConnection();
-            String sql = "SELECT * FROM NHANVIEN";
+            String sql = "SELECT NV.MANV, NV.MANQL, TK.MATK, NV.HOTEN, NV.NGSINH, NV.GIOITINH, NV.DIACHI, NV.SODT, NV.NGVL "
+                    + "FROM NHANVIEN NV "
+                    + "JOIN TAIKHOAN TK ON NV.MANV = TK.MANV";
             pst = conn.prepareStatement(sql);
             rs = pst.executeQuery();
 
@@ -436,10 +476,10 @@ public class jpanel_QLNV extends javax.swing.JPanel {
 
             while (rs.next()) {
                 Object[] rowData = {
-                    rs.getInt("MANV"), 
+                    rs.getInt("MANV"),
                     rs.getInt("MANQL"),
                     rs.getInt("MATK"),
-                    rs.getString("HOTEN"), // Lấy chuỗi từ cột HOTEN
+                    rs.getString("HOTEN"), 
                     rs.getDate("NGSINH"),
                     rs.getString("GIOITINH"),
                     rs.getString("DIACHI"),
@@ -466,7 +506,8 @@ public class jpanel_QLNV extends javax.swing.JPanel {
                 JOptionPane.showMessageDialog(null, "Error closing database resources: " + e.getMessage());
             }
         }
-    }
+    }   
+    
     
      public static void main(String args[]) {
         /* Set the Nimbus look and feel */

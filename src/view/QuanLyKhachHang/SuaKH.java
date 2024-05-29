@@ -115,6 +115,16 @@ public class SuaKH extends javax.swing.JFrame {
 
         jtf_makh.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jtf_makh.setForeground(new java.awt.Color(94, 42, 14));
+        jtf_makh.addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentShown(java.awt.event.ComponentEvent evt) {
+                jtf_makhComponentShown(evt);
+            }
+        });
+        jtf_makh.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jtf_makhKeyTyped(evt);
+            }
+        });
 
         jtf_diachi.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jtf_diachi.setForeground(new java.awt.Color(94, 42, 14));
@@ -330,6 +340,17 @@ public class SuaKH extends javax.swing.JFrame {
         // Đóng frame hiện tại
         this.dispose();
     }//GEN-LAST:event_jButton_huyActionPerformed
+
+    private void jtf_makhComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_jtf_makhComponentShown
+        // TODO add your handling code here:
+        jtf_makh.setText(String.valueOf(maKhachHang));
+        jtf_makh.setEditable(false);
+    }//GEN-LAST:event_jtf_makhComponentShown
+
+    private void jtf_makhKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtf_makhKeyTyped
+        // TODO add your handling code here:
+        JOptionPane.showMessageDialog(this, "Không được sửa dữ liệu của MAKH", "Thông báo", JOptionPane.WARNING_MESSAGE);
+    }//GEN-LAST:event_jtf_makhKeyTyped
 
     
     public static void main(String args[]) {

@@ -47,6 +47,12 @@ public class DangNhap extends javax.swing.JFrame {
         MainFrame mainframe = new MainFrame();
         mainframe.setVisible(true);
     }
+    
+    public void ManHinhNhanVien() {
+        MainFrameNV mainframenv = new MainFrameNV();
+        mainframenv.setVisible(true);
+    }
+    
     public void DoiMatKhau() {
         DoiMatKhau dmk = new DoiMatKhau();
         dmk.setVisible(true);
@@ -189,32 +195,34 @@ public class DangNhap extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
         DoiMatKhau();
-        new DangNhap().disable(); 
+        this.setEnabled(false);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         String un = jname.getText();
         String ps = jpass.getText();
-        
+
         try {
-            String sql = "SELECT * FROM taikhoan WHERE TENDNHAP=? AND MATKHAU=? ";
+            String sql = "SELECT nv.MANQL FROM TAIKHOAN tk JOIN NHANVIEN nv ON tk.MANV = nv.MANV WHERE tk.TENDNHAP = ? AND tk.MATKHAU = ?";
             pst = conn.prepareCall(sql);
-            pst.setString(1, un); //Tên đăng nhập
-            pst.setString(2, ps); //Mật khẩu
+            pst.setString(1, un); // Tên đăng nhập
+            pst.setString(2, ps); // Mật khẩu
             rs = pst.executeQuery();
-            
+
             if (rs.next()) {
+                String manql = rs.getString("MANQL");
                 JOptionPane.showMessageDialog(null, "Đăng nhập thành công");
-                TrangChu();
-                new DangNhap().disable();
-            }
-            else {
+                if (manql == null) {
+                    TrangChu();
+                } else {
+                    ManHinhNhanVien();
+                }
+                this.setVisible(false);
+            } else {
                 JOptionPane.showMessageDialog(null, "Đăng nhập không thành công");
             }
-            
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             System.out.println(e);
         }
     }//GEN-LAST:event_jButton1ActionPerformed

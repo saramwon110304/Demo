@@ -297,7 +297,7 @@ public class jpanel_QLKH extends javax.swing.JPanel {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-                String searchTerm = jTextField_Search.getText().trim();
+        String searchTerm = jTextField_Search.getText().trim();
         if (searchTerm.isEmpty()) {
             JOptionPane.showMessageDialog(this, "Vui lòng nhập từ khóa tìm kiếm.", "Thông Báo", JOptionPane.WARNING_MESSAGE);
             return;
@@ -328,7 +328,7 @@ public class jpanel_QLKH extends javax.swing.JPanel {
                     }
                 }
             } catch (SQLException e) {
-                JOptionPane.showMessageDialog(this, "Error fetching data from database: " + e.getMessage(), "Database Error", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(this, "Lỗi lấy dữ liệu từ cơ sở dữ liệu: " + e.getMessage(), "Lỡi cơ sở dữ liệu", JOptionPane.ERROR_MESSAGE);
             }
         } catch (NumberFormatException e) {
             JOptionPane.showMessageDialog(this, "MAKH phải là số nguyên.", "Thông Báo", JOptionPane.WARNING_MESSAGE);
@@ -343,19 +343,16 @@ public class jpanel_QLKH extends javax.swing.JPanel {
     private void XacNhanXoaFrame(int maKhachHang) {
         // Initialize XacNhanXoa frame with maKhachHang
         XacNhanXoa xacnhanxoa = new XacNhanXoa(maKhachHang);
-
-        // Show the XacNhanXoa frame
         xacnhanxoa.setVisible(true);
 
         // Add a window listener to handle frame closure
         xacnhanxoa.addWindowListener(new java.awt.event.WindowAdapter() {
             @Override
             public void windowClosed(java.awt.event.WindowEvent windowEvent) {
-                // Retrieve the confirmation status from the XacNhanXoa frame
                 boolean confirmed = xacnhanxoa.isConfirmed();
 
                 if (confirmed) {
-                    // Proceed with deletion
+                    // Xử lý xóa khách hàng
                     try (Connection conn = cn.getConnection()) {
                         String sql = "DELETE FROM KHACHHANG WHERE MAKH = ?";
                         try (PreparedStatement pst = conn.prepareStatement(sql)) {

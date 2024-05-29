@@ -4,6 +4,8 @@
  */
 package view.QuanLyNhanVien;
 
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Tran Thi Kieu Oanh

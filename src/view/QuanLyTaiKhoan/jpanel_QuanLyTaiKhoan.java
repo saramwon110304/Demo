@@ -222,51 +222,49 @@ public class jpanel_QuanLyTaiKhoan extends javax.swing.JPanel {
 
     private void jtextfield_SearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtextfield_SearchActionPerformed
         // Lấy từ khóa tìm kiếm từ textfield
-    String searchText = jtextfield_Search.getText().trim();
+    // Lấy từ khóa tìm kiếm từ textfield
+        String searchText = jtextfield_Search.getText().trim();
 
-    // Kiểm tra xem có từ khóa không
-    if (!searchText.isEmpty()) {
-        try {
-            int MATK = Integer.parseInt(searchText); // Chuyển đổi từ string sang int
-            ArrayList<TaiKhoan> resultList = new TaiKhoanDAO().FindByMATK(MATK);
+        // Kiểm tra xem có từ khóa không
+        if (!searchText.isEmpty()) {
+            try {
+                int MATK = Integer.parseInt(searchText); // Chuyển đổi từ string sang int
+                ArrayList<TaiKhoan> resultList = new TaiKhoanDAO().FindByMATK(MATK);
 
-            if (!resultList.isEmpty()) {
-                // Hiển thị kết quả tìm kiếm trên bảng
-                DefaultTableModel model = (DefaultTableModel) jtable_BangrTK.getModel();
-                model.setRowCount(0); // Xóa dữ liệu cũ
+                if (!resultList.isEmpty()) {
+                    // Hiển thị kết quả tìm kiếm trên bảng
+                    DefaultTableModel model = (DefaultTableModel) jtable_BangrTK.getModel();
+                    model.setRowCount(0); // Xóa dữ liệu cũ
 
-                for (TaiKhoan tk : resultList) {
-                    model.addRow(new Object[]{
-                        tk.getMATK(), // Hiển thị MATK trực tiếp
-                        tk.getMANV(),
-                        tk.getTENDANGNHAP(),
-                        tk.getMATKHAU()
-                    });
+                    for (TaiKhoan tk : resultList) {
+                        model.addRow(new Object[]{
+                            tk.getMATK(), // Hiển thị MATK trực tiếp
+                            tk.getMANV(),
+                            tk.getTENDANGNHAP(),
+                            tk.getMATKHAU()
+                        });
+                    }
+                } else {
+                    JOptionPane.showMessageDialog(this, "Không tìm thấy tài khoản với mã tài khoản: " + MATK, "Kết quả tìm kiếm", JOptionPane.INFORMATION_MESSAGE);
+                    showTable(); // Hiển thị lại toàn bộ dữ liệu nếu không tìm thấy
                 }
-            } else {
-                JOptionPane.showMessageDialog(this, "Không tìm thấy tài khoản với mã tài khoản: " + MATK, "Kết quả tìm kiếm", JOptionPane.INFORMATION_MESSAGE);
-                showTable(); // Hiển thị lại toàn bộ dữ liệu nếu không tìm thấy
+            } catch (NumberFormatException e) {
+                JOptionPane.showMessageDialog(this, "Mã tài khoản phải là số nguyên.", "Lỗi", JOptionPane.ERROR_MESSAGE);
             }
-        } catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(this, "Mã tài khoản phải là số nguyên.", "Lỗi", JOptionPane.ERROR_MESSAGE);
+        } else {
+            // Nếu không có từ khóa, hiển thị toàn bộ dữ liệu
+            showTableSearch();
         }
-    } else {
-        // Nếu không có từ khóa, hiển thị toàn bộ dữ liệu
-        showTableSearch();
-    }
     }//GEN-LAST:event_jtextfield_SearchActionPerformed
 
     private void jbutton_ThemTKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbutton_ThemTKActionPerformed
         // TODO add your handling code here:
-    
-    // Hiển thị JFrame hoặc JDialog khác đã có
-    jframe_ThemTK frame = new jframe_ThemTK(); // Tạo một đối tượng của JFrame mới
-    
-    // Hiển thị JFrame hoặc JDialog đã có
-    frame.setVisible(true);
-    
-    
-    
+        // Hiển thị JFrame hoặc JDialog khác đã có
+        jframe_ThemTK frame = new jframe_ThemTK(); // Tạo một đối tượng của JFrame mới
+
+        // Hiển thị JFrame hoặc JDialog đã có
+        frame.setVisible(true);
+
         // Hiển thị frame xác nhận xoá như một popup
         frame.setAlwaysOnTop(true);
         frame.addWindowListener(new java.awt.event.WindowAdapter() {
@@ -282,32 +280,29 @@ public class jpanel_QuanLyTaiKhoan extends javax.swing.JPanel {
         // TODO add your handling code here:
         // Kiểm tra xem đã chọn hàng trong bảng chưa
         if (jtable_BangrTK.getSelectedRow() != -1) {
-        // Lấy chỉ mục hàng được chọn
-        int selectedIndex = jtable_BangrTK.getSelectedRow();
-        // Lấy thông tin tài khoản từ danh sách taikhoan
-        TaiKhoan tk = taikhoan.get(selectedIndex);
-        
-        // Tạo một instance của frame Xác nhận Xóa
-        // Tạo một frame xác nhận xoá và truyền dữ liệu tài khoản vào
-        
-        jframe_XacNhanXoa xacNhanXoaFrame = new jframe_XacNhanXoa();
-        xacNhanXoaFrame.setTaiKhoanToDelete(tk);
-    
-        // Hiển thị frame xác nhận xoá như một popup
-        xacNhanXoaFrame.setAlwaysOnTop(true);
-        xacNhanXoaFrame.setVisible(true);
-        
-        xacNhanXoaFrame.addWindowListener(new java.awt.event.WindowAdapter() {
-            @Override
-            public void windowClosed(java.awt.event.WindowEvent windowEvent) {
-                // Sau khi frame xác nhận xoá đóng, gọi phương thức showTable() để cập nhật lại bảng
-                showTable();
-            }
-        });
-        
-        }
-        else
-        {
+            // Lấy chỉ mục hàng được chọn
+            int selectedIndex = jtable_BangrTK.getSelectedRow();
+            // Lấy thông tin tài khoản từ danh sách taikhoan
+            TaiKhoan tk = taikhoan.get(selectedIndex);
+
+            // Tạo một instance của frame Xác nhận Xóa
+            // Tạo một frame xác nhận xoá và truyền dữ liệu tài khoản vào
+            jframe_XacNhanXoa xacNhanXoaFrame = new jframe_XacNhanXoa();
+            xacNhanXoaFrame.setTaiKhoanToDelete(tk);
+
+            // Hiển thị frame xác nhận xoá như một popup
+            xacNhanXoaFrame.setAlwaysOnTop(true);
+            xacNhanXoaFrame.setVisible(true);
+
+            xacNhanXoaFrame.addWindowListener(new java.awt.event.WindowAdapter() {
+                @Override
+                public void windowClosed(java.awt.event.WindowEvent windowEvent) {
+                    // Sau khi frame xác nhận xoá đóng, gọi phương thức showTable() để cập nhật lại bảng
+                    showTable();
+                }
+            });
+
+        } else {
             JOptionPane.showMessageDialog(jpanel_QuanLyTaiKhoan.this, "Hãy chọn một tài khoản trong bảng");
         }
     }//GEN-LAST:event_jbutton_XoaTKActionPerformed
@@ -321,8 +316,10 @@ public class jpanel_QuanLyTaiKhoan extends javax.swing.JPanel {
             // Lấy thông tin tài khoản từ danh sách taikhoan
             TaiKhoan tk = taikhoan.get(selectedIndex);
 
-            // Tạo một instance của frame SuaTK và truyền dữ liệu qua constructor
-            jframe_ChinhSuaTK suaTaiKhoanFrame = new jframe_ChinhSuaTK(tk);
+            // Tạo một instance của frame Sửa Tài Khoản
+            jframe_ChinhSuaTK suaTaiKhoanFrame = new jframe_ChinhSuaTK();
+            suaTaiKhoanFrame.setTaiKhoanToEdit(tk);
+            suaTaiKhoanFrame.fillAccountInformation();
 
             // Hiển thị frame sửa tài khoản như một popup
             suaTaiKhoanFrame.setAlwaysOnTop(true);
@@ -335,6 +332,7 @@ public class jpanel_QuanLyTaiKhoan extends javax.swing.JPanel {
                     showTable();
                 }
             });
+
         } else {
             JOptionPane.showMessageDialog(jpanel_QuanLyTaiKhoan.this, "Hãy chọn một tài khoản trong bảng");
         }

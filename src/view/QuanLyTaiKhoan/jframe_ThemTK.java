@@ -1,4 +1,3 @@
-
 package view.QuanLyTaiKhoan;
 
 import Model.TaiKhoan;
@@ -12,12 +11,11 @@ import javax.swing.SwingUtilities;
  * @author NANG TIEN HANH
  */
 public class jframe_ThemTK extends javax.swing.JFrame {
-  
+
     public jframe_ThemTK() {
         this.setLocationRelativeTo(null);
         initComponents();
     }
-        
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -172,13 +170,12 @@ public class jframe_ThemTK extends javax.swing.JFrame {
 
     private void jtxt_MaNVActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtxt_MaNVActionPerformed
         // TODO add your handling code here:
-        
+
     }//GEN-LAST:event_jtxt_MaNVActionPerformed
 
     private void jbtn_XacNhanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_XacNhanActionPerformed
         // TODO add your handling code here:
-        TaiKhoanDAO taiKhoanDAO = new TaiKhoanDAO();
-        TaiKhoan tk = new TaiKhoan();
+    TaiKhoan tk = new TaiKhoan();
 
         String maNVStr = jtxt_MaNV.getText();
         String tenDangNhap = jtxt_TenDangNhap.getText();
@@ -187,7 +184,7 @@ public class jframe_ThemTK extends javax.swing.JFrame {
 
         // Kiểm tra trường rỗng
         if (maNVStr.equals("") || tenDangNhap.equals("") || matKhauStr.equals("") || xacNhanMKStr.equals("")) {
-            JOptionPane.showMessageDialog(this, "Bạn cần nhập đủ dữ liệu");
+            JOptionPane.showMessageDialog(jframe_ThemTK.this, "Bạn cần nhập đủ dữ liệu");
             return;
         }
 
@@ -197,21 +194,15 @@ public class jframe_ThemTK extends javax.swing.JFrame {
         try {
             maNV = Integer.parseInt(maNVStr);
         } catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(this, "Mã nhân viên không hợp lệ");
+            JOptionPane.showMessageDialog(jframe_ThemTK.this, "Mã nhân viên không hợp lệ");
             isValid = false;
         }
 
         try {
             matKhau = Integer.parseInt(matKhauStr);
-        } catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(this, "Mật khẩu không hợp lệ");
-            isValid = false;
-        }
-
-        try {
             xacNhanMK = Integer.parseInt(xacNhanMKStr);
         } catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(this, "Xác nhận mật khẩu không hợp lệ");
+            JOptionPane.showMessageDialog(jframe_ThemTK.this, "Mật khẩu không hợp lệ");
             isValid = false;
         }
 
@@ -220,28 +211,40 @@ public class jframe_ThemTK extends javax.swing.JFrame {
         }
 
         // Kiểm tra xác nhận mật khẩu
-        if (!matKhauStr.equals(xacNhanMKStr)) {
-            JOptionPane.showMessageDialog(this, "Xác nhận mật khẩu không khớp");
+        if (matKhau != xacNhanMK) {
+            JOptionPane.showMessageDialog(jframe_ThemTK.this, "Xác nhận mật khẩu không khớp");
             return;
         }
 
-        // Get the next available MATK
-        int maTK = taiKhoanDAO.getNextMaTK();
+        TaiKhoanDAO taiKhoanDAO = new TaiKhoanDAO();
+
+        // Kiểm tra mã nhân viên đã tồn tại hay chưa
+        if (!taiKhoanDAO.isMaNVExists(maNV)) {
+            JOptionPane.showMessageDialog(jframe_ThemTK.this, "Mã nhân viên không tồn tại");
+            return;
+        }
+
+        // Kiểm tra tên đăng nhập đã tồn tại hay chưa
+        if (taiKhoanDAO.isTenDangNhapExists(tenDangNhap)) {
+            JOptionPane.showMessageDialog(jframe_ThemTK.this, "Tên đăng nhập đã tồn tại");
+            return;
+        }
+
+        // Lấy mã tài khoản mới (mã tài khoản lớn nhất + 1)
+        int maTK = taiKhoanDAO.getMaxMaTK() + 1;
 
         tk.setMATK(maTK);
         tk.setMANV(maNV);
         tk.setTENDANGNHAP(tenDangNhap);
         tk.setMATKHAU(matKhau);
 
-        // Kiểm tra tên đăng nhập đã tồn tại hay chưa
-        if (taiKhoanDAO.isTenDangNhapExists(tenDangNhap)) {
-            JOptionPane.showMessageDialog(this, "Tên đăng nhập đã tồn tại");
-            return;
-        }
+        // Thêm tài khoản mới vào bảng TAIKHOAN
+        taiKhoanDAO.AddTK(tk, jframe_ThemTK.this);
 
-        // Thêm tài khoản mới
-        taiKhoanDAO.AddTK(tk);
-        JOptionPane.showMessageDialog(this, "Thêm thành công");
+        // Cập nhật MATK cho nhân viên tương ứng
+        taiKhoanDAO.updateNhanVienMATK(maNV, maTK);
+
+        JOptionPane.showMessageDialog(jframe_ThemTK.this, "Thêm thành công");
         Window window = SwingUtilities.getWindowAncestor(jbtn_XacNhan);
         window.dispose();
     }//GEN-LAST:event_jbtn_XacNhanActionPerformed

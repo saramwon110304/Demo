@@ -195,29 +195,25 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace max="32767" attributes="0"/>
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="jlable_TenNV" min="-2" pref="112" max="-2" attributes="0"/>
-                          <Component id="jscrollpane_BangSP" min="-2" pref="692" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <Component id="jscrollpane_BangSP" min="-2" pref="692" max="-2" attributes="0"/>
+                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                          </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jlable_MaDH" alignment="0" min="-2" pref="108" max="-2" attributes="0"/>
                                   <Component id="jlable_MaKH" alignment="0" min="-2" pref="112" max="-2" attributes="0"/>
                                   <Component id="jlable_TenKH" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jlable_TenNV" alignment="0" min="-2" pref="112" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="jtxt_NgDH" max="32767" attributes="0"/>
-                                  <Component id="jtxt_MaDH" pref="174" max="32767" attributes="0"/>
-                                  <Component id="jtxt_MaNV" pref="174" max="32767" attributes="0"/>
-                                  <Component id="jtxt_MaKH" pref="174" max="32767" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="jtxt_MaNV" min="-2" pref="174" max="-2" attributes="0"/>
+                                  <Component id="jtxt_MaKH" min="-2" pref="174" max="-2" attributes="0"/>
+                                  <Component id="jtxt_NgDH" min="-2" pref="174" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="32767" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" alignment="1" attributes="0">
-                                      <Component id="jlable_MaNV" min="-2" pref="112" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jtxt_TimKiem" min="-2" pref="203" max="-2" attributes="0"/>
-                                  </Group>
                                   <Group type="102" alignment="1" attributes="0">
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Component id="jbutton_XoaSP" min="-2" pref="140" max="-2" attributes="0"/>
@@ -225,6 +221,11 @@
                                           <Component id="jbutton_ChinhSuaSP" alignment="0" min="-2" pref="140" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <Component id="jlable_MaNV" min="-2" pref="112" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="jtxt_TimKiem" min="-2" pref="203" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
@@ -236,41 +237,37 @@
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jlable_MaDH" alignment="1" min="-2" pref="28" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jbutton_ThemSP" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jtxt_MaDH" alignment="3" max="32767" attributes="0"/>
-                          </Group>
-                      </Group>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <EmptySpace max="32767" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
+                              <Component id="jbutton_ThemSP" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="jbutton_XoaSP" min="-2" pref="30" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="jbutton_ChinhSuaSP" min="-2" pref="30" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="jtxt_MaNV" alignment="3" max="32767" attributes="0"/>
-                                  <Component id="jlable_TenNV" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
+                                  <Component id="jtxt_TimKiem" alignment="3" max="32767" attributes="0"/>
+                                  <Component id="jlable_MaNV" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="jlable_TenNV" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
+                                  <Component id="jtxt_MaNV" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="jlable_MaKH" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
+                                  <Component id="jtxt_MaKH" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jbutton_XoaSP" min="-2" pref="30" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="jtxt_NgDH" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="jlable_TenKH" min="-2" pref="28" max="-2" attributes="0"/>
+                              </Group>
                           </Group>
-                      </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jtxt_MaKH" alignment="3" max="32767" attributes="0"/>
-                              <Component id="jlable_MaKH" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
-                          </Group>
-                          <Component id="jbutton_ChinhSuaSP" alignment="0" min="-2" pref="30" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jtxt_NgDH" alignment="3" max="32767" attributes="0"/>
-                          <Component id="jlable_TenKH" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
-                          <Component id="jtxt_TimKiem" alignment="3" max="32767" attributes="0"/>
-                          <Component id="jlable_MaNV" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="jscrollpane_BangSP" min="-2" pref="423" max="-2" attributes="0"/>
@@ -410,21 +407,6 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jbutton_ChinhSuaSPActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JLabel" name="jlable_MaDH">
-              <Properties>
-                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="cc" green="cc" red="ff" type="rgb"/>
-                </Property>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="UTM Helve" size="14" style="1"/>
-                </Property>
-                <Property name="horizontalAlignment" type="int" value="0"/>
-                <Property name="text" type="java.lang.String" value="M&#xe3; &#x111;&#x1a1;n h&#xe0;ng"/>
-                <Property name="alignmentX" type="float" value="0.5"/>
-                <Property name="horizontalTextPosition" type="int" value="0"/>
-                <Property name="verticalTextPosition" type="int" value="1"/>
-              </Properties>
-            </Component>
             <Component class="javax.swing.JButton" name="jbutton_ThemSP">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
@@ -472,11 +454,6 @@
                 <Property name="alignmentX" type="float" value="0.5"/>
                 <Property name="horizontalTextPosition" type="int" value="0"/>
               </Properties>
-            </Component>
-            <Component class="javax.swing.JTextField" name="jtxt_MaDH">
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jtxt_MaDHActionPerformed"/>
-              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jlable_TenNV">
               <Properties>

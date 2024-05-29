@@ -1,11 +1,5 @@
-
 package view.QuanLyDonHang;
 
-
-/**
- *
- * @author NANG TIEN HANH
- */
 import Model.CTDH;
 import Model.DonHang;
 import java.util.ArrayList;
@@ -22,15 +16,16 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableRowSorter;
 
 public class jframe_ThemDonHang extends javax.swing.JFrame {
+
     DefaultTableModel tableModel;
     List<SanPham> sanpham;
-    
+
     public jframe_ThemDonHang() {
         initComponents();
-        
+
         // Khởi tạo danh sách sản phẩm
         sanpham = new ArrayList<>();
-        
+
         // Khởi tạo mô hình dữ liệu cho bảng với các cột tương ứng
         tableModel = new DefaultTableModel();
         tableModel.addColumn("MÃ SẢN PHẨM");
@@ -38,64 +33,63 @@ public class jframe_ThemDonHang extends javax.swing.JFrame {
         tableModel.addColumn("ĐƠN VỊ TÍNH");
         tableModel.addColumn("SỐ LƯỢNG");
         tableModel.addColumn("ĐƠN GIÁ");
-        
+
         // Gán mô hình dữ liệu cho bảng
         jtable_BangSP.setModel(tableModel);
     }
-    
+
     // Hàm thêm sản phẩm vào danh sách sản phẩm
     public void themSanPhamVaoDanhSach(SanPham sp) {
         sanpham.add(sp);
     }
-    
+
     // Hàm xoá sản phẩm khỏi danh sách sản phẩm
     public void xoaSanPhamKhoiDanhSach(int maSP) {
-    // Tạo một biến để lưu vị trí của sản phẩm trong danh sách
-    int index = -1;
-    // Duyệt qua danh sách sản phẩm để tìm vị trí của sản phẩm có mã sản phẩm tương ứng
-    for (int i = 0; i < sanpham.size(); i++) {
-        if (sanpham.get(i).getMASP() == maSP) {
-            index = i;
-            break;
+        // Tạo một biến để lưu vị trí của sản phẩm trong danh sách
+        int index = -1;
+        // Duyệt qua danh sách sản phẩm để tìm vị trí của sản phẩm có mã sản phẩm tương ứng
+        for (int i = 0; i < sanpham.size(); i++) {
+            if (sanpham.get(i).getMASP() == maSP) {
+                index = i;
+                break;
+            }
+        }
+        // Nếu tìm thấy sản phẩm, tiến hành xoá
+        if (index != -1) {
+            sanpham.remove(index);
+        } else {
+            // Nếu không tìm thấy sản phẩm, có thể thông báo lỗi hoặc làm gì đó phù hợp với ứng dụng của bạn
+            System.out.println("Khong the xoa san pham co ma " + maSP + " do khong ton tai.");
         }
     }
-    // Nếu tìm thấy sản phẩm, tiến hành xoá
-    if (index != -1) {
-        sanpham.remove(index);
-    } else {
-        // Nếu không tìm thấy sản phẩm, có thể thông báo lỗi hoặc làm gì đó phù hợp với ứng dụng của bạn
-        System.out.println("Khong the xoa san pham co ma " + maSP + " do khong ton tai.");
-    }
-}
-    
+
     private void searchProductByID(int productID) {
-    TableRowSorter<DefaultTableModel> sorter = new TableRowSorter<>(tableModel);
-    jtable_BangSP.setRowSorter(sorter);
+        TableRowSorter<DefaultTableModel> sorter = new TableRowSorter<>(tableModel);
+        jtable_BangSP.setRowSorter(sorter);
 
-    RowFilter<DefaultTableModel, Integer> filter = RowFilter.regexFilter(String.valueOf(productID), 0);
-    sorter.setRowFilter(filter);
-}
+        RowFilter<DefaultTableModel, Integer> filter = RowFilter.regexFilter(String.valueOf(productID), 0);
+        sorter.setRowFilter(filter);
+    }
 
-    
     // Phương thức để hiển thị bảng
     private void showTable() {
         tableModel.setRowCount(0); // Xóa toàn bộ dữ liệu trong bảng trước khi hiển thị lại
-        
+
         for (SanPham sp : sanpham) {
             Object[] rowData = {sp.getMASP(), sp.getTENSP(), sp.getDVT(), sp.getSOLUONG(), sp.getGIABAN()};
             tableModel.addRow(rowData);
         }
     }
-    
+
     public boolean checkMaSP(int MaSP) {
-    for (SanPham sp : sanpham) {
-        if (sp.getMASP() == MaSP) {
-            return true; // Mã sản phẩm đã tồn tại trong danh sách
+        for (SanPham sp : sanpham) {
+            if (sp.getMASP() == MaSP) {
+                return true; // Mã sản phẩm đã tồn tại trong danh sách
+            }
         }
+        return false; // Mã sản phẩm chưa tồn tại trong danh sách
     }
-    return false; // Mã sản phẩm chưa tồn tại trong danh sách
-}
-    
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -111,11 +105,9 @@ public class jframe_ThemDonHang extends javax.swing.JFrame {
         jtable_BangSP = new javax.swing.JTable();
         jbutton_XoaSP = new javax.swing.JButton();
         jbutton_ChinhSuaSP = new javax.swing.JButton();
-        jlable_MaDH = new javax.swing.JLabel();
         jbutton_ThemSP = new javax.swing.JButton();
         jlable_MaNV = new javax.swing.JLabel();
         jlable_MaKH = new javax.swing.JLabel();
-        jtxt_MaDH = new javax.swing.JTextField();
         jlable_TenNV = new javax.swing.JLabel();
         jlable_TenKH = new javax.swing.JLabel();
         jtxt_TimKiem = new javax.swing.JTextField();
@@ -253,14 +245,6 @@ public class jframe_ThemDonHang extends javax.swing.JFrame {
             }
         });
 
-        jlable_MaDH.setBackground(new java.awt.Color(255, 204, 204));
-        jlable_MaDH.setFont(new java.awt.Font("UTM Helve", 1, 14)); // NOI18N
-        jlable_MaDH.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jlable_MaDH.setText("Mã đơn hàng");
-        jlable_MaDH.setAlignmentX(0.5F);
-        jlable_MaDH.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jlable_MaDH.setVerticalTextPosition(javax.swing.SwingConstants.TOP);
-
         jbutton_ThemSP.setBackground(new java.awt.Color(94, 42, 14));
         jbutton_ThemSP.setFont(new java.awt.Font("UTM Helve", 1, 14)); // NOI18N
         jbutton_ThemSP.setForeground(new java.awt.Color(255, 255, 255));
@@ -285,12 +269,6 @@ public class jframe_ThemDonHang extends javax.swing.JFrame {
         jlable_MaKH.setText("Mã khách hàng");
         jlable_MaKH.setAlignmentX(0.5F);
         jlable_MaKH.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-
-        jtxt_MaDH.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jtxt_MaDHActionPerformed(evt);
-            }
-        });
 
         jlable_TenNV.setBackground(new java.awt.Color(255, 204, 204));
         jlable_TenNV.setFont(new java.awt.Font("UTM Helve", 1, 14)); // NOI18N
@@ -318,64 +296,62 @@ public class jframe_ThemDonHang extends javax.swing.JFrame {
             jpanel_BangSPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpanel_BangSPLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jpanel_BangSPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jlable_TenNV, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jscrollpane_BangSP, javax.swing.GroupLayout.PREFERRED_SIZE, 692, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jpanel_BangSPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jpanel_BangSPLayout.createSequentialGroup()
+                        .addComponent(jscrollpane_BangSP, javax.swing.GroupLayout.PREFERRED_SIZE, 692, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(jpanel_BangSPLayout.createSequentialGroup()
                         .addGroup(jpanel_BangSPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jlable_MaDH, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jlable_MaKH, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jlable_TenKH))
+                            .addComponent(jlable_TenKH)
+                            .addComponent(jlable_TenNV, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(26, 26, 26)
-                        .addGroup(jpanel_BangSPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jtxt_NgDH)
-                            .addComponent(jtxt_MaDH, javax.swing.GroupLayout.DEFAULT_SIZE, 174, Short.MAX_VALUE)
-                            .addComponent(jtxt_MaNV, javax.swing.GroupLayout.DEFAULT_SIZE, 174, Short.MAX_VALUE)
-                            .addComponent(jtxt_MaKH, javax.swing.GroupLayout.DEFAULT_SIZE, 174, Short.MAX_VALUE))
+                        .addGroup(jpanel_BangSPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jtxt_MaNV, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jtxt_MaKH, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jtxt_NgDH, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jpanel_BangSPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpanel_BangSPLayout.createSequentialGroup()
-                                .addComponent(jlable_MaNV, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jtxt_TimKiem, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpanel_BangSPLayout.createSequentialGroup()
                                 .addGroup(jpanel_BangSPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jbutton_XoaSP, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jbutton_ThemSP)
                                     .addComponent(jbutton_ChinhSuaSP, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(35, 35, 35)))))
+                                .addGap(35, 35, 35))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpanel_BangSPLayout.createSequentialGroup()
+                                .addComponent(jlable_MaNV, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jtxt_TimKiem, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addGap(11, 11, 11))
         );
         jpanel_BangSPLayout.setVerticalGroup(
             jpanel_BangSPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpanel_BangSPLayout.createSequentialGroup()
-                .addGap(14, 14, 14)
                 .addGroup(jpanel_BangSPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jlable_MaDH, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jpanel_BangSPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addGroup(jpanel_BangSPLayout.createSequentialGroup()
+                        .addGap(14, 14, 14)
                         .addComponent(jbutton_ThemSP)
-                        .addComponent(jtxt_MaDH)))
-                .addGroup(jpanel_BangSPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jpanel_BangSPLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(jpanel_BangSPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jtxt_MaNV)
-                            .addComponent(jlable_TenNV, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jpanel_BangSPLayout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jbutton_XoaSP, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jpanel_BangSPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jpanel_BangSPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jtxt_MaKH)
-                        .addComponent(jlable_MaKH, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jbutton_ChinhSuaSP, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jpanel_BangSPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jtxt_NgDH)
-                    .addComponent(jlable_TenKH, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jtxt_TimKiem)
-                    .addComponent(jlable_MaNV, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jbutton_XoaSP, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jbutton_ChinhSuaSP, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jpanel_BangSPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jtxt_TimKiem)
+                            .addComponent(jlable_MaNV, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jpanel_BangSPLayout.createSequentialGroup()
+                        .addGap(24, 24, 24)
+                        .addGroup(jpanel_BangSPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jlable_TenNV, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jtxt_MaNV, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jpanel_BangSPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jlable_MaKH, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jtxt_MaKH, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jpanel_BangSPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jtxt_NgDH)
+                            .addComponent(jlable_TenKH, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jscrollpane_BangSP, javax.swing.GroupLayout.PREFERRED_SIZE, 423, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(132, 132, 132))
@@ -423,7 +399,7 @@ public class jframe_ThemDonHang extends javax.swing.JFrame {
         jframe_ThemSP themSPFrame = new jframe_ThemSP(this);
         themSPFrame.setVisible(true);
         themSPFrame.setAlwaysOnTop(true);
-        
+
         themSPFrame.addWindowListener(new java.awt.event.WindowAdapter() {
             @Override
             public void windowClosed(java.awt.event.WindowEvent windowEvent) {
@@ -437,32 +413,29 @@ public class jframe_ThemDonHang extends javax.swing.JFrame {
         // TODO add your handling code here:
         // Kiểm tra xem đã chọn hàng trong bảng chưa
         if (jtable_BangSP.getSelectedRow() != -1) {
-        // Lấy chỉ mục hàng được chọn
-        int selectedIndex = jtable_BangSP.getSelectedRow();
-        // Lấy thông tin tài khoản từ danh sách taikhoan
-        SanPham sp = sanpham.get(selectedIndex);
-        
-        // Tạo một instance của frame Xác nhận Xóa
-        // Tạo một frame xác nhận xoá và truyền dữ liệu tài khoản vào
-        
-        jframe_XacNhanXoaSP xacNhanXoaFrame = new jframe_XacNhanXoaSP(this);
-        xacNhanXoaFrame.setSanPhamToDelete(sp);
-    
-        // Hiển thị frame xác nhận xoá như một popup
-        xacNhanXoaFrame.setAlwaysOnTop(true);
-        xacNhanXoaFrame.setVisible(true);
-        
-        xacNhanXoaFrame.addWindowListener(new java.awt.event.WindowAdapter() {
-            @Override
-            public void windowClosed(java.awt.event.WindowEvent windowEvent) {
-                // Sau khi frame xác nhận xoá đóng, gọi phương thức showTable() để cập nhật lại bảng
-                showTable();
-            }
-        });
-        
-        }
-        else
-        {
+            // Lấy chỉ mục hàng được chọn
+            int selectedIndex = jtable_BangSP.getSelectedRow();
+            // Lấy thông tin tài khoản từ danh sách taikhoan
+            SanPham sp = sanpham.get(selectedIndex);
+
+            // Tạo một instance của frame Xác nhận Xóa
+            // Tạo một frame xác nhận xoá và truyền dữ liệu tài khoản vào
+            jframe_XacNhanXoaSP xacNhanXoaFrame = new jframe_XacNhanXoaSP(this);
+            xacNhanXoaFrame.setSanPhamToDelete(sp);
+
+            // Hiển thị frame xác nhận xoá như một popup
+            xacNhanXoaFrame.setAlwaysOnTop(true);
+            xacNhanXoaFrame.setVisible(true);
+
+            xacNhanXoaFrame.addWindowListener(new java.awt.event.WindowAdapter() {
+                @Override
+                public void windowClosed(java.awt.event.WindowEvent windowEvent) {
+                    // Sau khi frame xác nhận xoá đóng, gọi phương thức showTable() để cập nhật lại bảng
+                    showTable();
+                }
+            });
+
+        } else {
             JOptionPane.showMessageDialog(jframe_ThemDonHang.this, "Hãy chọn một sản phẩm trong bảng");
         }
     }//GEN-LAST:event_jbutton_XoaSPActionPerformed
@@ -475,17 +448,17 @@ public class jframe_ThemDonHang extends javax.swing.JFrame {
             chinhSuaSPFrame.setVisible(true);
             chinhSuaSPFrame.setAlwaysOnTop(true);
             SanPham sp = sanpham.get(selectedRow);
-            
+
             chinhSuaSPFrame.setSanPhamToEdit(sp);
-            
+
             chinhSuaSPFrame.addWindowListener(new java.awt.event.WindowAdapter() {
-            @Override
-            public void windowClosed(java.awt.event.WindowEvent windowEvent) {
-                // Sau khi frame xác nhận xoá đóng, gọi phương thức showTable() để cập nhật lại bảng
-                showTable();
-            }
-        });
-        
+                @Override
+                public void windowClosed(java.awt.event.WindowEvent windowEvent) {
+                    // Sau khi frame xác nhận xoá đóng, gọi phương thức showTable() để cập nhật lại bảng
+                    showTable();
+                }
+            });
+
         } else {
             JOptionPane.showMessageDialog(this, "Vui lòng chọn một hàng để xóa", "Thông báo", JOptionPane.WARNING_MESSAGE);
         }
@@ -493,105 +466,102 @@ public class jframe_ThemDonHang extends javax.swing.JFrame {
 
     private void jbutton_ThanhToanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbutton_ThanhToanActionPerformed
         // Check if either radio button is selected
-    if (!jradiobutton_ChuyenKhoan.isSelected() && !jradiobutton_TienMat.isSelected()) {
-        // Display a warning message if no radio button is selected
-        JOptionPane.showMessageDialog(this, "Vui lòng chọn phương thức thanh toán", "Cảnh báo", JOptionPane.WARNING_MESSAGE);
-        return; // Exit the method without proceeding further
-    }
-    
-    String maDHStr = jtxt_MaDH.getText().trim();
-    String maNVStr = jtxt_MaNV.getText().trim();
-    String maKHStr = jtxt_MaKH.getText().trim();
-
-    // Kiểm tra trường rỗng
-    if (maDHStr.isEmpty() || maNVStr.isEmpty() || maKHStr.isEmpty()){
-        JOptionPane.showMessageDialog(this, "Bạn cần nhập đủ dữ liệu.");
-        return;
-    }
-
-    int maDH = 0, maNV = 0, maKH = 0;
-    boolean isValid = true;
-
-    try {
-        maDH = Integer.parseInt(maDHStr);
-    } catch (NumberFormatException e) {
-        JOptionPane.showMessageDialog(this, "Mã đơn hàng không hợp lệ");
-        isValid = false;
-    }
-    
-    try {
-        maNV = Integer.parseInt(maNVStr);
-    } catch (NumberFormatException e) {
-        JOptionPane.showMessageDialog(this, "Mã nhân viên không hợp lệ");
-        isValid = false;
-    }
-    
-    try {
-        maKH = Integer.parseInt(maKHStr);
-    } catch (NumberFormatException e) {
-        JOptionPane.showMessageDialog(this, "Mã khách hàng không hợp lệ");
-        isValid = false;
-    }
-    
-    // Parse date from text field or any other source
-    Date ngayDH = null;
-    SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-    try {
-        ngayDH = new Date(dateFormat.parse(jtxt_NgDH.getText()).getTime());
-    } catch (ParseException e) {
-        isValid = false;
-        JOptionPane.showMessageDialog(this, "Ngày đặt hàng không hợp lệ. Vui lòng kiểm tra lại định dạng (YYYY/MM/DD)", "Lỗi", JOptionPane.ERROR_MESSAGE);
-        e.printStackTrace(); // Handle parsing exception
-    }
-    
-    // Kiểm tra xem mã đơn hàng đã tồn tại hay chưa
-    DonHangDAO donHangDAO = new DonHangDAO();
-    if (donHangDAO.isMaDHExists(maDH)) {
-        JOptionPane.showMessageDialog(this, "Mã đơn hàng đã tồn tại. Vui lòng chọn mã đơn hàng khác.", "Lỗi", JOptionPane.ERROR_MESSAGE);
-        isValid = false;
-        return; // Exit the method without proceeding further
-    }
-    
-    if (isValid) {
-    // Create a new order object
-    DonHang donHang = new DonHang(maDH, maNV, maKH, ngayDH);
-    
-    // Add the order to the database
-    try {
-        donHangDAO.addDonHang(donHang); // Gọi phương thức từ đối tượng DonHangDAO
-    } catch (SQLException ex) {
-        ex.printStackTrace(); // Xử lý ngoại lệ
-        JOptionPane.showMessageDialog(this, "Lỗi khi thêm đơn hàng vào cơ sở dữ liệu", "Lỗi", JOptionPane.ERROR_MESSAGE);
-        return; // Thoát phương thức nếu có lỗi
-    }
-    }
-    
-    // Add order details to the database
-    if (isValid) {
-    DefaultTableModel model = (DefaultTableModel) jtable_BangSP.getModel();
-    int rowCount = model.getRowCount();
-    if (rowCount == 0) {
-        JOptionPane.showMessageDialog(this, "Đơn hàng phải có ít nhất một sản phẩm", "Lỗi", JOptionPane.ERROR_MESSAGE);
-        return;
+        if (!jradiobutton_ChuyenKhoan.isSelected() && !jradiobutton_TienMat.isSelected()) {
+            // Display a warning message if no radio button is selected
+            JOptionPane.showMessageDialog(this, "Vui lòng chọn phương thức thanh toán", "Cảnh báo", JOptionPane.WARNING_MESSAGE);
+            return; // Exit the method without proceeding further
         }
-    for (int i = 0; i < rowCount; i++) {
-        int maSP = (int) model.getValueAt(i, 0); // Get product ID from table
-        int soLuong = (int) model.getValueAt(i, 3); // Get quantity from table
-        
-        CTDH cthd = new CTDH(maSP, maDH, soLuong); // Create new order detail object
-        
-        CTDHDAO ctdhDAO = new CTDHDAO(); // Tạo một đối tượng CTDHDAO
+
+        String maNVStr = jtxt_MaNV.getText().trim();
+        String maKHStr = jtxt_MaKH.getText().trim();
+
+        // Kiểm tra trường rỗng
+        if (maNVStr.isEmpty() || maKHStr.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Bạn cần nhập đủ dữ liệu.");
+            return;
+        }
+
+        int maNV = 0, maKH = 0;
+        boolean isValid = true;
+
         try {
-            ctdhDAO.addCTDH(cthd); // Gọi phương thức từ đối tượng CTDHDAO
-        } catch (SQLException ex) {
-            ex.printStackTrace(); // Xử lý ngoại lệ
-            JOptionPane.showMessageDialog(this, "Lỗi khi thêm chi tiết đơn hàng vào cơ sở dữ liệu", "Lỗi", JOptionPane.ERROR_MESSAGE);
-            return; // Thoát phương thức nếu có lỗi
+            maNV = Integer.parseInt(maNVStr);
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, "Mã nhân viên không hợp lệ");
+            isValid = false;
         }
-    }
-        JOptionPane.showMessageDialog(this, "Thêm đơn hàng thành công");
-        dispose(); // Đóng cửa sổ sau khi thêm đơn hàng thành công
-    }
+
+        try {
+            maKH = Integer.parseInt(maKHStr);
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, "Mã khách hàng không hợp lệ");
+            isValid = false;
+        }
+
+        // Parse date from text field or any other source
+        Date ngayDH = null;
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
+        try {
+            ngayDH = new Date(dateFormat.parse(jtxt_NgDH.getText()).getTime());
+        } catch (ParseException e) {
+            isValid = false;
+            JOptionPane.showMessageDialog(this, "Ngày đặt hàng không hợp lệ. Vui lòng kiểm tra lại định dạng (YYYY/MM/DD)", "Lỗi", JOptionPane.ERROR_MESSAGE);
+            e.printStackTrace(); // Handle parsing exception
+        }
+
+        // Kiểm tra xem các dữ liệu đầu vào có hợp lệ không
+        if (!isValid) {
+            return;
+        }
+
+        // Lấy mã đơn hàng lớn nhất hiện có và cộng thêm 1
+        DonHangDAO donHangDAO = new DonHangDAO();
+        int maDH = 0;
+        try {
+            maDH = donHangDAO.getMaxMaDH() + 1;
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(this, "Lỗi khi lấy mã đơn hàng lớn nhất từ cơ sở dữ liệu", "Lỗi", JOptionPane.ERROR_MESSAGE);
+            e.printStackTrace();
+            return;
+        }
+
+        // Add order details to the database
+        if (isValid) {
+            DefaultTableModel model = (DefaultTableModel) jtable_BangSP.getModel();
+            int rowCount = model.getRowCount();
+            if (rowCount == 0) {
+                JOptionPane.showMessageDialog(this, "Đơn hàng phải có ít nhất một sản phẩm", "Lỗi", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+            // Create a new order object
+            DonHang donHang = new DonHang(maDH, maNV, maKH, ngayDH);
+
+            // Add the order to the database
+            try {
+                donHangDAO.addDonHang(donHang); // Gọi phương thức từ đối tượng DonHangDAO
+            } catch (SQLException ex) {
+                ex.printStackTrace(); // Xử lý ngoại lệ
+                JOptionPane.showMessageDialog(this, "Lỗi khi thêm đơn hàng vào cơ sở dữ liệu", "Lỗi", JOptionPane.ERROR_MESSAGE);
+                return; // Thoát phương thức nếu có lỗi
+            }
+            for (int i = 0; i < rowCount; i++) {
+                int maSP = (int) model.getValueAt(i, 0); // Get product ID from table
+                int soLuong = (int) model.getValueAt(i, 3); // Get quantity from table
+
+                CTDH cthd = new CTDH(maSP, maDH, soLuong); // Create new order detail object
+
+                CTDHDAO ctdhDAO = new CTDHDAO(); // Tạo một đối tượng CTDHDAO
+                try {
+                    ctdhDAO.addCTDH(cthd); // Gọi phương thức từ đối tượng CTDHDAO
+                } catch (SQLException ex) {
+                    ex.printStackTrace(); // Xử lý ngoại lệ
+                    JOptionPane.showMessageDialog(this, "Lỗi khi thêm chi tiết đơn hàng vào cơ sở dữ liệu", "Lỗi", JOptionPane.ERROR_MESSAGE);
+                    return; // Thoát phương thức nếu có lỗi
+                }
+            }
+            JOptionPane.showMessageDialog(this, "Thêm đơn hàng thành công");
+            dispose(); // Đóng cửa sổ sau khi thêm đơn hàng thành công
+        }
 
     }//GEN-LAST:event_jbutton_ThanhToanActionPerformed
 
@@ -603,19 +573,16 @@ public class jframe_ThemDonHang extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jradiobutton_ChuyenKhoanActionPerformed
 
-    private void jtxt_MaDHActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtxt_MaDHActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jtxt_MaDHActionPerformed
-
     private void jtxt_TimKiemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtxt_TimKiemActionPerformed
         // TODO add your handling code here:
+        // TODO add your handling code here:
         try {
-        int productID = Integer.parseInt(jtxt_TimKiem.getText().trim());
-        searchProductByID(productID);
-    } catch (NumberFormatException e) {
-        // Xử lý khi người dùng nhập không phải là số
-        JOptionPane.showMessageDialog(this, "Vui lòng nhập mã sản phẩm là số nguyên.", "Lỗi", JOptionPane.ERROR_MESSAGE);
-    }
+            int productID = Integer.parseInt(jtxt_TimKiem.getText().trim());
+            searchProductByID(productID);
+        } catch (NumberFormatException e) {
+            // Xử lý khi người dùng nhập không phải là số
+            JOptionPane.showMessageDialog(this, "Vui lòng nhập mã sản phẩm là số nguyên.", "Lỗi", JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_jtxt_TimKiemActionPerformed
 
     /**
@@ -659,7 +626,6 @@ public class jframe_ThemDonHang extends javax.swing.JFrame {
     private javax.swing.JButton jbutton_ThemSP;
     private javax.swing.JButton jbutton_XoaSP;
     private javax.swing.JLabel jlable_HinhThucTT;
-    private javax.swing.JLabel jlable_MaDH;
     private javax.swing.JLabel jlable_MaKH;
     private javax.swing.JLabel jlable_MaNV;
     private javax.swing.JLabel jlable_TenKH;
@@ -671,7 +637,6 @@ public class jframe_ThemDonHang extends javax.swing.JFrame {
     private javax.swing.JRadioButton jradiobutton_TienMat;
     private javax.swing.JScrollPane jscrollpane_BangSP;
     private javax.swing.JTable jtable_BangSP;
-    private javax.swing.JTextField jtxt_MaDH;
     private javax.swing.JTextField jtxt_MaKH;
     private javax.swing.JTextField jtxt_MaNV;
     private javax.swing.JTextField jtxt_NgDH;

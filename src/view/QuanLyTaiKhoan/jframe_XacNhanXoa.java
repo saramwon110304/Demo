@@ -22,21 +22,21 @@ public class jframe_XacNhanXoa extends javax.swing.JFrame {
     }
     
     private void initController() {
-    jButton1.addActionListener(new ActionListener() {
+    jButton_Huy.addActionListener(new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent e) {
             // Lấy cửa sổ cha của cửa sổ hiện tại và đóng nó
-            Window window = SwingUtilities.getWindowAncestor(jButton1);
+            Window window = SwingUtilities.getWindowAncestor(jButton_Huy);
             window.dispose();
         }
     });
     
-    jButton2.addActionListener(new ActionListener() {
+    jButton_XacNhan.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 // Xoá tài khoản đã được thiết lập từ frame gọi
                 if (taiKhoanToDelete != null) {
-                    new TaiKhoanDAO().DeleteTK(taiKhoanToDelete.getMATK());
+                    new TaiKhoanDAO().DeleteTK(taiKhoanToDelete.getMATK(), jframe_XacNhanXoa.this);
                     // Đóng frame xác nhận xoá
                     dispose();
                 }
@@ -56,23 +56,23 @@ public class jframe_XacNhanXoa extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        jButton_Huy = new javax.swing.JButton();
+        jButton_XacNhan = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
-        jButton1.setBackground(new java.awt.Color(236, 227, 214));
-        jButton1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(94, 42, 14));
-        jButton1.setText("Hủy");
+        jButton_Huy.setBackground(new java.awt.Color(236, 227, 214));
+        jButton_Huy.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jButton_Huy.setForeground(new java.awt.Color(94, 42, 14));
+        jButton_Huy.setText("Hủy");
 
-        jButton2.setBackground(new java.awt.Color(94, 42, 14));
-        jButton2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jButton2.setText("Xác nhận");
+        jButton_XacNhan.setBackground(new java.awt.Color(94, 42, 14));
+        jButton_XacNhan.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jButton_XacNhan.setForeground(new java.awt.Color(255, 255, 255));
+        jButton_XacNhan.setText("Xác nhận");
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel1.setText("Bạn có muốn xóa tài khoản này không?");
@@ -85,9 +85,9 @@ public class jframe_XacNhanXoa extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(60, 60, 60)
-                        .addComponent(jButton1)
+                        .addComponent(jButton_Huy)
                         .addGap(26, 26, 26)
-                        .addComponent(jButton2))
+                        .addComponent(jButton_XacNhan))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(30, 30, 30)
                         .addComponent(jLabel1)))
@@ -100,8 +100,8 @@ public class jframe_XacNhanXoa extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton2)
-                    .addComponent(jButton1))
+                    .addComponent(jButton_XacNhan)
+                    .addComponent(jButton_Huy))
                 .addContainerGap(37, Short.MAX_VALUE))
         );
 
@@ -155,8 +155,8 @@ public class jframe_XacNhanXoa extends javax.swing.JFrame {
 //    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton_Huy;
+    private javax.swing.JButton jButton_XacNhan;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables

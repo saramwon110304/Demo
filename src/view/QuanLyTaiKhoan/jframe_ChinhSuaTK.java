@@ -16,20 +16,28 @@ import javax.swing.SwingUtilities;
 public class jframe_ChinhSuaTK extends javax.swing.JFrame {
 private TaiKhoan taiKhoanToEdit;
     
-    public jframe_ChinhSuaTK(TaiKhoan tk) {
+    public jframe_ChinhSuaTK() {
+        this.setLocationRelativeTo(null);
         initComponents();
-        this.taiKhoanToEdit = tk;
-        
-        // Hiển thị dữ liệu của tài khoản được chọn trong các trường nhập liệu
-        jtxt_MaTK.setText(String.valueOf(tk.getMATK()));
-        jtxt_MaNV.setText(String.valueOf(tk.getMANV()));
-        jtxt_TenDangNhap.setText(tk.getTENDANGNHAP());
-        jtxt_MatKhau.setText(String.valueOf(tk.getMATKHAU()));
+        disableEditableFields();
     }
-    
+
     public void setTaiKhoanToEdit(TaiKhoan tk) {
         this.taiKhoanToEdit = tk;
-        jtxt_MaTK.setText(String.valueOf(tk.getMATK()));
+    }
+
+    public void fillAccountInformation() {
+        // Lấy thông tin từ đối tượng tài khoản và điền vào các trường
+        jtxt_MaTK.setText(String.valueOf(taiKhoanToEdit.getMATK()));
+        jtxt_MaNV.setText(String.valueOf(taiKhoanToEdit.getMANV()));
+        jtxt_TenDangNhap.setText(taiKhoanToEdit.getTENDANGNHAP());
+        jtxt_MatKhau.setText(String.valueOf(taiKhoanToEdit.getMATKHAU()));
+    }
+
+    private void disableEditableFields() {
+        // Vô hiệu hóa trường nhập liệu cho mã tài khoản và mã nhân viên
+        jtxt_MaTK.setEditable(false);
+        jtxt_MaNV.setEditable(false);
     }
     
     @SuppressWarnings("unchecked")
@@ -70,8 +78,18 @@ private TaiKhoan taiKhoanToEdit;
         jtxt_MatKhau.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
         jtxt_MaTK.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jtxt_MaTK.addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentShown(java.awt.event.ComponentEvent evt) {
+                jtxt_MaTKComponentShown(evt);
+            }
+        });
 
         jtxt_MaNV.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jtxt_MaNV.addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentShown(java.awt.event.ComponentEvent evt) {
+                jtxt_MaNVComponentShown(evt);
+            }
+        });
 
         jlabel_MaTK1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jlabel_MaTK1.setText("Mã nhân viên");
@@ -180,65 +198,42 @@ private TaiKhoan taiKhoanToEdit;
 
     private void jbtn_XacNhanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_XacNhanActionPerformed
         // Lấy thông tin từ các trường nhập liệu
-        String maNVStr = jtxt_MaNV.getText();
+        int maTK = Integer.parseInt(jtxt_MaTK.getText());
+        int maNV = Integer.parseInt(jtxt_MaNV.getText());
         String tenDangNhap = jtxt_TenDangNhap.getText();
         String matKhauStr = jtxt_MatKhau.getText();
 
-        TaiKhoanDAO taiKhoanDAO = new TaiKhoanDAO();
-        TaiKhoan taiKhoanMoi = new TaiKhoan();
-
-        int matk_luu = taiKhoanToEdit.getMATK();
-        taiKhoanDAO.DeleteTK(taiKhoanToEdit.getMATK());
-
         // Kiểm tra trường rỗng
-        if (maNVStr.equals("") || tenDangNhap.equals("") || matKhauStr.equals("")) {
+        if (tenDangNhap.equals("") || matKhauStr.equals("")) {
             JOptionPane.showMessageDialog(jframe_ChinhSuaTK.this, "Bạn cần nhập đủ dữ liệu");
             return;
         }
 
-        int maNV = 0;
         int matKhau = 0;
-        boolean isValid = true;
-
-        // Kiểm tra định dạng mã nhân viên mới nhập
-        try {
-            maNV = Integer.parseInt(maNVStr);
-        } catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(jframe_ChinhSuaTK.this, "Mã nhân viên không hợp lệ");
-            isValid = false;
-        }
 
         // Kiểm tra định dạng mật khẩu mới nhập
         try {
             matKhau = Integer.parseInt(matKhauStr);
         } catch (NumberFormatException e) {
             JOptionPane.showMessageDialog(jframe_ChinhSuaTK.this, "Mật khẩu không hợp lệ");
-            isValid = false;
-        } finally {
-            if (!isValid) {
-                return;
-            }
+            return;
         }
 
-        taiKhoanMoi.setMATK(matk_luu);
-        taiKhoanMoi.setMANV(maNV);
-        taiKhoanMoi.setTENDANGNHAP(tenDangNhap);
-        taiKhoanMoi.setMATKHAU(matKhau);
+        TaiKhoanDAO taiKhoanDAO = new TaiKhoanDAO();
 
-        // Kiểm tra mã nhân viên đã tồn tại hay chưa
-        if (new TaiKhoanDAO().isMaNVExists(maNV)) {
-            JOptionPane.showMessageDialog(jframe_ChinhSuaTK.this, "Mã nhân viên mà bạn cập nhật đã tồn tại");
-            taiKhoanDAO.AddTK(taiKhoanToEdit);
-        } else // Kiểm tra tên đăng nhập đã tồn tại hay chưa
+        // Kiểm tra tên đăng nhập đã tồn tại hay chưa
         if (taiKhoanDAO.isTenDangNhapExists(tenDangNhap)) {
             JOptionPane.showMessageDialog(jframe_ChinhSuaTK.this, "Tên đăng nhập mà bạn cập nhật đã tồn tại");
-            // Phục hồi tài khoản cũ nếu cập nhật thất bại
-            taiKhoanDAO.AddTK(taiKhoanToEdit);
-        } else {
-            taiKhoanDAO.AddTK(taiKhoanMoi);
-            JOptionPane.showMessageDialog(jframe_ChinhSuaTK.this, "Cập nhật thành công");
-            dispose(); // Đóng cửa sổ sau khi cập nhật thành công
+            return;
         }
+
+        TaiKhoan taiKhoan = new TaiKhoan(maTK, maNV, tenDangNhap, matKhau);
+
+        taiKhoanDAO.UpdateTK(taiKhoan, this);
+        JOptionPane.showMessageDialog(this, "Cập nhật thành công");
+        Window window = SwingUtilities.getWindowAncestor(jbtn_XacNhan);
+        window.dispose();
+        dispose(); // Đóng cửa sổ sau khi cập nhật thành công
     }//GEN-LAST:event_jbtn_XacNhanActionPerformed
 
     private void jbtn_HuyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_HuyActionPerformed
@@ -247,6 +242,20 @@ private TaiKhoan taiKhoanToEdit;
         Window window = SwingUtilities.getWindowAncestor(jbtn_Huy);
         window.dispose();
     }//GEN-LAST:event_jbtn_HuyActionPerformed
+
+    private void jtxt_MaTKComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_jtxt_MaTKComponentShown
+        // TODO add your handling code here:
+        TaiKhoan tk;
+        tk = this.taiKhoanToEdit;
+        jtxt_MaTK.setText(String.valueOf(tk.getMATK()));
+    }//GEN-LAST:event_jtxt_MaTKComponentShown
+
+    private void jtxt_MaNVComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_jtxt_MaNVComponentShown
+        // TODO add your handling code here:
+        TaiKhoan tk;
+        tk = this.taiKhoanToEdit;
+        jtxt_MaNV.setText(String.valueOf(tk.getMATK()));
+    }//GEN-LAST:event_jtxt_MaNVComponentShown
 
 
     public static void main(String args[]) {

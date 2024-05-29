@@ -15,18 +15,21 @@ import java.util.List;
 import Model.CTDH;
 
 public class CTDHDAO {
+
     private Connection cons = null;
+
     public CTDHDAO() {
         try {
-            String url="jdbc:oracle:thin:@localhost:1521:orcl21";
-            String user = "c##sinhvien01";
-            String password = "094492";
-            cons = DriverManager.getConnection(url, user, password);
+            Class.forName("oracle.jdbc.OracleDriver");
+            String url = "jdbc:oracle:thin:@localhost:1521:orcl";
+            String uname = "c##QuanLyCuaHangBanTrangSuc";
+            String upass = "userpass";
+            cons = DriverManager.getConnection(url, uname, upass);
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
-    
+
     public List<CTDH> getChiTietDonHangByMaDH(int maDH) throws SQLException {
         List<CTDH> chiTietDonHangList = new ArrayList<>();
         String query = "SELECT * FROM CTDH WHERE MADH = ?";
@@ -43,7 +46,7 @@ public class CTDHDAO {
         }
         return chiTietDonHangList;
     }
-    
+
     public void addCTDH(CTDH ctdh) throws SQLException {
         String query = "INSERT INTO CTDH (MASP, MADH, SOLUONG) VALUES (?, ?, ?)";
         try (PreparedStatement stmt = cons.prepareStatement(query)) {
@@ -54,8 +57,7 @@ public class CTDHDAO {
         }
     }
 
-    
-    public static void main (String[] args) {
+    public static void main(String[] args) {
         new CTDHDAO();
     }
 }

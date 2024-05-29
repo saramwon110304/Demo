@@ -1,15 +1,8 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JDialog.java to edit this template
- */
 package view.QuanLyKhachHang;
 
 import view.*;
 
-/**
- *
- * @author Tran Thi Kieu Oanh
- */
+
 public class XacNhanXoa extends javax.swing.JDialog {
 
     private boolean confirmed = false;
